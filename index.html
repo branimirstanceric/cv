@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Branimir Stančerić | Delivery Manager | Case Study Portfolio</title>
-  <meta name="description" content="Minimalist case study portfolio for Branimir Stančerić, Delivery Manager and IT Project Manager focused on eCommerce and integrations." />
+  <title>Branimir Stančerić | Delivery Manager | Case Studies</title>
+  <meta name="description" content="Minimalist case study portfolio for Branimir Stančerić. Delivery Manager and IT Project Manager focused on eCommerce, integrations, and predictable delivery." />
 
   <style>
     :root{
-      --bg:#f7f7fb;
-      --surface:#ffffff;
-      --surface2:#f2f4f8;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:#e2e8f0;
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #0b1220;
+      --muted: #52637a;
+      --hair: #e4e9f1;
 
-      --accent:#2563eb;
+      --accent: #2563eb;
       --accent2:#0ea5e9;
       --soft: rgba(37,99,235,0.10);
 
@@ -25,299 +24,588 @@
       --r-md: 12px;
       --r-pill: 999px;
 
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --t: 0.18s ease-out;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --t: 180ms ease-out;
     }
 
     [data-theme="dark"]{
-      --bg:#0b1220;
-      --surface:#0f172a;
-      --surface2:#111c33;
-      --text:#e5e7eb;
-      --muted:#a3b2c6;
-      --border:#22314f;
+      --bg: #08101f;
+      --paper: #0c1630;
+      --ink: #e7edf7;
+      --muted: #a8b7cf;
+      --hair: #1f2d4d;
 
-      --accent:#38bdf8;
+      --accent: #38bdf8;
       --accent2:#a78bfa;
       --soft: rgba(56,189,248,0.12);
 
       --shadow: 0 18px 45px rgba(0,0,0,0.45);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
     body{
-      font-family:var(--font);
-      color:var(--text);
-      line-height:1.65;
+      font-family: var(--font);
+      color: var(--ink);
+      line-height: 1.65;
       background:
-        radial-gradient(circle at top, var(--surface) 0, var(--bg) 55%, rgba(14,165,233,0.10) 100%);
-      -webkit-font-smoothing:antialiased;
+        radial-gradient(circle at top, var(--paper) 0, var(--bg) 55%, rgba(14,165,233,0.10) 100%);
+      -webkit-font-smoothing: antialiased;
     }
-    a{color:inherit;text-decoration:none}
-    ul{padding-left:18px}
-    li{margin:8px 0}
-
-    .container{max-width:1120px;margin:0 auto;padding:20px 18px 72px}
+    a{ color: inherit; text-decoration: none; }
+    strong{ font-weight: 850; }
+    .muted{ color: var(--muted); }
+    .nowrap{ white-space: nowrap; }
 
     /* Top bar */
     .topbar{
-      position:sticky;top:0;z-index:50;
+      position: sticky;
+      top: 0;
+      z-index: 50;
       background: color-mix(in srgb, var(--bg) 86%, transparent);
-      border-bottom:1px solid var(--border);
+      border-bottom: 1px solid var(--hair);
       backdrop-filter: blur(12px);
     }
     .topbar-inner{
-      max-width:1120px;margin:0 auto;
-      padding:12px 18px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-    .brand{display:flex;align-items:center;gap:10px;min-width:240px}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 260px;
+    }
     .logo{
-      width:28px;height:28px;border-radius:999px;border:1px solid var(--border);
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid var(--hair);
       background: radial-gradient(circle at 30% 20%, #7dd3fc 0, #38bdf8 35%, #60a5fa 70%, #6366f1 100%);
     }
-    .brand h1{font-size:0.98rem;font-weight:850;letter-spacing:-0.02em}
-    .brand p{font-size:0.82rem;color:var(--muted);line-height:1.2}
+    .brand-title{
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      font-size: 0.98rem;
+    }
+    .brand-sub{
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.2;
+    }
 
-    .nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;color:var(--muted);font-size:0.92rem}
+    .nav{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
     .nav a{
-      padding:6px 10px;border-radius:var(--r-pill);
-      border:1px solid transparent;
-      transition: background-color var(--t), border-color var(--t), transform 0.12s ease-out, color var(--t);
+      padding: 6px 10px;
+      border-radius: var(--r-pill);
+      border: 1px solid transparent;
+      transition: background-color var(--t), border-color var(--t), transform 120ms ease-out, color var(--t);
     }
     .nav a:hover{
-      background: var(--surface);
-      border-color: var(--border);
-      color: var(--text);
+      background: var(--paper);
+      border-color: var(--hair);
+      color: var(--ink);
       transform: translateY(-1px);
     }
-    @media (max-width:920px){.nav{display:none}}
+    @media (max-width: 940px){ .nav{ display:none; } }
 
-    .right{display:flex;align-items:center;gap:10px}
-
+    .right-tools{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
     .toggle{
       display:inline-flex;
-      border:1px solid var(--border);
-      border-radius:var(--r-pill);
+      border:1px solid var(--hair);
+      border-radius: var(--r-pill);
       overflow:hidden;
-      background: var(--surface);
+      background: var(--paper);
       box-shadow: 0 10px 20px rgba(2,6,23,0.06);
     }
     .toggle button{
-      border:0;background:transparent;cursor:pointer;
-      padding:7px 10px;font-size:0.84rem;color:var(--muted);
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      padding: 7px 10px;
+      font-size: 0.84rem;
+      color: var(--muted);
       transition: background-color var(--t), color var(--t);
     }
-    .toggle button.active{background:var(--surface2);color:var(--text);font-weight:850}
+    .toggle button.active{
+      background: color-mix(in srgb, var(--paper) 70%, var(--soft) 30%);
+      color: var(--ink);
+      font-weight: 900;
+    }
 
     /* Layout */
-    .hero{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap:16px;
-      align-items:stretch;
+    .wrap{
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 18px 18px 74px;
     }
-    @media (max-width:980px){.hero{grid-template-columns:minmax(0,1fr)}}
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: minmax(0,1fr); }
+    }
 
     .card{
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--r-xl);
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
+      background: var(--paper);
+      border: 1px solid var(--hair);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
     }
     .card::before{
       content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(circle at top left, var(--soft), transparent 55%);
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(circle at top left, var(--soft), transparent 58%);
       pointer-events:none;
     }
-    .pad{padding:22px}
+    .pad{ padding: 18px; }
 
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border-radius:var(--r-pill);
-      border:1px solid var(--border);
-      background:var(--surface2);
-      color:var(--muted);
-      font-size:0.78rem;
-      width:fit-content;
-      margin-bottom:12px;
+    /* Left rail */
+    .rail{
+      position: sticky;
+      top: 74px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .dot{width:7px;height:7px;border-radius:999px;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,0.18)}
-
-    .headline{
-      font-size:2.35rem;
-      line-height:1.12;
-      letter-spacing:-0.04em;
-      margin-bottom:10px;
-    }
-    @media (min-width:1020px){.headline{font-size:2.85rem}}
-    .accent{
-      background: linear-gradient(to right, var(--accent), var(--accent2));
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-    .lead{color:var(--muted);font-size:1.04rem;max-width:70ch}
-
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 16px}
-    .chip{
-      padding:7px 10px;border-radius:var(--r-pill);
-      border:1px solid var(--border);
-      background:var(--surface);
-      color:var(--muted);
-      font-size:0.86rem;
+    @media (max-width: 980px){
+      .rail{ position: static; }
     }
 
-    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .profile{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .profile-top{
+      display:flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .avatar{
+      width: 86px;
+      height: 86px;
+      border-radius: 18px;
+      border: 1px solid var(--hair);
+      background: linear-gradient(135deg, var(--soft), rgba(99,102,241,0.10));
+      overflow:hidden;
+      flex: 0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .avatar-fallback{
+      padding: 10px;
+      text-align:center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .name{
+      font-size: 1.18rem;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .role{
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+    .badge-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .badge{
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--hair);
+      background: color-mix(in srgb, var(--paper) 70%, var(--soft) 30%);
+      color: var(--muted);
+    }
+
+    .rail-actions{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
     .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      border-radius:var(--r-pill);
-      padding:10px 14px;
-      border:1px solid transparent;
-      transition: transform 0.12s ease-out, background-color var(--t), border-color var(--t);
-      font-size:0.92rem;
-      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      border-radius: var(--r-pill);
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform 120ms ease-out, background-color var(--t), border-color var(--t);
     }
     .btn.primary{
       background: linear-gradient(to right, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--accent2)));
-      color:white;
-      font-weight:850;
-      box-shadow: 0 14px 26px color-mix(in srgb, var(--accent) 28%, transparent);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 14px 26px color-mix(in srgb, var(--accent) 26%, transparent);
     }
-    .btn.ghost{background:var(--surface);border-color:var(--border)}
-    .btn:hover{transform:translateY(-1px)}
-    .btn.ghost:hover{background:var(--surface2)}
+    .btn.ghost{
+      background: var(--paper);
+      border-color: var(--hair);
+      color: var(--ink);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.ghost:hover{ background: color-mix(in srgb, var(--paper) 70%, var(--soft) 30%); }
 
-    .aside{
+    .kv{
       display:grid;
-      grid-template-rows:auto 1fr;
-      gap:16px;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 8px;
     }
-
-    .photo{
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      border:1px solid var(--border);
-      overflow:hidden;
-      background: linear-gradient(135deg, var(--soft), rgba(99,102,241,0.10));
-      display:flex;align-items:center;justify-content:center;
+    .kv-row{
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hair);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 0.9rem;
     }
-    .photo img{width:100%;height:100%;object-fit:cover}
-    .photo-fallback{color:var(--muted);padding:14px;text-align:center}
+    .kv-row strong{ color: var(--ink); }
 
-    .facts{display:flex;flex-direction:column;gap:10px}
-    .fact{
-      display:flex;justify-content:space-between;gap:12px;
-      padding:10px 12px;border-radius:14px;
-      border:1px solid var(--border);
-      background:var(--surface);
-      color:var(--muted);
-      font-size:0.92rem;
+    /* Right content */
+    .hero{
+      padding: 18px;
     }
-    .fact strong{color:var(--text)}
-
-    /* Sections */
-    .section{margin-top:36px}
-    .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
     .kicker{
-      font-size:0.92rem;
-      text-transform:uppercase;
-      letter-spacing:0.16em;
-      color:var(--muted);
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border: 1px solid var(--hair);
+      background: color-mix(in srgb, var(--paper) 70%, var(--soft) 30%);
+      padding: 6px 10px;
+      border-radius: var(--r-pill);
+      width: fit-content;
+      margin-bottom: 12px;
     }
-    .sub{color:var(--muted)}
-    .rule{
-      height:1px;
-      background: linear-gradient(to right, transparent, color-mix(in srgb, var(--accent) 28%, transparent), transparent);
-      margin-bottom:16px;
+    .dot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
     }
 
-    /* Skills */
-    .skills{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:14px;
+    .title{
+      font-size: 2.05rem;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+      max-width: 50ch;
     }
-    @media (max-width:860px){.skills{grid-template-columns:minmax(0,1fr)}}
-    .skill h3{font-size:1.05rem;margin-bottom:6px}
-    .skill p{color:var(--muted)}
+    @media (min-width: 1020px){
+      .title{ font-size: 2.45rem; }
+    }
+    .accent{
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 78ch;
+      margin-bottom: 12px;
+    }
 
-    /* Tools tags */
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .inline-meta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .inline-meta a{
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--t), color var(--t);
+    }
+    .inline-meta a:hover{
+      border-color: var(--hair);
+      color: var(--ink);
+    }
+
+    /* Controls */
+    .controls{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-top: 1px solid var(--hair);
+      background: color-mix(in srgb, var(--paper) 88%, transparent);
+    }
+    .search{
+      flex: 1 1 240px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      border: 1px solid var(--hair);
+      background: var(--paper);
+      border-radius: var(--r-pill);
+      padding: 10px 12px;
+      color: var(--muted);
+    }
+    .search input{
+      border:0;
+      outline:0;
+      width:100%;
+      background: transparent;
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+    .filters{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .chip{
+      border: 1px solid var(--hair);
+      background: var(--paper);
+      color: var(--muted);
+      border-radius: var(--r-pill);
+      padding: 8px 10px;
+      font-size: 0.86rem;
+      cursor:pointer;
+      transition: background-color var(--t), transform 120ms ease-out, border-color var(--t), color var(--t);
+      user-select:none;
+    }
+    .chip:hover{ transform: translateY(-1px); }
+    .chip.active{
+      background: color-mix(in srgb, var(--paper) 65%, var(--soft) 35%);
+      color: var(--ink);
+      border-color: color-mix(in srgb, var(--hair) 55%, var(--accent) 45%);
+      font-weight: 900;
+    }
+
+    /* Case studies feed */
+    .section{
+      margin-top: 16px;
+    }
+    .section-head{
+      padding: 0 2px 10px 2px;
+      display:flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .section-head h2{
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .count{
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .feed{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    details.case{
+      border-top: 1px solid transparent;
+    }
+    details.case > summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 18px;
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      transition: background-color var(--t);
+    }
+    details.case > summary::-webkit-details-marker{ display:none; }
+    details.case > summary:hover{
+      background: color-mix(in srgb, var(--paper) 70%, var(--soft) 30%);
+    }
+
+    .case-left{
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+    .case-title{
+      font-size: 1.15rem;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .case-sub{
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+    .case-tags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
     .tag{
-      padding:8px 10px;border-radius:var(--r-pill);
-      border:1px solid var(--border);
-      background:var(--surface2);
-      font-size:0.9rem;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--hair);
+      background: var(--paper);
+      color: var(--muted);
     }
 
-    /* Case studies */
-    .cases{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
-    .case-top{
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline;
-      margin-bottom:10px;
+    .case-right{
+      flex: 0 0 auto;
+      display:flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      text-align:right;
+      color: var(--muted);
+      font-size: 0.88rem;
+      white-space: nowrap;
     }
-    .case h3{font-size:1.12rem}
-    .meta{color:var(--muted);font-size:0.92rem}
+    .chev{
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--hair);
+      background: var(--paper);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition: transform 120ms ease-out, background-color var(--t);
+      color: var(--muted);
+    }
+    details.case[open] .chev{
+      transform: rotate(180deg);
+      background: color-mix(in srgb, var(--paper) 70%, var(--soft) 30%);
+      color: var(--ink);
+    }
 
+    .case-body{
+      padding: 0 18px 18px 18px;
+    }
     .case-grid{
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:12px;
-      margin-top:12px;
+      gap: 12px;
+      margin-top: 8px;
     }
-    @media (max-width:860px){.case-grid{grid-template-columns:minmax(0,1fr)}}
+    @media (max-width: 860px){
+      .case-grid{ grid-template-columns: minmax(0,1fr); }
+      .case-right{ display:none; }
+    }
 
     .box{
-      border:1px solid var(--border);
-      background: var(--surface);
+      border: 1px solid var(--hair);
+      background: var(--paper);
       border-radius: var(--r-lg);
-      padding:12px;
+      padding: 12px;
     }
     .label{
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      color:var(--muted);
-      font-weight:850;
-      margin-bottom:6px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      font-weight: 900;
+      margin-bottom: 6px;
     }
-    .box p, .box ul{color:var(--muted);font-size:0.95rem}
+    .box p, .box ul{
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
     .impact{
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: color-mix(in srgb, var(--soft) 65%, var(--surface) 35%);
-      font-weight:850;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--hair);
+      background: color-mix(in srgb, var(--paper) 65%, var(--soft) 35%);
+      font-weight: 900;
     }
 
-    /* Contact */
-    .contact{
-      display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+    /* Skills / tools blocks */
+    .two{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
-    .links{display:flex;flex-wrap:wrap;gap:10px}
-    .link{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:var(--r-pill);
-      border:1px solid var(--border);
-      background:var(--surface);
-      transition: transform 0.12s ease-out, background-color var(--t);
-    }
-    .link:hover{transform:translateY(-1px);background:var(--surface2)}
+    @media (max-width: 860px){ .two{ grid-template-columns: minmax(0,1fr); } }
 
+    .mini h3{
+      font-size: 1.02rem;
+      font-weight: 950;
+      margin-bottom: 6px;
+    }
+    .mini p{ color: var(--muted); }
+
+    .tooltags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    /* Footer */
     footer{
       text-align:center;
-      color:var(--muted);
-      font-size:0.88rem;
-      padding:26px 18px 36px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding: 26px 18px 36px;
     }
-    footer span{color:var(--text);font-weight:850}
+    footer span{ color: var(--ink); font-weight: 900; }
   </style>
 </head>
 
@@ -327,344 +615,407 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>Branimir Stančerić</h1>
-          <p>Delivery Manager and IT Project Manager</p>
+          <div class="brand-title">Branimir Stančerić</div>
+          <div class="brand-sub">Delivery Manager and IT Project Manager</div>
         </div>
       </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#work">Case Studies</a>
-        <a href="#skills">Core Skills</a>
-        <a href="#tools">Tools</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#cases">Case studies</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#tooling">Tooling</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="right">
+      <div class="right-tools">
         <div class="toggle" aria-label="Theme toggle">
-          <button class="active" type="button" id="btn-light">Light</button>
-          <button type="button" id="btn-dark">Dark</button>
+          <button class="active" id="btn-light" type="button">Light</button>
+          <button id="btn-dark" type="button">Dark</button>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card pad">
-        <div class="pill"><span class="dot"></span>Minimalist case study portfolio</div>
+  <main class="wrap">
+    <div class="grid">
+      <!-- LEFT RAIL -->
+      <aside class="rail" aria-label="Profile">
+        <section class="card pad profile">
+          <div class="profile-top">
+            <div class="avatar" aria-label="Profile photo">
+              <img src="assets/profile.jpg" alt="Branimir Stančerić"
+                onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;avatar-fallback&quot;>Add your photo as <b>assets/profile.jpg</b></div>';">
+            </div>
+            <div>
+              <div class="name">Branimir Stančerić</div>
+              <div class="role">Delivery Manager and IT Project Manager focused on eCommerce delivery and integrations.</div>
 
-        <h2 class="headline">
-          I lead <span class="accent">predictable delivery</span> for eCommerce and integration-heavy products.
-        </h2>
-
-        <p class="lead">
-          Delivery Manager and IT Project Manager with 9+ years of experience leading digital transformation and eCommerce projects across B2C and B2B sectors.
-          Strong in Agile delivery, stakeholder management, and cross-functional team coordination, with hands-on technical understanding that bridges clients, business, and engineering.
-        </p>
-
-        <div class="chips" aria-label="Highlights">
-          <span class="chip">eCommerce B2C and B2B</span>
-          <span class="chip">Integrations and workflows</span>
-          <span class="chip">Backlog and UAT</span>
-          <span class="chip">Stakeholder alignment</span>
-          <span class="chip">Kibana and Dynatrace</span>
-        </div>
-
-        <div class="actions">
-          <a class="btn primary" href="#work">View case studies <span>↗</span></a>
-          <a class="btn ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV <span>⬇</span></a>
-          <a class="btn ghost" href="#contact">Get in touch</a>
-        </div>
-
-        <p class="lead" style="margin-top:14px;font-size:0.98rem">
-          <strong>Email:</strong> branimir.stanceric@gmail.com
-          <span style="color:var(--muted)"> | </span>
-          <strong>LinkedIn:</strong> linkedin.com/in/branimir-stanceric
-        </p>
-      </div>
-
-      <aside class="aside">
-        <div class="card pad">
-          <div class="photo">
-            <img src="assets/profile.jpg" alt="Branimir Stančerić"
-              onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;photo-fallback&quot;>Place your photo at <b>assets/profile.jpg</b> and refresh.</div>';">
+              <div class="badge-row" aria-label="Highlights">
+                <span class="badge">eCommerce B2C and B2B</span>
+                <span class="badge">Integrations</span>
+                <span class="badge">Agile delivery</span>
+              </div>
+            </div>
           </div>
-          <p class="sub" style="margin-top:10px">Tip: square image works best (800x800+).</p>
-        </div>
 
-        <div class="card pad facts" aria-label="Quick facts">
-          <div class="fact"><strong>Frameworks</strong><span>Scrum, Kanban, Waterfall</span></div>
-          <div class="fact"><strong>ERP</strong><span>SAP Business One, Business Central</span></div>
-          <div class="fact"><strong>API</strong><span>Postman, Swagger</span></div>
-          <div class="fact"><strong>Monitoring</strong><span>Kibana, Dynatrace</span></div>
-        </div>
+          <div class="rail-actions">
+            <a class="btn primary" href="#cases"><span>View case studies</span><span>↘</span></a>
+            <a class="btn ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer"><span>Download CV</span><span>⬇</span></a>
+            <a class="btn ghost" href="#contact"><span>Contact</span><span>✉</span></a>
+          </div>
+
+          <div class="kv" aria-label="Quick info">
+            <div class="kv-row"><strong>Core</strong><span>Delivery, scope, UAT</span></div>
+            <div class="kv-row"><strong>Domains</strong><span>Retail, logistics</span></div>
+            <div class="kv-row"><strong>Tooling</strong><span>Jira, Confluence</span></div>
+          </div>
+        </section>
+
+        <section class="card pad" id="contact">
+          <div style="font-weight:950;font-size:1.02rem;margin-bottom:8px;">Contact</div>
+          <div class="muted" style="font-size:0.95rem;margin-bottom:10px;">
+            For delivery leadership in eCommerce and integration-heavy products.
+          </div>
+          <div class="kv">
+            <div class="kv-row"><strong>Email</strong><span class="nowrap">branimir.stanceric@gmail.com</span></div>
+            <div class="kv-row"><strong>LinkedIn</strong><a class="nowrap" href="https://www.linkedin.com/in/branimir-stanceric" target="_blank" rel="noreferrer">Open profile</a></div>
+            <div class="kv-row"><strong>GitHub</strong><a class="nowrap" href="https://github.com/branimirstanceric" target="_blank" rel="noreferrer">Open profile</a></div>
+          </div>
+        </section>
       </aside>
-    </section>
 
-    <!-- CASE STUDIES -->
-    <section class="section" id="work">
-      <div class="section-head">
-        <div>
-          <div class="kicker">Case Studies</div>
-          <div class="sub">A minimalist format: problem, approach, role, impact.</div>
-        </div>
-      </div>
-      <div class="rule"></div>
-
-      <div class="cases">
-        <!-- Case 1 -->
-        <article class="card pad case">
-          <div class="case-top">
-            <h3>UNIQA Integration: Automated Warranty Policy Generation</h3>
-            <div class="meta">K2-18b · Delivery Manager, Business Analyst · Nov 2024 to Feb 2025</div>
+      <!-- RIGHT CONTENT -->
+      <section class="card" aria-label="Main content">
+        <div class="hero pad">
+          <div class="kicker"><span class="dot"></span>Minimalist case study portfolio</div>
+          <div class="title">
+            I lead <span class="accent">predictable delivery</span> for eCommerce and integration-heavy products.
+          </div>
+          <div class="lead">
+            Delivery Manager and IT Project Manager with 9+ years of experience across B2C and B2B eCommerce. I help teams deliver
+            with clear scope, transparent communication, and strong quality gates through UAT and go-live.
           </div>
 
-          <div class="case-grid">
-            <div class="box">
-              <div class="label">Problem</div>
-              <p>Warranty policy creation required too much manual work and slowed down the customer journey and internal processing.</p>
-            </div>
-            <div class="box">
-              <div class="label">Approach</div>
-              <p>Gathered requirements, designed workflows and data mapping, coordinated implementation, testing, deployment, and post-launch monitoring.</p>
-            </div>
-            <div class="box">
-              <div class="label">My Role</div>
-              <ul>
-                <li>Owned requirements and scope</li>
-                <li>Aligned stakeholders across teams</li>
-                <li>Drove delivery through UAT and go-live</li>
-              </ul>
-            </div>
-            <div class="box">
-              <div class="label">Outcome</div>
-              <p>Automation reduced manual steps and increased throughput for warranty processing.</p>
-            </div>
+          <div class="inline-meta">
+            <span><strong>Focus:</strong> delivery, integrations, eCommerce</span>
+            <span><strong>Methods:</strong> Scrum, Kanban, Waterfall</span>
+            <span><strong>Monitoring:</strong> Kibana, Dynatrace</span>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls" aria-label="Case study controls">
+          <div class="search" aria-label="Search">
+            <span class="muted">Search</span>
+            <input id="q" type="text" placeholder="Try: integration, logistics, migration, app" />
+          </div>
+          <div class="filters" aria-label="Filters">
+            <span class="chip active" data-filter="all">All</span>
+            <span class="chip" data-filter="integration">Integrations</span>
+            <span class="chip" data-filter="logistics">Logistics</span>
+            <span class="chip" data-filter="mobile">Mobile</span>
+            <span class="chip" data-filter="migration">Migration</span>
+          </div>
+        </div>
+
+        <!-- Case studies -->
+        <div class="pad section" id="cases">
+          <div class="section-head">
+            <h2>Case studies</h2>
+            <div class="count"><span id="count">0</span> shown</div>
           </div>
 
-          <div class="impact">Impact: reduced warranty processing time by over 70%.</div>
-        </article>
+          <div class="feed" id="feed">
+            <!-- 1 -->
+            <details class="case" data-tags="integration ecommerce">
+              <summary>
+                <div class="case-left">
+                  <div class="case-title">UNIQA Integration: Automated Warranty Policy Generation</div>
+                  <div class="case-sub">Automation and workflow design connecting webshop and insurer systems.</div>
+                  <div class="case-tags">
+                    <span class="tag">Integrations</span>
+                    <span class="tag">Workflows</span>
+                    <span class="tag">UAT and Go-live</span>
+                  </div>
+                </div>
+                <div class="case-right">
+                  <div>K2-18b</div>
+                  <div>Nov 2024 to Feb 2025</div>
+                  <div class="chev">⌄</div>
+                </div>
+              </summary>
 
-        <!-- Case 2 -->
-        <article class="card pad case">
-          <div class="case-top">
-            <h3>Dropshipping + Logistics Integrations</h3>
-            <div class="meta">A007plus · Delivery Manager, Project Manager · Sep 2022 to Feb 2023</div>
+              <div class="case-body">
+                <div class="case-grid">
+                  <div class="box">
+                    <div class="label">Problem</div>
+                    <p>Warranty policy generation had too many manual steps, slowing processing and increasing operational cost.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">Approach</div>
+                    <p>Defined workflows and data mapping, aligned stakeholders, coordinated implementation, testing, deployment, and monitoring.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">My role</div>
+                    <ul>
+                      <li>Requirements ownership and scope control</li>
+                      <li>Backlog and acceptance criteria</li>
+                      <li>UAT coordination and release readiness</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <div class="label">Outcome</div>
+                    <p>Automation reduced manual work and improved turnaround time for warranty processing.</p>
+                  </div>
+                </div>
+                <div class="impact">Impact: reduced warranty processing time by over 70%.</div>
+              </div>
+            </details>
+
+            <!-- 2 -->
+            <details class="case" data-tags="logistics integration ecommerce">
+              <summary>
+                <div class="case-left">
+                  <div class="case-title">Dropshipping + Logistics Integrations</div>
+                  <div class="case-sub">Multi-partner delivery setup with dependencies across carriers and suppliers.</div>
+                  <div class="case-tags">
+                    <span class="tag">Logistics</span>
+                    <span class="tag">Integrations</span>
+                    <span class="tag">Delivery ops</span>
+                  </div>
+                </div>
+                <div class="case-right">
+                  <div>A007plus</div>
+                  <div>Sep 2022 to Feb 2023</div>
+                  <div class="chev">⌄</div>
+                </div>
+              </summary>
+
+              <div class="case-body">
+                <div class="case-grid">
+                  <div class="box">
+                    <div class="label">Problem</div>
+                    <p>Delivery operations needed faster fulfillment and consistent handoffs across multiple partners.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">Approach</div>
+                    <p>Integrated dropshipping with TISAK and coordinated multiple logistics partners to streamline flows and reduce friction.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">My role</div>
+                    <ul>
+                      <li>Timeline and dependency management</li>
+                      <li>Stakeholder communication</li>
+                      <li>Testing coordination and go-live readiness</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <div class="label">Outcome</div>
+                    <p>More predictable delivery and faster order handoffs across the network.</p>
+                  </div>
+                </div>
+                <div class="impact">Impact: reduced delivery times by 30%.</div>
+              </div>
+            </details>
+
+            <!-- 3 -->
+            <details class="case" data-tags="mobile ecommerce">
+              <summary>
+                <div class="case-left">
+                  <div class="case-title">Abrakadabra Mobile App Delivery</div>
+                  <div class="case-sub">Agile delivery with stakeholder alignment and fast response to change.</div>
+                  <div class="case-tags">
+                    <span class="tag">Mobile</span>
+                    <span class="tag">Agile</span>
+                    <span class="tag">Backlog</span>
+                  </div>
+                </div>
+                <div class="case-right">
+                  <div>A007plus</div>
+                  <div>Jan 2024 to Jul 2024</div>
+                  <div class="chev">⌄</div>
+                </div>
+              </summary>
+
+              <div class="case-body">
+                <div class="case-grid">
+                  <div class="box">
+                    <div class="label">Problem</div>
+                    <p>Multiple stakeholders and shifting priorities required steady delivery without losing scope clarity.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">Approach</div>
+                    <p>Ran ceremonies, prioritized backlog, clarified requirements quickly, and controlled change to avoid delays.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">My role</div>
+                    <ul>
+                      <li>Delivery leadership and team alignment</li>
+                      <li>Business analysis and prioritization</li>
+                      <li>Stakeholder reporting</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <div class="label">Outcome</div>
+                    <p>Delivered within scope with improved user perception after release.</p>
+                  </div>
+                </div>
+                <div class="impact">Impact: improved user satisfaction by 15% upon release.</div>
+              </div>
+            </details>
+
+            <!-- 4 -->
+            <details class="case" data-tags="migration ecommerce integration">
+              <summary>
+                <div class="case-left">
+                  <div class="case-title">eKupi Migration to SAP eCommerce Platform</div>
+                  <div class="case-sub">Multi-market migration with data integrity, configuration, and enablement.</div>
+                  <div class="case-tags">
+                    <span class="tag">Migration</span>
+                    <span class="tag">eCommerce</span>
+                    <span class="tag">Enablement</span>
+                  </div>
+                </div>
+                <div class="case-right">
+                  <div>eKupi</div>
+                  <div>Dec 2016 to Jan 2021</div>
+                  <div class="chev">⌄</div>
+                </div>
+              </summary>
+
+              <div class="case-body">
+                <div class="case-grid">
+                  <div class="box">
+                    <div class="label">Problem</div>
+                    <p>Several regional webshops needed platform migration while protecting data integrity and minimizing disruption.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">Approach</div>
+                    <p>Coordinated migration work, validated product and content data, configured payments and delivery options, and supported teams with documentation.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">My role</div>
+                    <ul>
+                      <li>Business analysis and cross-team coordination</li>
+                      <li>Migration validation and content integrity checks</li>
+                      <li>Training and documentation through internal portal</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <div class="label">Outcome</div>
+                    <p>Modernized platform foundation across markets and improved operational consistency.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <!-- 5 -->
+            <details class="case" data-tags="ecommerce integration">
+              <summary>
+                <div class="case-left">
+                  <div class="case-title">B2C Webshop for Slovenia (Ongoing)</div>
+                  <div class="case-sub">Localized launch with market-specific requirements, QA, and readiness gates.</div>
+                  <div class="case-tags">
+                    <span class="tag">eCommerce</span>
+                    <span class="tag">Delivery</span>
+                    <span class="tag">Launch readiness</span>
+                  </div>
+                </div>
+                <div class="case-right">
+                  <div>K2-18b</div>
+                  <div>Jul 2025 to ongoing</div>
+                  <div class="chev">⌄</div>
+                </div>
+              </summary>
+
+              <div class="case-body">
+                <div class="case-grid">
+                  <div class="box">
+                    <div class="label">Problem</div>
+                    <p>Localization requires alignment with market rules, legal constraints, and technical requirements.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">Approach</div>
+                    <p>Translate requirements into stories, manage sprints, coordinate teams, and drive UAT and go-live readiness.</p>
+                  </div>
+                  <div class="box">
+                    <div class="label">My role</div>
+                    <ul>
+                      <li>Sprint planning, reporting, and scope control</li>
+                      <li>Stakeholder alignment and risk tracking</li>
+                      <li>Quality gates through UAT</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <div class="label">Outcome</div>
+                    <p>Preparing a smooth launch with predictable delivery and clear readiness criteria.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="pad section" id="capabilities">
+          <div class="section-head">
+            <h2>Capabilities</h2>
+            <div class="count muted">How I operate in delivery</div>
           </div>
 
-          <div class="case-grid">
-            <div class="box">
-              <div class="label">Problem</div>
-              <p>Delivery operations needed faster, more reliable fulfillment across multiple logistics partners and dropshipping suppliers.</p>
+          <div class="two">
+            <div class="card pad mini">
+              <h3>Delivery leadership</h3>
+              <p>End-to-end delivery from discovery to deployment with clear scope, quality gates, and predictable execution.</p>
             </div>
-            <div class="box">
-              <div class="label">Approach</div>
-              <p>Integrated dropshipping with TISAK and coordinated logistics partners (GLS, Milšped, Labaš, CRO EKSPRESS) to streamline delivery flows.</p>
+            <div class="card pad mini">
+              <h3>Stakeholder alignment</h3>
+              <p>Clear communication across business and engineering using workshops, sprint reviews, and steering updates.</p>
             </div>
-            <div class="box">
-              <div class="label">My Role</div>
-              <ul>
-                <li>Managed timelines, dependencies, and stakeholders</li>
-                <li>Coordinated implementation and testing</li>
-                <li>Ensured release readiness</li>
-              </ul>
+            <div class="card pad mini">
+              <h3>Requirements and UAT</h3>
+              <p>Backlog ownership, user stories, acceptance criteria, and UAT coordination to ensure expected outcomes.</p>
             </div>
-            <div class="box">
-              <div class="label">Outcome</div>
-              <p>Improved delivery speed and operational predictability across the network.</p>
+            <div class="card pad mini">
+              <h3>Monitoring and reporting</h3>
+              <p>Operational visibility through monitoring and reporting, enabling fast triage and data-driven prioritization.</p>
             </div>
           </div>
+        </div>
 
-          <div class="impact">Impact: reduced delivery times by 30%.</div>
-        </article>
-
-        <!-- Case 3 -->
-        <article class="card pad case">
-          <div class="case-top">
-            <h3>Abrakadabra Mobile App</h3>
-            <div class="meta">A007plus · Delivery Manager, Project Manager · Jan 2024 to Jul 2024</div>
+        <!-- Tooling -->
+        <div class="pad section" id="tooling">
+          <div class="section-head">
+            <h2>Tooling</h2>
+            <div class="count muted">What I use day to day</div>
           </div>
 
-          <div class="case-grid">
-            <div class="box">
-              <div class="label">Problem</div>
-              <p>Multiple stakeholders and changing priorities required a delivery process that kept momentum without losing scope clarity.</p>
-            </div>
-            <div class="box">
-              <div class="label">Approach</div>
-              <p>Ran Agile ceremonies, facilitated requirements, prioritized backlog, and handled change requests quickly to prevent delays.</p>
-            </div>
-            <div class="box">
-              <div class="label">My Role</div>
-              <ul>
-                <li>Delivery leadership and team alignment</li>
-                <li>Business analysis and prioritization</li>
-                <li>Stakeholder communication</li>
-              </ul>
-            </div>
-            <div class="box">
-              <div class="label">Outcome</div>
-              <p>Delivered the release within scope and improved product perception among users.</p>
-            </div>
-          </div>
-
-          <div class="impact">Impact: improved user satisfaction by 15% upon release.</div>
-        </article>
-
-        <!-- Case 4 -->
-        <article class="card pad case">
-          <div class="case-top">
-            <h3>eKupi Migration to SAP eCommerce Platform</h3>
-            <div class="meta">eKupi · Business Analyst, Project Coordinator · Dec 2016 to Jan 2021</div>
-          </div>
-
-          <div class="case-grid">
-            <div class="box">
-              <div class="label">Problem</div>
-              <p>Multiple regional webshops needed migration to SAP eCommerce while protecting data integrity and minimizing downtime.</p>
-            </div>
-            <div class="box">
-              <div class="label">Approach</div>
-              <p>Led multi-regional migration, ensured clean product and content transfer, configured payments, delivery options, and site behavior.</p>
-            </div>
-            <div class="box">
-              <div class="label">My Role</div>
-              <ul>
-                <li>Business analysis and cross-team coordination</li>
-                <li>Migration validation and content integrity checks</li>
-                <li>Training and documentation through internal portal</li>
-              </ul>
-            </div>
-            <div class="box">
-              <div class="label">Outcome</div>
-              <p>Modernized platform foundation across markets and improved operational consistency.</p>
+          <div class="card pad">
+            <div class="tooltags">
+              <span class="tag">Jira</span>
+              <span class="tag">Confluence</span>
+              <span class="tag">Trello</span>
+              <span class="tag">MS Office</span>
+              <span class="tag">Postman</span>
+              <span class="tag">Swagger</span>
+              <span class="tag">SAP Commerce tools</span>
+              <span class="tag">Pimcore</span>
+              <span class="tag">MS Visio</span>
+              <span class="tag">draw.io</span>
+              <span class="tag">Lucidchart</span>
+              <span class="tag">Kibana</span>
+              <span class="tag">Dynatrace</span>
+              <span class="tag">Scrum</span>
+              <span class="tag">Kanban</span>
+              <span class="tag">Waterfall</span>
+              <span class="tag">SAP Business One</span>
+              <span class="tag">Business Central</span>
             </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Case 5 -->
-        <article class="card pad case">
-          <div class="case-top">
-            <h3>B2C Webshop for Slovenia (Ongoing)</h3>
-            <div class="meta">K2-18b · Delivery Manager, Business Analyst · Jul 2025 to ongoing</div>
-          </div>
-
-          <div class="case-grid">
-            <div class="box">
-              <div class="label">Problem</div>
-              <p>Launching a localized webshop requires alignment with market-specific business rules, legal constraints, and technical requirements.</p>
-            </div>
-            <div class="box">
-              <div class="label">Approach</div>
-              <p>Translate requirements into user stories, manage Agile sprints, coordinate design, backend, and QA, and drive launch readiness.</p>
-            </div>
-            <div class="box">
-              <div class="label">My Role</div>
-              <ul>
-                <li>Delivery ownership, sprint planning, reporting</li>
-                <li>Stakeholder alignment and scope control</li>
-                <li>UAT and go-live readiness</li>
-              </ul>
-            </div>
-            <div class="box">
-              <div class="label">Outcome</div>
-              <p>Preparing a smooth launch with predictable delivery and quality gates.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CORE SKILLS -->
-    <section class="section" id="skills">
-      <div class="section-head">
-        <div>
-          <div class="kicker">Core Skills</div>
-          <div class="sub">Capabilities I bring to client engagements.</div>
-        </div>
-      </div>
-      <div class="rule"></div>
-
-      <div class="skills">
-        <div class="card pad skill">
-          <h3>Project Delivery and Leadership</h3>
-          <p>End-to-end delivery from discovery to deployment, with sprint planning, risk management, and release coordination.</p>
-        </div>
-        <div class="card pad skill">
-          <h3>Stakeholder and Client Management</h3>
-          <p>Clear communication across business and engineering, workshops, steering meetings, and expectation management.</p>
-        </div>
-        <div class="card pad skill">
-          <h3>Business and Technical Analysis</h3>
-          <p>Backlog ownership, user stories, acceptance criteria, UAT coordination, and translating needs into executable work.</p>
-        </div>
-        <div class="card pad skill">
-          <h3>Data Analysis and Reporting</h3>
-          <p>Monitoring, dashboards, and operational insights using tools like Kibana and Dynatrace.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOOLS -->
-    <section class="section" id="tools">
-      <div class="section-head">
-        <div>
-          <div class="kicker">Tools and Technologies</div>
-          <div class="sub">A practical toolkit for delivery and integration-heavy projects.</div>
-        </div>
-      </div>
-      <div class="rule"></div>
-
-      <div class="card pad">
-        <div class="tags">
-          <span class="tag">Jira</span>
-          <span class="tag">Confluence</span>
-          <span class="tag">Trello</span>
-          <span class="tag">MS Office Suite</span>
-          <span class="tag">Postman</span>
-          <span class="tag">Swagger</span>
-          <span class="tag">SAP Commerce tools</span>
-          <span class="tag">Pimcore</span>
-          <span class="tag">MS Visio</span>
-          <span class="tag">InVision</span>
-          <span class="tag">draw.io</span>
-          <span class="tag">Lucidchart</span>
-          <span class="tag">Kibana</span>
-          <span class="tag">Dynatrace</span>
-          <span class="tag">Scrum</span>
-          <span class="tag">Kanban</span>
-          <span class="tag">Waterfall</span>
-          <span class="tag">SAP Business One</span>
-          <span class="tag">Microsoft Business Central</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="section-head">
-        <div>
-          <div class="kicker">Contact</div>
-          <div class="sub">Send a short note with context and goals.</div>
-        </div>
-      </div>
-      <div class="rule"></div>
-
-      <div class="card pad contact">
-        <div style="max-width:64ch">
-          <p class="sub">
-            <strong>Looking for delivery leadership in eCommerce or digital transformation?</strong>
-            I help align stakeholders, define scope, and run predictable delivery with clear quality gates.
-          </p>
-        </div>
-        <div class="links">
-          <a class="link" href="mailto:branimir.stanceric@gmail.com"><span>✉</span><span>Email</span></a>
-          <a class="link" href="https://www.linkedin.com/in/branimir-stanceric" target="_blank" rel="noreferrer"><span>in</span><span>LinkedIn</span></a>
-          <a class="link" href="https://github.com/branimirstanceric" target="_blank" rel="noreferrer"><span>💻</span><span>GitHub</span></a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -673,6 +1024,7 @@
 
   <script>
     (function(){
+      // Theme toggle
       const btnLight = document.getElementById('btn-light');
       const btnDark  = document.getElementById('btn-dark');
 
@@ -688,10 +1040,57 @@
 
       const saved = (() => { try { return localStorage.getItem('theme'); } catch(e){ return null; } })();
       setTheme(saved || 'light');
+
+      // Case study filtering + search
+      const chips = Array.from(document.querySelectorAll('.chip[data-filter]'));
+      const cases = Array.from(document.querySelectorAll('details.case'));
+      const q = document.getElementById('q');
+      const count = document.getElementById('count');
+
+      let activeFilter = 'all';
+
+      function normalize(s){
+        return (s || '').toLowerCase().trim();
+      }
+
+      function matchesFilter(el){
+        if(activeFilter === 'all') return true;
+        const tags = normalize(el.getAttribute('data-tags'));
+        return tags.includes(activeFilter);
+      }
+
+      function matchesQuery(el){
+        const query = normalize(q.value);
+        if(!query) return true;
+        const text = normalize(el.innerText);
+        return text.includes(query);
+      }
+
+      function apply(){
+        let shown = 0;
+        cases.forEach(el => {
+          const ok = matchesFilter(el) && matchesQuery(el);
+          el.style.display = ok ? '' : 'none';
+          if(ok) shown += 1;
+        });
+        count.textContent = String(shown);
+      }
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          activeFilter = chip.getAttribute('data-filter');
+          apply();
+        });
+      });
+
+      q.addEventListener('input', apply);
+      apply();
     })();
   </script>
 
-  <!-- GA4 (optional)
+  <!-- Optional GA4 (add your Measurement ID)
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
