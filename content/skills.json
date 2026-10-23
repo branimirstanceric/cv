@@ -1,26 +1,39 @@
 {
   "capabilities": [
     {
-      "title": "Delivery leadership",
-      "text": "End-to-end delivery from discovery to deployment with clear scope, quality gates, and predictable execution."
+      "title": "AI-Driven PM Workflows",
+      "text": "Use LLM prompt engineering to cut manual work on user stories, executive\nreporting, and technical specs, freeing up time for higher-value delivery decisions."
     },
     {
-      "title": "Stakeholder alignment",
-      "text": "Clear communication across business and engineering using workshops, sprint reviews, and steering updates."
+      "title": "Cross-Border Market Expansion",
+      "text": "Directed multi-market rollouts into 5+ CEE/SEE countries, navigating multijurisdiction compliance, financial regulations, and localized go-to-market strategies."
     },
     {
-      "title": "Requirements and UAT",
-      "text": "Backlog ownership, user stories, acceptance criteria, and UAT coordination to ensure expected outcomes."
+      "title": "Stakeholder & Client Management",
+      "text": "Managing client expectations and maintaining transparent communication\nbetween business and technical teams. Experienced in facilitating workshops, sprint reviews, and steering meetings to align deliverables with business goals."
     },
     {
-      "title": "Monitoring and reporting",
-      "text": "Operational visibility through monitoring and reporting, enabling fast triage and data-driven prioritization."
+      "title": "Agile Cross-Functional Delivery",
+      "text": "Applied Scrum, Kanban frameworks to lead engineering squads for fast,\nlow-bureaucracy product releases."
     }
   ],
   "tools": [
-    "Jira", "Confluence", "Trello", "MS Office", "Postman", "Swagger",
-    "SAP Commerce tools", "Pimcore", "MS Visio", "draw.io", "Lucidchart",
-    "Kibana", "Dynatrace", "Scrum", "Kanban", "Waterfall",
-    "SAP Business One", "Business Central"
+    "Confluence",
+    "Trello",
+    "MS Office",
+    "Postman",
+    "Swagger",
+    "SAP Commerce tools",
+    "Pimcore",
+    "MS Visio",
+    "draw.io",
+    "Lucidchart",
+    "Kibana",
+    "Dynatrace",
+    "Scrum",
+    "Kanban",
+    "Waterfall",
+    "SAP Business One",
+    "Business Central"
   ]
 }
