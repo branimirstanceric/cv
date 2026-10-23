@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 
 <body>
@@ -38,7 +38,7 @@
     <div class="container topbar-inner">
       <a class="brand" href="#top" data-field="name">Branimir Stančerić</a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#cases">Case studies</a>
+        <a href="#cases">Work</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#tooling">Tooling</a>
         <a href="#contact">Contact</a>
@@ -59,7 +59,7 @@
           <h1 class="hero-title" id="hero-title"></h1>
           <p class="hero-intro" data-field="hero_intro"></p>
           <div class="hero-actions">
-            <a class="btn primary" href="#cases">View case studies</a>
+            <a class="btn primary" href="#cases">View my work</a>
             <a class="btn" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
           </div>
           <div class="hero-facts" id="hero-facts"></div>
@@ -67,20 +67,11 @@
 
         <aside class="profile-card" aria-label="Profile">
           <div class="avatar" id="avatar"></div>
-          <div>
-            <div class="profile-name" data-field="name"></div>
-            <div class="profile-role" data-field="headline"></div>
-          </div>
           <div class="badges" id="badges"></div>
           <dl class="facts" id="quick-facts"></dl>
         </aside>
       </div>
     </section>
-
-    <!-- Key results, taken from case studies that have a number in "Key result" -->
-    <div class="container">
-      <div class="results" id="results" aria-label="Key results"></div>
-    </div>
 
     <!-- Case studies -->
     <section class="section" id="cases">
@@ -148,7 +139,7 @@
     <div class="container">© <span id="year"></span> <span data-field="name"></span></div>
   </footer>
 
-  <script src="common.js?v=4"></script>
+  <script src="common.js?v=5"></script>
   <script>
     (function(){
       const { el, icon, ICONS, asset, list, statOf, caseUrl, caseMeta, load, fillFields, contactButtons, showError } = window.Site;
@@ -165,13 +156,16 @@
 
         if(p.cv_file) document.getElementById('cv-link').setAttribute('href', asset(p.cv_file));
 
-        document.getElementById('badges').append(
-          ...list(p.badges).map(b => el('span', { class: 'pill' }, b))
-        );
+        // Badges and quick facts are optional; drop their (bordered) containers when empty
+        const badges = document.getElementById('badges');
+        const badgeList = list(p.badges);
+        if(badgeList.length) badges.append(...badgeList.map(b => el('span', { class: 'pill' }, b)));
+        else badges.remove();
 
-        document.getElementById('quick-facts').append(
-          ...list(p.quick_facts).map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.value)))
-        );
+        const facts = document.getElementById('quick-facts');
+        const factList = list(p.quick_facts);
+        if(factList.length) facts.append(...factList.map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.value))));
+        else facts.remove();
 
         // Hero title with the highlighted phrase in accent colour
         const title = document.getElementById('hero-title');
@@ -229,24 +223,12 @@
         return card;
       }
 
-      function renderResults(cases){
-        const results = cases.filter(c => statOf(c.impact)).slice(0, 3);
-        const target = document.getElementById('results');
-        if(!results.length){ target.remove(); return; }
-        target.append(...results.map(c => el('a', { class: 'result', href: caseUrl(c) },
-          el('div', { class: 'result-num' }, statOf(c.impact)),
-          el('div', { class: 'result-text' }, el('strong', {}, c.title), c.impact)
-        )));
-      }
-
       function renderCases(data){
         const cases = list(data.cases);
         const feed = document.getElementById('feed');
         const filters = document.getElementById('filters');
         const q = document.getElementById('q');
         const count = document.getElementById('count');
-
-        renderResults(cases);
 
         const nodes = cases.map(renderCase);
         const empty = el('div', { class: 'empty', hidden: 'hidden' }, 'No case studies match. Try another word or filter.');

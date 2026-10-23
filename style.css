@@ -289,10 +289,9 @@ button{ font: inherit; color: inherit; }
 .facts div{ display: flex; justify-content: space-between; gap: 12px; }
 .facts dt{ color: var(--faint); }
 .facts dd{ text-align: right; }
+.avatar:last-child{ margin-bottom: 0; }
 @media (max-width: 860px){
-  .profile-card{ display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 0 16px; align-items: center; }
-  .avatar{ margin-bottom: 0; grid-row: span 2; }
-  .badges, .facts{ grid-column: 1 / -1; }
+  .profile-card{ max-width: 240px; padding: 12px; }
 }
 
 /* Results strip (home) */
