@@ -1,0 +1,26 @@
+{
+  "capabilities": [
+    {
+      "title": "Delivery leadership",
+      "text": "End-to-end delivery from discovery to deployment with clear scope, quality gates, and predictable execution."
+    },
+    {
+      "title": "Stakeholder alignment",
+      "text": "Clear communication across business and engineering using workshops, sprint reviews, and steering updates."
+    },
+    {
+      "title": "Requirements and UAT",
+      "text": "Backlog ownership, user stories, acceptance criteria, and UAT coordination to ensure expected outcomes."
+    },
+    {
+      "title": "Monitoring and reporting",
+      "text": "Operational visibility through monitoring and reporting, enabling fast triage and data-driven prioritization."
+    }
+  ],
+  "tools": [
+    "Jira", "Confluence", "Trello", "MS Office", "Postman", "Swagger",
+    "SAP Commerce tools", "Pimcore", "MS Visio", "draw.io", "Lucidchart",
+    "Kibana", "Dynatrace", "Scrum", "Kanban", "Waterfall",
+    "SAP Business One", "Business Central"
+  ]
+}

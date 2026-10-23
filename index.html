@@ -606,17 +606,36 @@
       padding: 26px 18px 36px;
     }
     footer span{ color: var(--ink); font-weight: 900; }
+    /* Content loaded from content/*.json */
+    .case-context{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .load-error{
+      padding: 14px 18px;
+      border: 1px solid var(--hair);
+      border-radius: var(--r-lg);
+      color: var(--muted);
+    }
   </style>
 </head>
 
 <body>
+  <!--
+    All text on this page lives in the content/ folder:
+      content/profile.json       name, intro, contact details
+      content/case-studies.json  case studies
+      content/skills.json        capabilities and tooling
+    Edit it through Pages CMS (app.pagescms.org) or directly in those files.
+  -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <div class="brand-title">Branimir Stančerić</div>
-          <div class="brand-sub">Delivery Manager and IT Project Manager</div>
+          <div class="brand-title" data-field="name"></div>
+          <div class="brand-sub" data-field="headline"></div>
         </div>
       </div>
 
@@ -642,65 +661,37 @@
       <aside class="rail" aria-label="Profile">
         <section class="card pad profile">
           <div class="profile-top">
-            <div class="avatar" aria-label="Profile photo">
-              <img src="assets/profile.jpg" alt="Branimir Stančerić"
-                onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;avatar-fallback&quot;>Add your photo as <b>assets/profile.jpg</b></div>';">
-            </div>
+            <div class="avatar" id="avatar" aria-label="Profile photo"></div>
             <div>
-              <div class="name">Branimir Stančerić</div>
-              <div class="role">Delivery Manager and IT Project Manager focused on eCommerce delivery and integrations.</div>
-
-              <div class="badge-row" aria-label="Highlights">
-                <span class="badge">eCommerce B2C and B2B</span>
-                <span class="badge">Integrations</span>
-                <span class="badge">Agile delivery</span>
-              </div>
+              <div class="name" data-field="name"></div>
+              <div class="role" data-field="short_bio"></div>
+              <div class="badge-row" id="badges" aria-label="Highlights"></div>
             </div>
           </div>
 
           <div class="rail-actions">
             <a class="btn primary" href="#cases"><span>View case studies</span><span>↘</span></a>
-            <a class="btn ghost" href="assets/cv.pdf" target="_blank" rel="noreferrer"><span>Download CV</span><span>⬇</span></a>
+            <a class="btn ghost" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer"><span>Download CV</span><span>⬇</span></a>
             <a class="btn ghost" href="#contact"><span>Contact</span><span>✉</span></a>
           </div>
 
-          <div class="kv" aria-label="Quick info">
-            <div class="kv-row"><strong>Core</strong><span>Delivery, scope, UAT</span></div>
-            <div class="kv-row"><strong>Domains</strong><span>Retail, logistics</span></div>
-            <div class="kv-row"><strong>Tooling</strong><span>Jira, Confluence</span></div>
-          </div>
+          <div class="kv" id="quick-facts" aria-label="Quick info"></div>
         </section>
 
         <section class="card pad" id="contact">
           <div style="font-weight:950;font-size:1.02rem;margin-bottom:8px;">Contact</div>
-          <div class="muted" style="font-size:0.95rem;margin-bottom:10px;">
-            For delivery leadership in eCommerce and integration-heavy products.
-          </div>
-          <div class="kv">
-            <div class="kv-row"><strong>Email</strong><span class="nowrap">branimir.stanceric@gmail.com</span></div>
-            <div class="kv-row"><strong>LinkedIn</strong><a class="nowrap" href="https://www.linkedin.com/in/branimir-stanceric" target="_blank" rel="noreferrer">Open profile</a></div>
-            <div class="kv-row"><strong>GitHub</strong><a class="nowrap" href="https://github.com/branimirstanceric" target="_blank" rel="noreferrer">Open profile</a></div>
-          </div>
+          <div class="muted" style="font-size:0.95rem;margin-bottom:10px;" data-field="contact_intro"></div>
+          <div class="kv" id="contact-list"></div>
         </section>
       </aside>
 
       <!-- RIGHT CONTENT -->
       <section class="card" aria-label="Main content">
         <div class="hero pad">
-          <div class="kicker"><span class="dot"></span>Minimalist case study portfolio</div>
-          <div class="title">
-            I lead <span class="accent">predictable delivery</span> for eCommerce and integration-heavy products.
-          </div>
-          <div class="lead">
-            Delivery Manager and IT Project Manager with 9+ years of experience across B2C and B2B eCommerce. I help teams deliver
-            with clear scope, transparent communication, and strong quality gates through UAT and go-live.
-          </div>
-
-          <div class="inline-meta">
-            <span><strong>Focus:</strong> delivery, integrations, eCommerce</span>
-            <span><strong>Methods:</strong> Scrum, Kanban, Waterfall</span>
-            <span><strong>Monitoring:</strong> Kibana, Dynatrace</span>
-          </div>
+          <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
+          <div class="title" id="hero-title"></div>
+          <div class="lead" data-field="hero_intro"></div>
+          <div class="inline-meta" id="hero-facts"></div>
         </div>
 
         <!-- Controls -->
@@ -709,13 +700,7 @@
             <span class="muted">Search</span>
             <input id="q" type="text" placeholder="Try: integration, logistics, migration, app" />
           </div>
-          <div class="filters" aria-label="Filters">
-            <span class="chip active" data-filter="all">All</span>
-            <span class="chip" data-filter="integration">Integrations</span>
-            <span class="chip" data-filter="logistics">Logistics</span>
-            <span class="chip" data-filter="mobile">Mobile</span>
-            <span class="chip" data-filter="migration">Migration</span>
-          </div>
+          <div class="filters" id="filters" aria-label="Filters"></div>
         </div>
 
         <!-- Case studies -->
@@ -724,236 +709,7 @@
             <h2>Case studies</h2>
             <div class="count"><span id="count">0</span> shown</div>
           </div>
-
-          <div class="feed" id="feed">
-            <!-- 1 -->
-            <details class="case" data-tags="integration ecommerce">
-              <summary>
-                <div class="case-left">
-                  <div class="case-title">UNIQA Integration: Automated Warranty Policy Generation</div>
-                  <div class="case-sub">Automation and workflow design connecting webshop and insurer systems.</div>
-                  <div class="case-tags">
-                    <span class="tag">Integrations</span>
-                    <span class="tag">Workflows</span>
-                    <span class="tag">UAT and Go-live</span>
-                  </div>
-                </div>
-                <div class="case-right">
-                  <div>K2-18b</div>
-                  <div>Nov 2024 to Feb 2025</div>
-                  <div class="chev">⌄</div>
-                </div>
-              </summary>
-
-              <div class="case-body">
-                <div class="case-grid">
-                  <div class="box">
-                    <div class="label">Problem</div>
-                    <p>Warranty policy generation had too many manual steps, slowing processing and increasing operational cost.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">Approach</div>
-                    <p>Defined workflows and data mapping, aligned stakeholders, coordinated implementation, testing, deployment, and monitoring.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">My role</div>
-                    <ul>
-                      <li>Requirements ownership and scope control</li>
-                      <li>Backlog and acceptance criteria</li>
-                      <li>UAT coordination and release readiness</li>
-                    </ul>
-                  </div>
-                  <div class="box">
-                    <div class="label">Outcome</div>
-                    <p>Automation reduced manual work and improved turnaround time for warranty processing.</p>
-                  </div>
-                </div>
-                <div class="impact">Impact: reduced warranty processing time by over 70%.</div>
-              </div>
-            </details>
-
-            <!-- 2 -->
-            <details class="case" data-tags="logistics integration ecommerce">
-              <summary>
-                <div class="case-left">
-                  <div class="case-title">Dropshipping + Logistics Integrations</div>
-                  <div class="case-sub">Multi-partner delivery setup with dependencies across carriers and suppliers.</div>
-                  <div class="case-tags">
-                    <span class="tag">Logistics</span>
-                    <span class="tag">Integrations</span>
-                    <span class="tag">Delivery ops</span>
-                  </div>
-                </div>
-                <div class="case-right">
-                  <div>A007plus</div>
-                  <div>Sep 2022 to Feb 2023</div>
-                  <div class="chev">⌄</div>
-                </div>
-              </summary>
-
-              <div class="case-body">
-                <div class="case-grid">
-                  <div class="box">
-                    <div class="label">Problem</div>
-                    <p>Delivery operations needed faster fulfillment and consistent handoffs across multiple partners.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">Approach</div>
-                    <p>Integrated dropshipping with TISAK and coordinated multiple logistics partners to streamline flows and reduce friction.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">My role</div>
-                    <ul>
-                      <li>Timeline and dependency management</li>
-                      <li>Stakeholder communication</li>
-                      <li>Testing coordination and go-live readiness</li>
-                    </ul>
-                  </div>
-                  <div class="box">
-                    <div class="label">Outcome</div>
-                    <p>More predictable delivery and faster order handoffs across the network.</p>
-                  </div>
-                </div>
-                <div class="impact">Impact: reduced delivery times by 30%.</div>
-              </div>
-            </details>
-
-            <!-- 3 -->
-            <details class="case" data-tags="mobile ecommerce">
-              <summary>
-                <div class="case-left">
-                  <div class="case-title">Abrakadabra Mobile App Delivery</div>
-                  <div class="case-sub">Agile delivery with stakeholder alignment and fast response to change.</div>
-                  <div class="case-tags">
-                    <span class="tag">Mobile</span>
-                    <span class="tag">Agile</span>
-                    <span class="tag">Backlog</span>
-                  </div>
-                </div>
-                <div class="case-right">
-                  <div>A007plus</div>
-                  <div>Jan 2024 to Jul 2024</div>
-                  <div class="chev">⌄</div>
-                </div>
-              </summary>
-
-              <div class="case-body">
-                <div class="case-grid">
-                  <div class="box">
-                    <div class="label">Problem</div>
-                    <p>Multiple stakeholders and shifting priorities required steady delivery without losing scope clarity.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">Approach</div>
-                    <p>Ran ceremonies, prioritized backlog, clarified requirements quickly, and controlled change to avoid delays.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">My role</div>
-                    <ul>
-                      <li>Delivery leadership and team alignment</li>
-                      <li>Business analysis and prioritization</li>
-                      <li>Stakeholder reporting</li>
-                    </ul>
-                  </div>
-                  <div class="box">
-                    <div class="label">Outcome</div>
-                    <p>Delivered within scope with improved user perception after release.</p>
-                  </div>
-                </div>
-                <div class="impact">Impact: improved user satisfaction by 15% upon release.</div>
-              </div>
-            </details>
-
-            <!-- 4 -->
-            <details class="case" data-tags="migration ecommerce integration">
-              <summary>
-                <div class="case-left">
-                  <div class="case-title">eKupi Migration to SAP eCommerce Platform</div>
-                  <div class="case-sub">Multi-market migration with data integrity, configuration, and enablement.</div>
-                  <div class="case-tags">
-                    <span class="tag">Migration</span>
-                    <span class="tag">eCommerce</span>
-                    <span class="tag">Enablement</span>
-                  </div>
-                </div>
-                <div class="case-right">
-                  <div>eKupi</div>
-                  <div>Dec 2016 to Jan 2021</div>
-                  <div class="chev">⌄</div>
-                </div>
-              </summary>
-
-              <div class="case-body">
-                <div class="case-grid">
-                  <div class="box">
-                    <div class="label">Problem</div>
-                    <p>Several regional webshops needed platform migration while protecting data integrity and minimizing disruption.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">Approach</div>
-                    <p>Coordinated migration work, validated product and content data, configured payments and delivery options, and supported teams with documentation.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">My role</div>
-                    <ul>
-                      <li>Business analysis and cross-team coordination</li>
-                      <li>Migration validation and content integrity checks</li>
-                      <li>Training and documentation through internal portal</li>
-                    </ul>
-                  </div>
-                  <div class="box">
-                    <div class="label">Outcome</div>
-                    <p>Modernized platform foundation across markets and improved operational consistency.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <!-- 5 -->
-            <details class="case" data-tags="ecommerce integration">
-              <summary>
-                <div class="case-left">
-                  <div class="case-title">B2C Webshop for Slovenia (Ongoing)</div>
-                  <div class="case-sub">Localized launch with market-specific requirements, QA, and readiness gates.</div>
-                  <div class="case-tags">
-                    <span class="tag">eCommerce</span>
-                    <span class="tag">Delivery</span>
-                    <span class="tag">Launch readiness</span>
-                  </div>
-                </div>
-                <div class="case-right">
-                  <div>K2-18b</div>
-                  <div>Jul 2025 to ongoing</div>
-                  <div class="chev">⌄</div>
-                </div>
-              </summary>
-
-              <div class="case-body">
-                <div class="case-grid">
-                  <div class="box">
-                    <div class="label">Problem</div>
-                    <p>Localization requires alignment with market rules, legal constraints, and technical requirements.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">Approach</div>
-                    <p>Translate requirements into stories, manage sprints, coordinate teams, and drive UAT and go-live readiness.</p>
-                  </div>
-                  <div class="box">
-                    <div class="label">My role</div>
-                    <ul>
-                      <li>Sprint planning, reporting, and scope control</li>
-                      <li>Stakeholder alignment and risk tracking</li>
-                      <li>Quality gates through UAT</li>
-                    </ul>
-                  </div>
-                  <div class="box">
-                    <div class="label">Outcome</div>
-                    <p>Preparing a smooth launch with predictable delivery and clear readiness criteria.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
+          <div class="feed" id="feed"></div>
         </div>
 
         <!-- Capabilities -->
@@ -962,25 +718,7 @@
             <h2>Capabilities</h2>
             <div class="count muted">How I operate in delivery</div>
           </div>
-
-          <div class="two">
-            <div class="card pad mini">
-              <h3>Delivery leadership</h3>
-              <p>End-to-end delivery from discovery to deployment with clear scope, quality gates, and predictable execution.</p>
-            </div>
-            <div class="card pad mini">
-              <h3>Stakeholder alignment</h3>
-              <p>Clear communication across business and engineering using workshops, sprint reviews, and steering updates.</p>
-            </div>
-            <div class="card pad mini">
-              <h3>Requirements and UAT</h3>
-              <p>Backlog ownership, user stories, acceptance criteria, and UAT coordination to ensure expected outcomes.</p>
-            </div>
-            <div class="card pad mini">
-              <h3>Monitoring and reporting</h3>
-              <p>Operational visibility through monitoring and reporting, enabling fast triage and data-driven prioritization.</p>
-            </div>
-          </div>
+          <div class="two" id="capability-list"></div>
         </div>
 
         <!-- Tooling -->
@@ -989,28 +727,8 @@
             <h2>Tooling</h2>
             <div class="count muted">What I use day to day</div>
           </div>
-
           <div class="card pad">
-            <div class="tooltags">
-              <span class="tag">Jira</span>
-              <span class="tag">Confluence</span>
-              <span class="tag">Trello</span>
-              <span class="tag">MS Office</span>
-              <span class="tag">Postman</span>
-              <span class="tag">Swagger</span>
-              <span class="tag">SAP Commerce tools</span>
-              <span class="tag">Pimcore</span>
-              <span class="tag">MS Visio</span>
-              <span class="tag">draw.io</span>
-              <span class="tag">Lucidchart</span>
-              <span class="tag">Kibana</span>
-              <span class="tag">Dynatrace</span>
-              <span class="tag">Scrum</span>
-              <span class="tag">Kanban</span>
-              <span class="tag">Waterfall</span>
-              <span class="tag">SAP Business One</span>
-              <span class="tag">Business Central</span>
-            </div>
+            <div class="tooltags" id="tool-list"></div>
           </div>
         </div>
 
@@ -1019,7 +737,7 @@
   </main>
 
   <footer>
-    © <span>Branimir Stančerić</span> · Minimalist case study portfolio on GitHub Pages
+    © <span data-field="name"></span> · Case study portfolio on GitHub Pages
   </footer>
 
   <script>
@@ -1041,63 +759,185 @@
       const saved = (() => { try { return localStorage.getItem('theme'); } catch(e){ return null; } })();
       setTheme(saved || 'light');
 
-      // Case study filtering + search
-      const chips = Array.from(document.querySelectorAll('.chip[data-filter]'));
-      const cases = Array.from(document.querySelectorAll('details.case'));
-      const q = document.getElementById('q');
-      const count = document.getElementById('count');
-
-      let activeFilter = 'all';
-
-      function normalize(s){
-        return (s || '').toLowerCase().trim();
-      }
-
-      function matchesFilter(el){
-        if(activeFilter === 'all') return true;
-        const tags = normalize(el.getAttribute('data-tags'));
-        return tags.includes(activeFilter);
-      }
-
-      function matchesQuery(el){
-        const query = normalize(q.value);
-        if(!query) return true;
-        const text = normalize(el.innerText);
-        return text.includes(query);
-      }
-
-      function apply(){
-        let shown = 0;
-        cases.forEach(el => {
-          const ok = matchesFilter(el) && matchesQuery(el);
-          el.style.display = ok ? '' : 'none';
-          if(ok) shown += 1;
+      // Small DOM helper: el('div', {class:'x'}, 'text', childNode, ...)
+      function el(tag, attrs, ...children){
+        const node = document.createElement(tag);
+        Object.entries(attrs || {}).forEach(([k, v]) => {
+          if(v !== undefined && v !== null && v !== '') node.setAttribute(k, v);
         });
-        count.textContent = String(shown);
+        children.flat().forEach(c => {
+          if(c === undefined || c === null || c === '') return;
+          node.append(c instanceof Node ? c : String(c));
+        });
+        return node;
       }
 
-      chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          chips.forEach(c => c.classList.remove('active'));
-          chip.classList.add('active');
-          activeFilter = chip.getAttribute('data-filter');
-          apply();
-        });
-      });
+      // Pages CMS may store media paths with a leading slash; the site lives under /cv/, so keep them relative.
+      function asset(path){
+        return (path || '').replace(/^\/+/, '');
+      }
 
-      q.addEventListener('input', apply);
-      apply();
+      function list(value){
+        return Array.isArray(value) ? value.filter(Boolean) : [];
+      }
+
+      async function load(path){
+        const res = await fetch(path, { cache: 'no-cache' });
+        if(!res.ok) throw new Error(path + ': ' + res.status);
+        return res.json();
+      }
+
+      function renderProfile(p){
+        document.querySelectorAll('[data-field]').forEach(node => {
+          const value = p[node.getAttribute('data-field')];
+          if(typeof value === 'string') node.textContent = value;
+        });
+
+        const avatar = document.getElementById('avatar');
+        if(p.photo){
+          const img = el('img', { src: asset(p.photo), alt: p.name });
+          img.addEventListener('error', () => {
+            avatar.replaceChildren(el('div', { class: 'avatar-fallback' }, 'Photo not found'));
+          });
+          avatar.append(img);
+        }
+
+        if(p.cv_file) document.getElementById('cv-link').setAttribute('href', asset(p.cv_file));
+
+        document.getElementById('badges').append(
+          ...list(p.badges).map(b => el('span', { class: 'badge' }, b))
+        );
+
+        document.getElementById('quick-facts').append(
+          ...list(p.quick_facts).map(f => el('div', { class: 'kv-row' }, el('strong', {}, f.label), el('span', {}, f.value)))
+        );
+
+        // Hero title with the highlighted phrase in accent colour
+        const title = document.getElementById('hero-title');
+        const text = p.hero_title || '';
+        const hl = p.hero_highlight || '';
+        const at = hl ? text.indexOf(hl) : -1;
+        if(at >= 0){
+          title.append(text.slice(0, at), el('span', { class: 'accent' }, hl), text.slice(at + hl.length));
+        } else {
+          title.textContent = text;
+        }
+
+        document.getElementById('hero-facts').append(
+          ...list(p.hero_facts).map(f => el('span', {}, el('strong', {}, f.label + ':'), ' ' + f.value))
+        );
+
+        const contacts = [];
+        if(p.email) contacts.push(el('div', { class: 'kv-row' }, el('strong', {}, 'Email'), el('a', { class: 'nowrap', href: 'mailto:' + p.email }, p.email)));
+        if(p.linkedin) contacts.push(el('div', { class: 'kv-row' }, el('strong', {}, 'LinkedIn'), el('a', { class: 'nowrap', href: p.linkedin, target: '_blank', rel: 'noreferrer' }, 'Open profile')));
+        if(p.github) contacts.push(el('div', { class: 'kv-row' }, el('strong', {}, 'GitHub'), el('a', { class: 'nowrap', href: p.github, target: '_blank', rel: 'noreferrer' }, 'Open profile')));
+        document.getElementById('contact-list').append(...contacts);
+      }
+
+      function renderCase(c){
+        const box = (label, ...content) => el('div', { class: 'box' }, el('div', { class: 'label' }, label), ...content);
+        const roles = list(c.my_role);
+
+        const details = el('details', { class: 'case' },
+          el('summary', {},
+            el('div', { class: 'case-left' },
+              el('div', { class: 'case-title' }, c.title),
+              el('div', { class: 'case-sub' }, c.summary),
+              c.context ? el('div', { class: 'case-context' }, c.context) : null,
+              el('div', { class: 'case-tags' }, list(c.tags).map(t => el('span', { class: 'tag' }, t)))
+            ),
+            el('div', { class: 'case-right' },
+              el('div', {}, c.company),
+              el('div', {}, c.period),
+              el('div', { class: 'chev' }, '⌄')
+            )
+          ),
+          el('div', { class: 'case-body' },
+            el('div', { class: 'case-grid' },
+              c.problem ? box('Problem', el('p', {}, c.problem)) : null,
+              c.approach ? box('Approach', el('p', {}, c.approach)) : null,
+              roles.length ? box('My role', el('ul', {}, roles.map(r => el('li', {}, r)))) : null,
+              c.outcome ? box('Outcome', el('p', {}, c.outcome)) : null
+            ),
+            c.impact ? el('div', { class: 'impact' }, 'Impact: ' + c.impact) : null
+          )
+        );
+        details.dataset.categories = list(c.categories).map(s => s.toLowerCase()).join('|');
+        // Search runs over the case study's own content, not section labels like "Approach"
+        details.dataset.search = [
+          c.title, c.summary, c.company, c.period, c.context, c.impact,
+          c.problem, c.approach, c.outcome, roles, list(c.tags), list(c.categories)
+        ].flat().filter(Boolean).join(' ').toLowerCase();
+        return details;
+      }
+
+      function renderCases(data){
+        const cases = list(data.cases);
+        const feed = document.getElementById('feed');
+        const filters = document.getElementById('filters');
+        const q = document.getElementById('q');
+        const count = document.getElementById('count');
+
+        const nodes = cases.map(renderCase);
+        feed.append(...nodes);
+
+        // Filter chips are built from every category used in the case studies
+        const categories = [];
+        cases.forEach(c => list(c.categories).forEach(cat => {
+          if(!categories.some(x => x.toLowerCase() === cat.toLowerCase())) categories.push(cat);
+        }));
+
+        let activeFilter = 'all';
+        const chips = [el('span', { class: 'chip active', 'data-filter': 'all' }, 'All')]
+          .concat(categories.map(cat => el('span', { class: 'chip', 'data-filter': cat.toLowerCase() }, cat)));
+        filters.append(...chips);
+
+        function apply(){
+          // Every typed word must match the start of a word, so "app" finds "App" but not "mapping"
+          const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
+          let shown = 0;
+          nodes.forEach(node => {
+            const words = node.dataset.search.split(/[^\p{L}\p{N}]+/u);
+            const okFilter = activeFilter === 'all' || node.dataset.categories.split('|').includes(activeFilter);
+            const okQuery = terms.every(t => words.some(w => w.startsWith(t)));
+            const ok = okFilter && okQuery;
+            node.style.display = ok ? '' : 'none';
+            if(ok) shown += 1;
+          });
+          count.textContent = String(shown);
+        }
+
+        chips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            chips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            activeFilter = chip.getAttribute('data-filter');
+            apply();
+          });
+        });
+
+        q.addEventListener('input', apply);
+        apply();
+      }
+
+      function renderSkills(s){
+        document.getElementById('capability-list').append(
+          ...list(s.capabilities).map(c => el('div', { class: 'card pad mini' }, el('h3', {}, c.title), el('p', {}, c.text)))
+        );
+        document.getElementById('tool-list').append(
+          ...list(s.tools).map(t => el('span', { class: 'tag' }, t))
+        );
+      }
+
+      function showError(target, err){
+        console.error(err);
+        document.getElementById(target).append(el('div', { class: 'load-error' }, 'This section could not be loaded. Please refresh the page.'));
+      }
+
+      load('content/profile.json').then(renderProfile).catch(err => showError('hero-facts', err));
+      load('content/case-studies.json').then(renderCases).catch(err => showError('feed', err));
+      load('content/skills.json').then(renderSkills).catch(err => showError('capability-list', err));
     })();
   </script>
-
-  <!-- Optional GA4 (add your Measurement ID)
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
 </body>
 </html>

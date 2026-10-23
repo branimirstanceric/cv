@@ -1,0 +1,89 @@
+# Pages CMS configuration: https://pagescms.org/docs/configuration/
+# Defines the editing forms at app.pagescms.org for this site.
+
+media:
+  input: assets
+  output: assets
+
+content:
+  - name: profile
+    label: Profile & intro
+    type: file
+    path: content/profile.json
+    format: json
+    fields:
+      - { name: name, label: Full name, type: string, required: true }
+      - { name: headline, label: Headline (top bar), type: string }
+      - { name: short_bio, label: Short bio (under your name), type: text }
+      - { name: photo, label: Profile photo, type: image }
+      - { name: cv_file, label: CV file (PDF), type: file }
+      - { name: badges, label: Highlight badges, type: string, list: true }
+      - name: quick_facts
+        label: Quick facts (left column)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: value, label: Value, type: string }
+      - { name: status_line, label: Small label above the headline, type: string }
+      - { name: hero_title, label: Main headline, type: text }
+      - name: hero_highlight
+        label: Highlighted words in the headline
+        description: Must match words in the main headline exactly; they are shown in the accent colour.
+        type: string
+      - { name: hero_intro, label: Intro paragraph, type: text }
+      - name: hero_facts
+        label: Facts under the intro
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: value, label: Value, type: string }
+      - { name: contact_intro, label: Contact section text, type: text }
+      - { name: email, label: Email, type: string }
+      - { name: linkedin, label: LinkedIn URL, type: string }
+      - { name: github, label: GitHub URL, type: string }
+
+  - name: case_studies
+    label: Case studies
+    type: file
+    path: content/case-studies.json
+    format: json
+    fields:
+      - name: cases
+        label: Case studies
+        description: Shown on the site in this order.
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: summary, label: One-line summary, type: string }
+          - { name: company, label: Company / client, type: string }
+          - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025" }
+          - { name: context, label: Context, type: string, description: "Optional, e.g. team of 8 · SAP Commerce · 3 markets" }
+          - { name: impact, label: Key result, type: string, description: "The headline number, e.g. Reduced processing time by over 70%." }
+          - { name: problem, label: Problem, type: text }
+          - { name: approach, label: Approach, type: text }
+          - { name: my_role, label: My role, type: string, list: true }
+          - { name: outcome, label: Outcome, type: text }
+          - { name: tags, label: Tags (shown on the card), type: string, list: true }
+          - name: categories
+            label: Filter categories
+            description: Each category becomes a filter button above the case studies.
+            type: string
+            list: true
+
+  - name: skills
+    label: Capabilities & tooling
+    type: file
+    path: content/skills.json
+    format: json
+    fields:
+      - name: capabilities
+        label: Capabilities
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+      - { name: tools, label: Tools & methods, type: string, list: true }
