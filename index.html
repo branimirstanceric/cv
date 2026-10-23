@@ -22,7 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 
 <body>
@@ -95,7 +96,7 @@
 
   <footer class="container">© <span id="year"></span> <span data-field="name"></span></footer>
 
-  <script src="common.js"></script>
+  <script src="common.js?v=3"></script>
   <script>
     (function(){
       const { el, asset, list, statOf, caseUrl, isOngoing, yearsOf, load, fillFields, textLink, contactLinks, showError } = window.Site;
