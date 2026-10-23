@@ -9,38 +9,10 @@
     "Integrations",
     "Agile delivery"
   ],
-  "quick_facts": [
-    {
-      "label": "Core",
-      "value": "Delivery, scope, UAT"
-    },
-    {
-      "label": "Domains",
-      "value": "Retail, logistics"
-    },
-    {
-      "label": "Tooling",
-      "value": "Jira, Confluence"
-    }
-  ],
   "status_line": "Minimalist case study portfolio",
   "hero_title": "Hi, I'm Branimir!",
-  "hero_highlight": "predictable delivery",
-  "hero_intro": "Delivery Manager and IT Project Manager with 9+ years of experience across B2C and B2B eCommerce. I help teams deliver with clear scope, transparent communication, and strong quality gates through UAT and go-live.",
-  "hero_facts": [
-    {
-      "label": "Focus",
-      "value": "delivery, integrations, eCommerce"
-    },
-    {
-      "label": "Methods",
-      "value": "Scrum, Kanban, Waterfall"
-    },
-    {
-      "label": "Monitoring",
-      "value": "Kibana, Dynatrace"
-    }
-  ],
+  "hero_highlight": "Branimir",
+  "hero_intro": "IT Project Manager with 10+ years of hands-on experience taking complex digital products from architectural concept to full regional release. Specialist in building modern, AI-driven project management systems that eliminate operational routine and accelerate product velocity.",
   "contact_intro": "For delivery leadership in eCommerce and integration-heavy products.",
   "email": "branimir.stanceric@gmail.com",
   "linkedin": "https://www.linkedin.com/in/branimir-stanceric",
