@@ -56,17 +56,48 @@ content:
         type: object
         list: true
         fields:
+          # Card on the main page
           - { name: title, label: Title, type: string, required: true }
+          - name: id
+            label: Page link
+            type: string
+            description: "Short name for this case study's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
           - { name: summary, label: One-line summary, type: string }
           - { name: company, label: Company / client, type: string }
-          - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025" }
-          - { name: context, label: Context, type: string, description: "Optional, e.g. team of 8 · SAP Commerce · 3 markets" }
+          - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025. Include the word 'ongoing' to show the green Ongoing label." }
+          - { name: context, label: Context (one line), type: string, description: "Optional, e.g. Team of 8 · SAP Commerce · 3 markets" }
           - { name: impact, label: Key result, type: string, description: "The headline number, e.g. Reduced processing time by over 70%." }
-          - { name: problem, label: Problem, type: text }
-          - { name: approach, label: Approach, type: text }
-          - { name: my_role, label: My role, type: string, list: true }
-          - { name: outcome, label: Outcome, type: text }
           - { name: tags, label: Tags (shown on the card), type: string, list: true }
+
+          # Full case study page
+          - { name: problem, label: The challenge, type: text, description: "What was wrong or needed. Leave a blank line between paragraphs." }
+          - { name: why, label: Why it mattered, type: text, description: "Optional. Business impact of the problem: cost, customers, deadlines, risk." }
+          - name: context_points
+            label: Context details
+            type: string
+            list: true
+            description: "Optional. One fact per item: team size, tech stack, markets, budget, constraints."
+          - { name: approach, label: What I did (overview), type: text }
+          - name: phases
+            label: What I did (phases)
+            type: object
+            list: true
+            description: "Optional. Break the work into steps, e.g. Discovery, Integration build, UAT and go-live."
+            fields:
+              - { name: title, label: Phase title, type: string }
+              - { name: points, label: What happened, type: string, list: true }
+          - { name: results, label: Results, type: string, list: true, description: "Optional. One measurable result per item." }
+          - { name: outcome, label: Outcome summary, type: text }
+          - { name: lessons, label: Lessons learned, type: text, description: "Optional. What you would repeat or do differently." }
+          - { name: my_role, label: My role, type: string, list: true }
+          - name: images
+            label: Images
+            type: object
+            list: true
+            description: "Optional. Diagrams, timelines, screenshots. Avoid confidential client material."
+            fields:
+              - { name: image, label: Image, type: image }
+              - { name: caption, label: Caption, type: string }
           - name: categories
             label: Filter categories
             description: Each category becomes a filter button above the case studies.

@@ -1,6 +1,7 @@
 {
   "cases": [
     {
+      "id": "uniqa-warranty-automation",
       "title": "UNIQA Integration: Automated Warranty Policy Generation",
       "summary": "Automation and workflow design connecting webshop and insurer systems.",
       "company": "K2-18b",
@@ -15,10 +16,17 @@
         "UAT coordination and release readiness"
       ],
       "outcome": "Automation reduced manual work and improved turnaround time for warranty processing.",
+      "why": "",
+      "context_points": [],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
       "tags": ["Integrations", "Workflows", "UAT and Go-live"],
       "categories": ["Integrations", "eCommerce"]
     },
     {
+      "id": "dropshipping-logistics",
       "title": "Dropshipping + Logistics Integrations",
       "summary": "Multi-partner delivery setup with dependencies across carriers and suppliers.",
       "company": "A007plus",
@@ -33,10 +41,17 @@
         "Testing coordination and go-live readiness"
       ],
       "outcome": "More predictable delivery and faster order handoffs across the network.",
+      "why": "",
+      "context_points": [],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
       "tags": ["Logistics", "Integrations", "Delivery ops"],
       "categories": ["Logistics", "Integrations", "eCommerce"]
     },
     {
+      "id": "abrakadabra-mobile-app",
       "title": "Abrakadabra Mobile App Delivery",
       "summary": "Agile delivery with stakeholder alignment and fast response to change.",
       "company": "A007plus",
@@ -51,10 +66,17 @@
         "Stakeholder reporting"
       ],
       "outcome": "Delivered within scope with improved user perception after release.",
+      "why": "",
+      "context_points": [],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
       "tags": ["Mobile", "Agile", "Backlog"],
       "categories": ["Mobile", "eCommerce"]
     },
     {
+      "id": "ekupi-sap-migration",
       "title": "eKupi Migration to SAP eCommerce Platform",
       "summary": "Multi-market migration with data integrity, configuration, and enablement.",
       "company": "eKupi",
@@ -69,10 +91,17 @@
         "Training and documentation through internal portal"
       ],
       "outcome": "Modernized platform foundation across markets and improved operational consistency.",
+      "why": "",
+      "context_points": [],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
       "tags": ["Migration", "eCommerce", "Enablement"],
       "categories": ["Migration", "eCommerce", "Integrations"]
     },
     {
+      "id": "slovenia-b2c-webshop",
       "title": "B2C Webshop for Slovenia (Ongoing)",
       "summary": "Localized launch with market-specific requirements, QA, and readiness gates.",
       "company": "K2-18b",
@@ -87,6 +116,12 @@
         "Quality gates through UAT"
       ],
       "outcome": "Preparing a smooth launch with predictable delivery and clear readiness criteria.",
+      "why": "",
+      "context_points": [],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
       "tags": ["eCommerce", "Delivery", "Launch readiness"],
       "categories": ["eCommerce", "Integrations"]
     }
