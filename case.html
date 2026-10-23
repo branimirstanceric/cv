@@ -19,9 +19,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 
 <body>
@@ -29,12 +29,13 @@
     One template for every case study: case.html?id=<page link>.
     The content comes from content/case-studies.json (edit it in Pages CMS).
   -->
-  <header class="container topbar-inner">
-    <a class="brand" href="index.html" data-field="name">Branimir Stančerić</a>
-    <div class="topbar-right">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" data-field="name">Branimir Stančerić</a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html#work">Work</a>
-        <a href="index.html#about">About</a>
+        <a href="index.html#cases">Case studies</a>
+        <a href="index.html#capabilities">Capabilities</a>
+        <a href="index.html#tooling">Tooling</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch light or dark theme">
@@ -45,26 +46,29 @@
   </header>
 
   <main>
-    <article class="container" id="case"></article>
+    <div class="container" id="case"></div>
 
     <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2 class="label">Contact</h2>
-        <p class="contact-title" style="margin-top:20px;">Let's talk about your next delivery.</p>
-        <p class="contact-text" data-field="contact_intro"></p>
-        <div><a class="email" id="email"></a></div>
-        <div class="links" id="contact-links"></div>
-      </div>
-    </section>
+    <div class="container">
+      <section class="contact" id="contact">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Let's talk about your next delivery.</h2>
+          <p data-field="contact_intro"></p>
+        </div>
+        <div class="contact-links" id="contact-list"></div>
+      </section>
+    </div>
   </main>
 
-  <footer class="container">© <span id="year"></span> <span data-field="name"></span></footer>
+  <footer>
+    <div class="container">© <span id="year"></span> <span data-field="name"></span></div>
+  </footer>
 
-  <script src="common.js?v=3"></script>
+  <script src="common.js?v=4"></script>
   <script>
     (function(){
-      const { el, icon, ICONS, list, statOf, caseId, caseUrl, load, fillFields, contactLinks, showError, asset } = window.Site;
+      const { el, icon, ICONS, list, statOf, caseId, caseUrl, caseMeta, load, fillFields, contactButtons, showError, asset } = window.Site;
       const root = document.getElementById('case');
       const wanted = new URLSearchParams(location.search).get('id') || '';
       let ownerName = '';
@@ -85,15 +89,12 @@
         return (text || '').split(/\n\s*\n/).map(s => s.trim()).filter(Boolean).map(s => el('p', {}, s));
       }
 
-      function backLink(){
-        return el('a', { class: 'back', href: 'index.html#work' }, icon(ICONS.left), 'All work');
-      }
-
       function renderNotFound(){
         document.title = 'Case study not found' + (ownerName ? ' | ' + ownerName : '');
-        root.append(backLink(), el('div', { class: 'not-found' },
+        root.append(el('div', { class: 'not-found' },
           el('h1', { class: 'cs-title' }, 'Case study not found'),
-          el('p', {}, 'This link may be outdated. All case studies are listed on the main page.')
+          el('p', {}, 'This link may be outdated. All case studies are listed on the main page.'),
+          el('a', { class: 'btn primary', href: 'index.html#cases' }, 'See all case studies')
         ));
       }
 
@@ -105,23 +106,16 @@
         if(c.summary) document.querySelector('meta[name="description"]').setAttribute('content', c.summary);
 
         const head = el('header', { class: 'cs-head' },
-          el('p', { class: 'cs-meta' }, [c.company, c.period].filter(Boolean).join(' · ')),
+          caseMeta(c),
           el('h1', { class: 'cs-title' }, c.title),
-          c.summary ? el('p', { class: 'cs-lead' }, c.summary) : null
+          c.summary ? el('p', { class: 'cs-lead' }, c.summary) : null,
+          el('div', { class: 'case-tags' }, list(c.tags).map(t => el('span', { class: 'pill' }, t)))
         );
 
         const result = c.impact ? el('div', { class: 'cs-result' },
           stat ? el('div', { class: 'num' }, stat) : null,
-          el('div', { class: 'txt' }, c.impact)
+          el('div', {}, el('div', { class: 'label' }, 'Key result'), el('div', { class: 'txt' }, c.impact))
         ) : null;
-
-        const roles = list(c.my_role);
-        const contextPoints = list(c.context_points);
-        const factBlocks = [
-          roles.length ? el('div', {}, el('h2', { class: 'label' }, 'My role'), bullets(roles)) : null,
-          (c.context || contextPoints.length) ? el('div', {}, el('h2', { class: 'label' }, 'Context'), c.context ? el('p', {}, c.context) : null, bullets(contextPoints)) : null
-        ].filter(Boolean);
-        const facts = factBlocks.length ? el('div', { class: 'facts' }, factBlocks) : null;
 
         const phases = list(c.phases).map((ph, i) => el('div', { class: 'phase' },
           el('h3', {}, el('span', { class: 'phase-num' }, String(i + 1).padStart(2, '0')), ph.title),
@@ -133,7 +127,7 @@
           im.caption ? el('figcaption', {}, im.caption) : null
         ));
 
-        const body = el('div', { class: 'cs-body' },
+        const main = el('div', { class: 'cs-main' },
           section('The challenge', para(c.problem)),
           section('Why it mattered', para(c.why)),
           section('What I did', para(c.approach), phases),
@@ -142,28 +136,35 @@
           images.length ? el('div', { class: 'gallery' }, images) : null
         );
 
+        const roles = list(c.my_role);
+        const contextPoints = list(c.context_points);
+        const aside = el('aside', { class: 'cs-aside', 'aria-label': 'Project details' },
+          roles.length ? el('div', {}, el('h4', {}, 'My role'), bullets(roles)) : null,
+          (c.context || contextPoints.length) ? el('div', {}, el('h4', {}, 'Context'), c.context ? el('p', {}, c.context) : null, bullets(contextPoints)) : null,
+          list(c.categories).length ? el('div', {}, el('h4', {}, 'Areas'), el('div', { class: 'case-tags' }, list(c.categories).map(t => el('span', { class: 'pill' }, t)))) : null
+        );
+
         const prev = cases[index - 1];
         const next = cases[index + 1];
-        const pager = (prev || next) ? el('nav', { class: 'cs-pager', 'aria-label': 'More case studies' },
+        const pager = el('nav', { class: 'cs-pager', 'aria-label': 'More case studies' },
           prev ? el('a', { href: caseUrl(prev) }, el('div', { class: 'dir' }, '← Previous'), el('div', { class: 'name' }, prev.title)) : null,
           next ? el('a', { class: 'next', href: caseUrl(next) }, el('div', { class: 'dir' }, 'Next →'), el('div', { class: 'name' }, next.title)) : null
-        ) : null;
+        );
 
-        root.append(...[backLink(), head, result, facts, body, pager].filter(Boolean));
+        root.append(...[
+          el('a', { class: 'back', href: 'index.html#cases' }, icon(ICONS.left), 'All case studies'),
+          head,
+          result,
+          el('div', { class: 'cs-grid' }, main, aside.childElementCount ? aside : null),
+          pager
+        ].filter(Boolean));
       }
 
       const profile = load('content/profile.json').then(p => {
         ownerName = p.name || '';
         fillFields(p);
-        const email = document.getElementById('email');
-        if(p.email){
-          email.textContent = p.email;
-          email.href = 'mailto:' + p.email;
-        } else {
-          email.remove();
-        }
-        document.getElementById('contact-links').append(...contactLinks(p));
-      }).catch(err => showError('contact-links', err));
+        document.getElementById('contact-list').append(...contactButtons(p));
+      }).catch(err => showError('contact-list', err));
 
       const cases = load('content/case-studies.json');
 

@@ -21,7 +21,9 @@
       "phases": [],
       "results": [],
       "lessons": "",
-      "images": []
+      "images": [],
+      "tags": ["Integrations", "Workflows", "UAT and Go-live"],
+      "categories": ["Integrations", "eCommerce"]
     },
     {
       "id": "dropshipping-logistics",
@@ -44,7 +46,9 @@
       "phases": [],
       "results": [],
       "lessons": "",
-      "images": []
+      "images": [],
+      "tags": ["Logistics", "Integrations", "Delivery ops"],
+      "categories": ["Logistics", "Integrations", "eCommerce"]
     },
     {
       "id": "abrakadabra-mobile-app",
@@ -67,7 +71,9 @@
       "phases": [],
       "results": [],
       "lessons": "",
-      "images": []
+      "images": [],
+      "tags": ["Mobile", "Agile", "Backlog"],
+      "categories": ["Mobile", "eCommerce"]
     },
     {
       "id": "ekupi-sap-migration",
@@ -90,7 +96,9 @@
       "phases": [],
       "results": [],
       "lessons": "",
-      "images": []
+      "images": [],
+      "tags": ["Migration", "eCommerce", "Enablement"],
+      "categories": ["Migration", "eCommerce", "Integrations"]
     },
     {
       "id": "slovenia-b2c-webshop",
@@ -113,7 +121,9 @@
       "phases": [],
       "results": [],
       "lessons": "",
-      "images": []
+      "images": [],
+      "tags": ["eCommerce", "Delivery", "Launch readiness"],
+      "categories": ["eCommerce", "Integrations"]
     }
   ]
 }
