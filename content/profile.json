@@ -1,28 +1,12 @@
 {
   "name": "Branimir Stančerić",
   "headline": "Delivery Manager and IT Project Manager",
-  "short_bio": "Delivery Manager and IT Project Manager focused on eCommerce delivery and integrations.",
+  "status_line": "Minimalist case study portfolio",
   "photo": "assets/profile.jpg",
   "cv_file": "assets/cv.pdf",
-  "badges": [
-    "eCommerce B2C and B2B",
-    "Integrations",
-    "Agile delivery"
-  ],
-  "quick_facts": [
-    { "label": "Core", "value": "Delivery, scope, UAT" },
-    { "label": "Domains", "value": "Retail, logistics" },
-    { "label": "Tooling", "value": "Jira, Confluence" }
-  ],
-  "status_line": "Minimalist case study portfolio",
   "hero_title": "I lead predictable delivery for eCommerce and integration-heavy products.",
   "hero_highlight": "predictable delivery",
   "hero_intro": "Delivery Manager and IT Project Manager with 9+ years of experience across B2C and B2B eCommerce. I help teams deliver with clear scope, transparent communication, and strong quality gates through UAT and go-live.",
-  "hero_facts": [
-    { "label": "Focus", "value": "delivery, integrations, eCommerce" },
-    { "label": "Methods", "value": "Scrum, Kanban, Waterfall" },
-    { "label": "Monitoring", "value": "Kibana, Dynatrace" }
-  ],
   "contact_intro": "For delivery leadership in eCommerce and integration-heavy products.",
   "email": "branimir.stanceric@gmail.com",
   "linkedin": "https://www.linkedin.com/in/branimir-stanceric",

@@ -13,32 +13,19 @@ content:
     format: json
     fields:
       - { name: name, label: Full name, type: string, required: true }
-      - { name: headline, label: Headline (top bar), type: string }
-      - { name: short_bio, label: Short bio (under your name), type: text }
+      - { name: headline, label: Headline (under your name), type: string }
+      - name: status_line
+        label: Status (green dot under your name)
+        type: string
+        description: "Optional, e.g. Open to Delivery Manager roles. Leave empty to hide it."
       - { name: photo, label: Profile photo, type: image }
       - { name: cv_file, label: CV file (PDF), type: file }
-      - { name: badges, label: Highlight badges, type: string, list: true }
-      - name: quick_facts
-        label: Quick facts (left column)
-        type: object
-        list: true
-        fields:
-          - { name: label, label: Label, type: string }
-          - { name: value, label: Value, type: string }
-      - { name: status_line, label: Small label above the headline, type: string }
       - { name: hero_title, label: Main headline, type: text }
       - name: hero_highlight
         label: Highlighted words in the headline
-        description: Must match words in the main headline exactly; they are shown in the accent colour.
+        description: Must match words in the main headline exactly; they are shown in italics.
         type: string
       - { name: hero_intro, label: Intro paragraph, type: text }
-      - name: hero_facts
-        label: Facts under the intro
-        type: object
-        list: true
-        fields:
-          - { name: label, label: Label, type: string }
-          - { name: value, label: Value, type: string }
       - { name: contact_intro, label: Contact section text, type: text }
       - { name: email, label: Email, type: string }
       - { name: linkedin, label: LinkedIn URL, type: string }
@@ -56,7 +43,7 @@ content:
         type: object
         list: true
         fields:
-          # Card on the main page
+          # Row in the "Selected work" list
           - { name: title, label: Title, type: string, required: true }
           - name: id
             label: Page link
@@ -64,19 +51,19 @@ content:
             description: "Short name for this case study's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
           - { name: summary, label: One-line summary, type: string }
           - { name: company, label: Company / client, type: string }
-          - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025. Include the word 'ongoing' to show the green Ongoing label." }
-          - { name: context, label: Context (one line), type: string, description: "Optional, e.g. Team of 8 · SAP Commerce · 3 markets" }
-          - { name: impact, label: Key result, type: string, description: "The headline number, e.g. Reduced processing time by over 70%." }
-          - { name: tags, label: Tags (shown on the card), type: string, list: true }
+          - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025. Include the word 'ongoing' for current work." }
+          - { name: impact, label: Key result, type: string, description: "e.g. Reduced processing time by over 70%. The number is shown next to the project." }
 
           # Full case study page
-          - { name: problem, label: The challenge, type: text, description: "What was wrong or needed. Leave a blank line between paragraphs." }
-          - { name: why, label: Why it mattered, type: text, description: "Optional. Business impact of the problem: cost, customers, deadlines, risk." }
+          - { name: context, label: Context (one line), type: string, description: "Optional, e.g. Team of 8 · SAP Commerce · 3 markets" }
           - name: context_points
             label: Context details
             type: string
             list: true
             description: "Optional. One fact per item: team size, tech stack, markets, budget, constraints."
+          - { name: my_role, label: My role, type: string, list: true }
+          - { name: problem, label: The challenge, type: text, description: "What was wrong or needed. Leave a blank line between paragraphs." }
+          - { name: why, label: Why it mattered, type: text, description: "Optional. Business impact of the problem: cost, customers, deadlines, risk." }
           - { name: approach, label: What I did (overview), type: text }
           - name: phases
             label: What I did (phases)
@@ -89,7 +76,6 @@ content:
           - { name: results, label: Results, type: string, list: true, description: "Optional. One measurable result per item." }
           - { name: outcome, label: Outcome summary, type: text }
           - { name: lessons, label: Lessons learned, type: text, description: "Optional. What you would repeat or do differently." }
-          - { name: my_role, label: My role, type: string, list: true }
           - name: images
             label: Images
             type: object
@@ -98,11 +84,6 @@ content:
             fields:
               - { name: image, label: Image, type: image }
               - { name: caption, label: Caption, type: string }
-          - name: categories
-            label: Filter categories
-            description: Each category becomes a filter button above the case studies.
-            type: string
-            list: true
 
   - name: skills
     label: Capabilities & tooling

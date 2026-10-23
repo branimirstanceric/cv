@@ -33,7 +33,8 @@
   }
   const ICONS = {
     right: '<path d="M5 12h14M13 6l6 6-6 6"/>',
-    left: '<path d="M19 12H5M11 6l-6 6 6 6"/>'
+    left: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
+    external: '<path d="M7 17 17 7M8 7h9v9"/>'
   };
 
   // Pages CMS may store media paths with a leading slash; the site lives under /cv/, so keep them relative.
@@ -72,12 +73,14 @@
     return /ongoing|present|now/i.test(c.period || '');
   }
 
-  function caseMeta(c){
-    return el('div', { class: 'case-meta' },
-      c.company ? el('span', { class: 'company' }, c.company) : null,
-      c.period ? el('span', {}, c.period) : null,
-      isOngoing(c) ? el('span', { class: 'ongoing' }, 'Ongoing') : null
-    );
+  // "Nov 2024 to Feb 2025" -> "2024–25", "Jul 2025 to ongoing" -> "2025–now"
+  function yearsOf(c){
+    const ys = (c.period || '').match(/\b(19|20)\d{2}\b/g) || [];
+    if(!ys.length) return c.period || '';
+    const first = ys[0];
+    const last = ys[ys.length - 1];
+    if(isOngoing(c)) return first + '–now';
+    return first === last ? first : first + '–' + last.slice(2);
   }
 
   async function load(path){
@@ -94,12 +97,16 @@
     });
   }
 
-  function contactButtons(p){
+  function textLink(label, href, external){
+    return el('a', Object.assign({ class: 'text-link', href }, external ? { target: '_blank', rel: 'noreferrer' } : {}),
+      label, icon(external ? ICONS.external : ICONS.right));
+  }
+
+  function contactLinks(p){
     const out = [];
-    if(p.email) out.push(el('a', { class: 'btn primary', href: 'mailto:' + p.email }, 'Email me'));
-    if(p.linkedin) out.push(el('a', { class: 'btn', href: p.linkedin, target: '_blank', rel: 'noreferrer' }, 'LinkedIn'));
-    if(p.github) out.push(el('a', { class: 'btn', href: p.github, target: '_blank', rel: 'noreferrer' }, 'GitHub'));
-    if(p.cv_file) out.push(el('a', { class: 'btn', href: asset(p.cv_file), target: '_blank', rel: 'noreferrer' }, 'CV (PDF)'));
+    if(p.linkedin) out.push(textLink('LinkedIn', p.linkedin, true));
+    if(p.github) out.push(textLink('GitHub', p.github, true));
+    if(p.cv_file) out.push(textLink('CV (PDF)', asset(p.cv_file), true));
     return out;
   }
 
@@ -110,7 +117,7 @@
   }
 
   window.Site = {
-    el, icon, ICONS, asset, list, statOf, caseId, caseUrl, isOngoing, caseMeta,
-    load, fillFields, contactButtons, showError
+    el, icon, ICONS, asset, list, statOf, caseId, caseUrl, isOngoing, yearsOf,
+    load, fillFields, textLink, contactLinks, showError
   };
 })();

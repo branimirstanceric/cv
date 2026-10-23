@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -33,13 +33,12 @@
       content/skills.json        capabilities and tooling
     Edit it through Pages CMS (app.pagescms.org) or directly in those files.
   -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#top" data-field="name">Branimir Stančerić</a>
+  <header class="container topbar-inner">
+    <a class="brand" href="#top" data-field="name">Branimir Stančerić</a>
+    <div class="topbar-right">
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#cases">Case studies</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#tooling">Tooling</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch light or dark theme">
@@ -50,130 +49,75 @@
   </header>
 
   <main id="top">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
+    <!-- Intro -->
+    <section class="container intro">
+      <div class="person">
+        <div class="avatar" id="avatar"></div>
         <div>
-          <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
-          <h1 class="hero-title" id="hero-title"></h1>
-          <p class="hero-intro" data-field="hero_intro"></p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#cases">View case studies</a>
-            <a class="btn" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
-          </div>
-          <div class="hero-facts" id="hero-facts"></div>
+          <div class="person-name" data-field="name"></div>
+          <div class="person-role" data-field="headline"></div>
+          <div class="status" id="status" hidden></div>
         </div>
+      </div>
+      <h1 class="intro-title" id="intro-title"></h1>
+      <p class="intro-text" data-field="hero_intro"></p>
+      <div class="links" id="intro-links"></div>
+    </section>
 
-        <aside class="profile-card" aria-label="Profile">
-          <div class="avatar" id="avatar"></div>
-          <div>
-            <div class="profile-name" data-field="name"></div>
-            <div class="profile-role" data-field="headline"></div>
-          </div>
-          <div class="badges" id="badges"></div>
-          <dl class="facts" id="quick-facts"></dl>
-        </aside>
+    <!-- Work -->
+    <section class="section" id="work">
+      <div class="container">
+        <h2 class="label">Selected work</h2>
+        <ol class="work" id="work-list"></ol>
       </div>
     </section>
 
-    <!-- Key results, taken from case studies that have a number in "Key result" -->
-    <div class="container">
-      <div class="results" id="results" aria-label="Key results"></div>
-    </div>
-
-    <!-- Case studies -->
-    <section class="section" id="cases">
+    <!-- About -->
+    <section class="section" id="about">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Selected work</div>
-            <h2 class="section-title">Case studies</h2>
-          </div>
-        </div>
-
-        <div class="toolbar">
-          <label class="search">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="q" type="search" placeholder="Search case studies" aria-label="Search case studies" />
-          </label>
-          <div class="chips" id="filters" role="group" aria-label="Filter by category"></div>
-          <div class="count" aria-live="polite"><span id="count">0</span> shown</div>
-        </div>
-
-        <div class="feed" id="feed"></div>
-      </div>
-    </section>
-
-    <!-- Capabilities -->
-    <section class="section" id="capabilities">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">How I work</div>
-            <h2 class="section-title">Capabilities</h2>
-          </div>
-        </div>
+        <h2 class="label">How I work</h2>
         <div class="caps" id="capability-list"></div>
-      </div>
-    </section>
-
-    <!-- Tooling -->
-    <section class="section" id="tooling">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Day to day</div>
-            <h2 class="section-title">Tools and methods</h2>
-          </div>
-        </div>
-        <div class="tools" id="tool-list"></div>
+        <p class="tools" id="tools" hidden></p>
       </div>
     </section>
 
     <!-- Contact -->
-    <div class="container">
-      <section class="contact" id="contact">
-        <div>
-          <div class="eyebrow">Contact</div>
-          <h2 class="section-title">Let's talk about your next delivery.</h2>
-          <p data-field="contact_intro"></p>
-        </div>
-        <div class="contact-links" id="contact-list"></div>
-      </section>
-    </div>
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="label">Contact</h2>
+        <p class="contact-title" style="margin-top:20px;">Let's talk about your next delivery.</p>
+        <p class="contact-text" data-field="contact_intro"></p>
+        <div><a class="email" id="email"></a></div>
+        <div class="links" id="contact-links"></div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="container">© <span id="year"></span> <span data-field="name"></span></div>
-  </footer>
+  <footer class="container">© <span id="year"></span> <span data-field="name"></span></footer>
 
   <script src="common.js"></script>
   <script>
     (function(){
-      const { el, icon, ICONS, asset, list, statOf, caseUrl, caseMeta, load, fillFields, contactButtons, showError } = window.Site;
+      const { el, asset, list, statOf, caseUrl, isOngoing, yearsOf, load, fillFields, textLink, contactLinks, showError } = window.Site;
 
       function renderProfile(p){
         fillFields(p);
 
-        const avatar = document.getElementById('avatar');
         if(p.photo){
-          const img = el('img', { src: asset(p.photo), alt: p.name });
-          img.addEventListener('error', () => avatar.replaceChildren('Photo not found'));
+          const avatar = document.getElementById('avatar');
+          const img = el('img', { src: asset(p.photo), alt: '' });
+          img.addEventListener('error', () => img.remove());
           avatar.append(img);
         }
 
-        if(p.cv_file) document.getElementById('cv-link').setAttribute('href', asset(p.cv_file));
+        if(p.status_line){
+          const status = document.getElementById('status');
+          status.textContent = p.status_line;
+          status.hidden = false;
+        }
 
-        document.getElementById('badges').append(
-          ...list(p.badges).map(b => el('span', { class: 'pill' }, b))
-        );
-
-        document.getElementById('quick-facts').append(
-          ...list(p.quick_facts).map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.value)))
-        );
-
-        // Hero title with the highlighted phrase in accent colour
-        const title = document.getElementById('hero-title');
+        // Intro title with the highlighted phrase in italics
+        const title = document.getElementById('intro-title');
         const text = p.hero_title || '';
         const hl = p.hero_highlight || '';
         const at = hl ? text.indexOf(hl) : -1;
@@ -183,129 +127,50 @@
           title.textContent = text;
         }
 
-        document.getElementById('hero-facts').append(
-          ...list(p.hero_facts).map(f => el('span', {}, el('strong', {}, f.label), ' ' + f.value))
-        );
+        const introLinks = [textLink('Selected work', '#work')];
+        if(p.cv_file) introLinks.push(textLink('Download CV', asset(p.cv_file), true));
+        document.getElementById('intro-links').append(...introLinks);
 
-        document.getElementById('contact-list').append(...contactButtons(p));
-      }
-
-      function renderCase(c){
-        const stat = statOf(c.impact);
-
-        let statBlock;
-        if(c.impact){
-          statBlock = el('div', { class: 'case-stat' },
-            stat ? el('div', { class: 'num' }, stat) : null,
-            el('div', { class: 'txt' }, c.impact)
-          );
+        const email = document.getElementById('email');
+        if(p.email){
+          email.textContent = p.email;
+          email.href = 'mailto:' + p.email;
         } else {
-          statBlock = el('div', { class: 'case-stat pending' },
-            el('div', { class: 'txt' }, window.Site.isOngoing(c) ? 'In progress: results to follow.' : c.outcome || '')
-          );
+          email.remove();
         }
-
-        const card = el('article', { class: 'case' },
-          el('div', {},
-            caseMeta(c),
-            el('h3', { class: 'case-title' }, el('a', { class: 'case-link', href: caseUrl(c) }, c.title)),
-            el('p', { class: 'case-summary' }, c.summary),
-            c.context ? el('p', { class: 'case-context' }, c.context) : null,
-            el('div', { class: 'case-tags' }, list(c.tags).map(t => el('span', { class: 'pill' }, t))),
-            el('span', { class: 'case-more', 'aria-hidden': 'true' }, 'Read full case study', icon(ICONS.right))
-          ),
-          statBlock
-        );
-
-        card.dataset.categories = list(c.categories).map(s => s.toLowerCase()).join('|');
-        // Search runs over the case study's own content, not section labels
-        card.dataset.search = [
-          c.title, c.summary, c.company, c.period, c.context, c.impact, c.why,
-          c.problem, c.approach, c.outcome, c.lessons, list(c.my_role), list(c.tags), list(c.categories),
-          list(c.context_points), list(c.results),
-          list(c.phases).map(ph => [ph.title, list(ph.points)])
-        ].flat(3).filter(Boolean).join(' ').toLowerCase();
-        return card;
+        document.getElementById('contact-links').append(...contactLinks(p));
       }
 
-      function renderResults(cases){
-        const results = cases.filter(c => statOf(c.impact)).slice(0, 3);
-        const target = document.getElementById('results');
-        if(!results.length){ target.remove(); return; }
-        target.append(...results.map(c => el('a', { class: 'result', href: caseUrl(c) },
-          el('div', { class: 'result-num' }, statOf(c.impact)),
-          el('div', { class: 'result-text' }, el('strong', {}, c.title), c.impact)
-        )));
-      }
-
-      function renderCases(data){
+      function renderWork(data){
         const cases = list(data.cases);
-        const feed = document.getElementById('feed');
-        const filters = document.getElementById('filters');
-        const q = document.getElementById('q');
-        const count = document.getElementById('count');
-
-        renderResults(cases);
-
-        const nodes = cases.map(renderCase);
-        const empty = el('div', { class: 'empty', hidden: 'hidden' }, 'No case studies match. Try another word or filter.');
-        feed.append(...nodes, empty);
-
-        // Filter chips are built from every category used in the case studies
-        const categories = [];
-        cases.forEach(c => list(c.categories).forEach(cat => {
-          if(!categories.some(x => x.toLowerCase() === cat.toLowerCase())) categories.push(cat);
+        document.getElementById('work-list').append(...cases.map(c => {
+          const stat = statOf(c.impact);
+          return el('li', { class: 'work-item' },
+            el('div', { class: 'work-years' }, isOngoing(c) ? el('span', { class: 'ongoing' }, yearsOf(c)) : yearsOf(c)),
+            el('div', {},
+              el('h3', { class: 'work-title' }, el('a', { class: 'work-link', href: caseUrl(c) }, c.title)),
+              c.summary ? el('p', { class: 'work-summary' }, c.summary) : null,
+              c.company ? el('p', { class: 'work-company' }, c.company) : null
+            ),
+            el('div', { class: 'work-stat', title: c.impact || '' }, stat)
+          );
         }));
-
-        let activeFilter = 'all';
-        const chips = [el('button', { type: 'button', class: 'chip active', 'data-filter': 'all', 'aria-pressed': 'true' }, 'All')]
-          .concat(categories.map(cat => el('button', { type: 'button', class: 'chip', 'data-filter': cat.toLowerCase(), 'aria-pressed': 'false' }, cat)));
-        filters.append(...chips);
-
-        function apply(){
-          // Every typed word must match the start of a word, so "app" finds "App" but not "mapping"
-          const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
-          let shown = 0;
-          nodes.forEach(node => {
-            const words = node.dataset.search.split(/[^\p{L}\p{N}]+/u);
-            const okFilter = activeFilter === 'all' || node.dataset.categories.split('|').includes(activeFilter);
-            const okQuery = terms.every(t => words.some(w => w.startsWith(t)));
-            const ok = okFilter && okQuery;
-            node.hidden = !ok;
-            if(ok) shown += 1;
-          });
-          count.textContent = String(shown);
-          empty.hidden = shown > 0;
-        }
-
-        chips.forEach(chip => {
-          chip.addEventListener('click', () => {
-            chips.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
-            chip.classList.add('active');
-            chip.setAttribute('aria-pressed', 'true');
-            activeFilter = chip.getAttribute('data-filter');
-            apply();
-          });
-        });
-
-        q.addEventListener('input', apply);
-        apply();
       }
 
       function renderSkills(s){
         document.getElementById('capability-list').append(
-          ...list(s.capabilities).map((c, i) => el('div', { class: 'cap' },
-            el('div', { class: 'cap-num' }, String(i + 1).padStart(2, '0')),
-            el('div', {}, el('h3', {}, c.title), el('p', {}, c.text))
-          ))
+          ...list(s.capabilities).map(c => el('div', { class: 'cap' }, el('h3', {}, c.title), el('p', {}, c.text)))
         );
-        document.getElementById('tool-list').append(
-          ...list(s.tools).map(t => el('span', { class: 'pill' }, t))
-        );
+        const tools = list(s.tools);
+        if(tools.length){
+          const node = document.getElementById('tools');
+          node.append(el('strong', {}, 'Tools and methods: '), tools.join(', ') + '.');
+          node.hidden = false;
+        }
       }
 
-      load('content/profile.json').then(renderProfile).catch(err => showError('hero-facts', err));
-      load('content/case-studies.json').then(renderCases).catch(err => showError('feed', err));
+      load('content/profile.json').then(renderProfile).catch(err => showError('intro-links', err));
+      load('content/case-studies.json').then(renderWork).catch(err => showError('work-list', err));
       load('content/skills.json').then(renderSkills).catch(err => showError('capability-list', err));
     })();
   </script>
