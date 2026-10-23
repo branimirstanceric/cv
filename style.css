@@ -81,10 +81,12 @@ button{ font: inherit; color: inherit; }
 .brand{
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
   text-decoration: none;
   white-space: nowrap;
 }
+@media (max-width: 600px){ .brand{ font-size: 1.2rem; } }
 .nav{
   display: flex;
   gap: 4px;
@@ -181,13 +183,14 @@ button{ font: inherit; color: inherit; }
 
 /* Hero (home) */
 .hero{
-  padding: 64px 0 0;
+  padding: 40px 0 0;
 }
+/* Text starts at the top, level with the photo, so no empty band above it */
 .hero-grid{
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
   gap: 56px;
-  align-items: center;
+  align-items: start;
 }
 @media (max-width: 860px){
   .hero{ padding: 40px 0 0; }
@@ -661,6 +664,31 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 }
 .not-found{ padding: 80px 0 40px; }
 .not-found p{ color: var(--muted); margin: 12px 0 24px; }
+
+/* Outside work (home) */
+.outside{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 56px;
+  align-items: center;
+}
+.outside.no-photo{ grid-template-columns: minmax(0, 1fr); }
+.outside .section-title{ margin-bottom: 16px; }
+.outside-text{ max-width: 62ch; display: grid; gap: 14px; }
+.outside-text p{ font-size: 1.05rem; color: var(--muted); }
+.outside-photo{ margin: 0; }
+.outside-photo img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  display: block;
+}
+.outside-photo figcaption{ margin-top: 8px; font-size: 0.86rem; color: var(--faint); }
+@media (max-width: 760px){
+  .outside{ grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .outside-photo{ max-width: 420px; }
+}
 
 /* Contact */
 .contact{
