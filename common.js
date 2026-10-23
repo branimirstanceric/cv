@@ -80,9 +80,19 @@
     return /ongoing|present|now/i.test(c.period || '');
   }
 
+  // Small logo tile; removes itself if the image can't load
+  function logoTile(c){
+    if(!c.company_logo) return null;
+    const tile = el('span', { class: 'logo-tile' });
+    const img = el('img', { src: asset(c.company_logo), alt: c.company ? c.company + ' logo' : '', loading: 'lazy' });
+    img.addEventListener('error', () => tile.remove());
+    tile.append(img);
+    return tile;
+  }
+
   function caseMeta(c){
     return el('div', { class: 'case-meta' },
-      c.company ? el('span', { class: 'company' }, c.company) : null,
+      (c.company || c.company_logo) ? el('span', { class: 'company' }, logoTile(c), c.company) : null,
       c.period ? el('span', {}, c.period) : null,
       isOngoing(c) ? el('span', { class: 'ongoing' }, 'Ongoing') : null
     );

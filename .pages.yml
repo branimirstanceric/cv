@@ -68,6 +68,10 @@ content:
             description: "Short name for this case study's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
           - { name: summary, label: One-line summary, type: string }
           - { name: company, label: Company / client, type: string }
+          - name: company_logo
+            label: Company logo
+            type: image
+            description: "Optional. Shown small next to the company name. Best: square SVG or PNG with a transparent background, under 100 KB."
           - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025. Include the word 'ongoing' to show the green Ongoing label." }
           - { name: context, label: Context (one line), type: string, description: "Optional, e.g. Team of 8 · SAP Commerce · 3 markets" }
           - { name: impact, label: Key result, type: string, description: "The headline number, e.g. Reduced processing time by over 70%." }
