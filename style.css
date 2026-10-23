@@ -230,6 +230,13 @@ button{ font: inherit; color: inherit; }
   max-width: 62ch;
   margin-bottom: 28px;
 }
+/* Small personal line (hobbies) under the intro */
+.hero-note{
+  font-size: 0.95rem;
+  color: var(--faint);
+  max-width: 62ch;
+  margin: -14px 0 28px;
+}
 .hero-actions{
   display: flex;
   flex-wrap: wrap;
@@ -664,31 +671,6 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 }
 .not-found{ padding: 80px 0 40px; }
 .not-found p{ color: var(--muted); margin: 12px 0 24px; }
-
-/* Outside work (home) */
-.outside{
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 56px;
-  align-items: center;
-}
-.outside.no-photo{ grid-template-columns: minmax(0, 1fr); }
-.outside .section-title{ margin-bottom: 16px; }
-.outside-text{ max-width: 62ch; display: grid; gap: 14px; }
-.outside-text p{ font-size: 1.05rem; color: var(--muted); }
-.outside-photo{ margin: 0; }
-.outside-photo img{
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--r-lg);
-  display: block;
-}
-.outside-photo figcaption{ margin-top: 8px; font-size: 0.86rem; color: var(--faint); }
-@media (max-width: 760px){
-  .outside{ grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .outside-photo{ max-width: 420px; }
-}
 
 /* Contact */
 .contact{

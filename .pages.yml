@@ -32,6 +32,10 @@ content:
         description: Must match words in the main headline exactly; they are shown in the accent colour.
         type: string
       - { name: hero_intro, label: Intro paragraph, type: text }
+      - name: hobbies
+        label: Hobbies (small text under the intro)
+        type: text
+        description: "One or two short sentences, shown in smaller grey text below the intro paragraph. Leave empty to hide it."
       - name: hero_facts
         label: Facts under the intro
         type: object
@@ -39,16 +43,6 @@ content:
         fields:
           - { name: label, label: Label, type: string }
           - { name: value, label: Value, type: string }
-      - name: outside_title
-        label: "Outside work: heading"
-        type: string
-        description: "Optional, e.g. Life beyond delivery. The section appears once the text below is filled in."
-      - name: outside_text
-        label: "Outside work: text"
-        type: text
-        description: "2–4 sentences about your hobbies. Leave a blank line between paragraphs. Leave empty to hide the section."
-      - { name: outside_photo, label: "Outside work: photo", type: image, description: "Optional." }
-      - { name: outside_caption, label: "Outside work: photo caption", type: string, description: "Optional, e.g. Hiking on Velebit." }
       - { name: contact_intro, label: Contact section text, type: text }
       - { name: email, label: Email, type: string }
       - { name: linkedin, label: LinkedIn URL, type: string }
