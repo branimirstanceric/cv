@@ -130,6 +130,7 @@ button{ font: inherit; color: inherit; }
   transition: transform 120ms ease-out, background-color var(--t), border-color var(--t);
 }
 .btn:hover{ transform: translateY(-1px); border-color: var(--faint); }
+.btn svg{ width: 16px; height: 16px; flex: none; }
 .btn.primary{
   background: var(--accent);
   border-color: var(--accent);
@@ -180,16 +181,16 @@ button{ font: inherit; color: inherit; }
 
 /* Hero (home) */
 .hero{
-  padding: 64px 0 48px;
+  padding: 64px 0 0;
 }
 .hero-grid{
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-columns: minmax(0, 1fr) 340px;
   gap: 56px;
-  align-items: start;
+  align-items: center;
 }
 @media (max-width: 860px){
-  .hero{ padding: 40px 0 32px; }
+  .hero{ padding: 40px 0 0; }
   .hero-grid{ grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
 .kicker{
@@ -230,9 +231,10 @@ button{ font: inherit; color: inherit; }
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 28px;
 }
+.hero-facts:empty{ display: none; }
 .hero-facts{
+  margin-top: 28px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 24px;
@@ -241,17 +243,11 @@ button{ font: inherit; color: inherit; }
 }
 .hero-facts strong{ color: var(--ink); font-weight: 600; }
 
-.profile-card{
-  background: var(--paper);
-  border: 1px solid var(--hair);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-  padding: 20px;
-}
+/* Photo on its own, no frame; badges/facts below it only if filled in */
 .avatar{
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--sunken);
   margin-bottom: 16px;
@@ -291,7 +287,7 @@ button{ font: inherit; color: inherit; }
 .facts dd{ text-align: right; }
 .avatar:last-child{ margin-bottom: 0; }
 @media (max-width: 860px){
-  .profile-card{ max-width: 240px; padding: 12px; }
+  .profile-card{ max-width: 320px; }
 }
 
 /* Results strip (home) */
@@ -324,6 +320,9 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 /* Sections */
 .section{ padding: 72px 0 0; }
 @media (max-width: 600px){ .section{ padding-top: 52px; } }
+/* The work section follows the intro closely */
+#cases.section{ padding-top: 64px; }
+@media (max-width: 600px){ #cases.section{ padding-top: 44px; } }
 .section-head{
   display: flex;
   align-items: end;

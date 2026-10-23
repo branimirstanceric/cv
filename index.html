@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 
 <body>
@@ -31,7 +31,7 @@
     All text on this page lives in the content/ folder:
       content/profile.json       name, intro, contact details
       content/case-studies.json  case studies (each one also gets its own page, case.html?id=...)
-      content/skills.json        capabilities and tooling
+      content/skills.json        capabilities
     Edit it through Pages CMS (app.pagescms.org) or directly in those files.
   -->
   <header class="topbar">
@@ -40,7 +40,6 @@
       <nav class="nav" aria-label="Primary navigation">
         <a href="#cases">Work</a>
         <a href="#capabilities">Capabilities</a>
-        <a href="#tooling">Tooling</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch light or dark theme">
@@ -109,19 +108,6 @@
       </div>
     </section>
 
-    <!-- Tooling -->
-    <section class="section" id="tooling">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Day to day</div>
-            <h2 class="section-title">Tools and methods</h2>
-          </div>
-        </div>
-        <div class="tools" id="tool-list"></div>
-      </div>
-    </section>
-
     <!-- Contact -->
     <div class="container">
       <section class="contact" id="contact">
@@ -136,10 +122,10 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> <span data-field="name"></span></div>
+    <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=5"></script>
+  <script src="common.js?v=7"></script>
   <script>
     (function(){
       const { el, icon, ICONS, asset, list, statOf, caseUrl, caseMeta, load, fillFields, contactButtons, showError } = window.Site;
@@ -281,9 +267,6 @@
             el('div', { class: 'cap-num' }, String(i + 1).padStart(2, '0')),
             el('div', {}, el('h3', {}, c.title), el('p', {}, c.text))
           ))
-        );
-        document.getElementById('tool-list').append(
-          ...list(s.tools).map(t => el('span', { class: 'pill' }, t))
         );
       }
 
