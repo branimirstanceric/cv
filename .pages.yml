@@ -53,32 +53,32 @@ content:
       - { name: github, label: GitHub URL, type: string }
 
   - name: case_studies
-    label: Case studies
+    label: Work (projects)
     type: file
     path: content/case-studies.json
     format: json
     fields:
       - name: cases
-        label: Case studies
-        description: Shown on the Case studies page (and under each job in Experience) in this order. Drag to reorder.
+        label: Projects
+        description: Shown on the Work page in this order. Drag to reorder. Each project also gets its own page.
         type: object
         list: true
         fields:
-          # Card on the Case studies page
+          # Card on the Work page
           - { name: title, label: Title, type: string, required: true }
           - name: id
             label: Page link
             type: string
-            description: "Short name for this case study's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
+            description: "Short name for this project's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
           - { name: summary, label: One-line summary, type: string }
           - name: company
             label: Company / client
             type: string
-            description: "Write it exactly as in Experience (e.g. K2-18b) so the project appears under that job."
+            description: "Write it exactly as in Company logos (e.g. K2-18b) to use that company's logo."
           - name: company_logo
             label: Company logo
             type: image
-            description: "Optional. Leave empty to use the logo from Experience. Best: square SVG or PNG with a transparent background, under 100 KB."
+            description: "Optional. Leave empty to use the logo from Company logos. A logo cropped close to its edges reads best at small size."
           - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025. Include the word 'ongoing' to show the green Ongoing label." }
           - { name: context, label: Context (one line), type: string, description: "Optional, e.g. Team of 8 · SAP Commerce · 3 markets" }
           - { name: impact, label: Key result, type: string, description: "The headline number, e.g. Reduced processing time by over 70%." }
@@ -88,7 +88,7 @@ content:
             description: "Only needed when the Key result has no % in it, e.g. 5 markets. Leave empty to take the number from the Key result."
           - { name: tags, label: Tags (shown on the card), type: string, list: true }
 
-          # Full case study page
+          # The project's own page
           - { name: problem, label: The challenge, type: text, description: "What was wrong or needed. Leave a blank line between paragraphs." }
           - { name: why, label: Why it mattered, type: text, description: "Optional. Business impact of the problem: cost, customers, deadlines, risk." }
           - name: context_points
@@ -118,28 +118,29 @@ content:
               - { name: image, label: Image, type: image }
               - { name: caption, label: Caption, type: string }
           - name: categories
-            label: Filter categories
-            description: Each category becomes a filter button above the case studies.
+            label: Areas
+            description: Shown as "Areas" on the project's own page.
             type: string
             list: true
 
+  # Jobs are no longer shown on the site; this list now only supplies each company's logo to its projects.
   - name: experience
-    label: Experience
+    label: Company logos
     type: file
     path: content/experience.json
     format: json
     fields:
       - name: jobs
-        label: Jobs
-        description: Newest first. Case studies appear under the job whose Company matches theirs.
+        label: Companies
+        description: Upload each company's logo once; every project with the same Company uses it.
         type: object
         list: true
         fields:
-          - { name: role, label: Role, type: string, required: true }
           - { name: company, label: Company, type: string, required: true }
-          - { name: logo, label: Company logo, type: image, description: "Also used on this company's case studies unless they have their own logo." }
-          - { name: period, label: Period, type: string, description: "e.g. Mar 2025 – Mar 2026" }
-          - { name: summary, label: One-line summary, type: string }
+          - { name: logo, label: Company logo, type: image, description: "A logo cropped close to its edges reads best at small size. White logos need their own dark background." }
+          - { name: role, label: Role (not shown), type: string }
+          - { name: period, label: Period (not shown), type: string }
+          - { name: summary, label: One-line summary (not shown), type: string }
 
   - name: skills
     label: Capabilities

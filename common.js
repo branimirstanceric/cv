@@ -145,7 +145,7 @@
         el('p', { class: 'case-summary' }, c.summary),
         c.context ? el('p', { class: 'case-context' }, c.context) : null,
         el('div', { class: 'case-tags' }, list(c.tags).map(t => el('span', { class: 'pill' }, t))),
-        el('span', { class: 'case-more', 'aria-hidden': 'true' }, 'Read full case study', icon(ICONS.right))
+        el('span', { class: 'case-more', 'aria-hidden': 'true' }, 'View project', icon(ICONS.right))
       ),
       statBlock
     );

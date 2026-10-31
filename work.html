@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Branimir Stančerić</title>
-  <meta name="description" content="Case studies by Branimir Stančerić: eCommerce delivery, integrations, platform migrations and fintech rollouts." />
-  <meta property="og:title" content="Case studies | Branimir Stančerić" />
+  <meta name="description" content="Work by Branimir Stančerić: eCommerce delivery, integrations, platform migrations and fintech rollouts." />
+  <meta property="og:title" content="Work | Branimir Stančerić" />
   <meta property="og:description" content="Projects in eCommerce delivery, integrations, platform migrations and fintech rollouts." />
   <meta property="og:image" content="https://branimirstanceric.github.io/cv/assets/profile.jpg" />
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
@@ -25,18 +25,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 
 <body>
   <!--
-    All case studies as cards; each card opens case.html?id=<page link>.
+    All projects as cards; each card opens case.html?id=<page link>.
     The list and its order come from content/case-studies.json (edit it in Pages CMS).
   -->
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html" data-field="name">Branimir Stančerić</a>
       <nav class="nav" id="site-nav" aria-label="Primary navigation">
+        <a href="index.html">About</a>
         <a href="work.html" aria-current="page">Work</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -56,37 +57,12 @@
   <main>
     <div class="container">
       <header class="cs-head">
-        <div class="eyebrow">Work</div>
-        <h1 class="cs-title">Experience and case studies</h1>
-        <p class="cs-lead">Where I've worked and the projects I've delivered across eCommerce, integrations, platform migrations and fintech. Open any project to see the challenge, what I did and the results.</p>
+        <h1 class="cs-title">Work</h1>
+        <p class="cs-lead">Projects I've delivered across eCommerce, integrations, platform migrations and fintech. Open any project to see the challenge, what I did and the results.</p>
       </header>
+      <!-- Every project as a card, in the order set in Pages CMS -->
+      <div class="feed" id="feed"></div>
     </div>
-
-    <!-- Experience: one row per job, with that job's case studies linked under it -->
-    <section class="section work-section" id="experience">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Career</div>
-            <h2 class="section-title">Experience</h2>
-          </div>
-        </div>
-        <ol class="jobs" id="job-list"></ol>
-      </div>
-    </section>
-
-    <!-- Case studies: every project as a card, in the order set in Pages CMS -->
-    <section class="section" id="cases">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Selected work</div>
-            <h2 class="section-title">Case studies</h2>
-          </div>
-        </div>
-        <div class="feed" id="feed"></div>
-      </div>
-    </section>
 
     <!-- Contact -->
     <div class="container">
@@ -105,49 +81,23 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=17"></script>
+  <script src="common.js?v=18"></script>
   <script>
     (function(){
-      const { el, icon, ICONS, list, withJobLogos, caseUrl, caseCard, logoTile, load, fillFields, contactButtons, showError } = window.Site;
-
-      function renderExperience(cases, jobs){
-        // One row per job, listing the case studies whose Company matches the job
-        const sameCompany = (a, b) => (a || '').trim().toLowerCase() === (b || '').trim().toLowerCase();
-        document.getElementById('job-list').append(...jobs.map(j => {
-          const projects = cases.filter(c => sameCompany(c.company, j.company));
-          return el('li', { class: 'job' },
-            el('div', { class: 'job-period' }, j.period),
-            el('div', { class: 'job-main' },
-              el('div', { class: 'job-head' },
-                logoTile({ company: j.company, company_logo: j.logo }),
-                el('div', {},
-                  el('h3', { class: 'job-role' }, j.role),
-                  el('div', { class: 'job-company' }, j.company)
-                )
-              ),
-              j.summary ? el('p', { class: 'job-summary' }, j.summary) : null,
-              projects.length ? el('ul', { class: 'job-projects' }, projects.map(c =>
-                el('li', {}, el('a', { href: caseUrl(c) }, c.title, icon(ICONS.right)))
-              )) : null
-            )
-          );
-        }));
-      }
+      const { list, withJobLogos, caseCard, load, fillFields, contactButtons, showError } = window.Site;
 
       load('content/profile.json').then(p => {
         fillFields(p);
         document.getElementById('contact-list').append(...contactButtons(p));
       }).catch(err => showError('contact-list', err));
 
-      // Each half degrades on its own: no experience file still shows the cards, and vice versa
+      // experience.json only supplies company logos (Pages CMS: Company logos), so a failure there must not block the list
       Promise.all([
-        load('content/case-studies.json').then(d => list(d.cases)).catch(err => { showError('feed', err); return []; }),
-        load('content/experience.json').then(e => list(e.jobs)).catch(err => { showError('job-list', err); return []; })
-      ]).then(([cases, jobs]) => {
-        withJobLogos(cases, jobs);
-        renderExperience(cases, jobs);
-        document.getElementById('feed').append(...cases.map(caseCard));
-      });
+        load('content/case-studies.json'),
+        load('content/experience.json').then(e => list(e.jobs)).catch(() => [])
+      ]).then(([data, jobs]) => {
+        document.getElementById('feed').append(...withJobLogos(list(data.cases), jobs).map(caseCard));
+      }).catch(err => showError('feed', err));
     })();
   </script>
 
