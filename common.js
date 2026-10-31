@@ -59,6 +59,21 @@
     return m ? m[0].replace(/\s/g, '') : '';
   }
 
+  // A case study's big number: the "Big number" field if set, otherwise taken from the key result
+  function statFor(c){
+    return (c.stat || '').trim() || statOf(c.impact);
+  }
+
+  // Case studies without their own logo use their employer's logo from Experience
+  function withJobLogos(cases, jobs){
+    const logos = {};
+    list(jobs).forEach(j => { if(j.company && j.logo) logos[j.company.trim().toLowerCase()] = j.logo; });
+    cases.forEach(c => {
+      if(!c.company_logo && c.company) c.company_logo = logos[c.company.trim().toLowerCase()] || '';
+    });
+    return cases;
+  }
+
   function slugify(text){
     return (text || '')
       .normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -128,7 +143,7 @@
   }
 
   window.Site = {
-    el, icon, ICONS, asset, list, statOf, caseId, caseUrl, isOngoing, caseMeta,
+    el, icon, ICONS, asset, list, statOf, statFor, withJobLogos, caseId, caseUrl, isOngoing, caseMeta, logoTile,
     load, fillFields, contactButtons, showError
   };
 })();

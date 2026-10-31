@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 
 <body>
@@ -33,6 +33,7 @@
     All text on this page lives in the content/ folder:
       content/profile.json       name, intro, contact details
       content/case-studies.json  case studies (each one also gets its own page, case.html?id=...)
+      content/experience.json    jobs for the Experience timeline
       content/skills.json        capabilities
     Edit it through Pages CMS (app.pagescms.org) or directly in those files.
   -->
@@ -41,6 +42,7 @@
       <a class="brand" href="#top" data-field="name">Branimir Stančerić</a>
       <nav class="nav" aria-label="Primary navigation">
         <a href="#cases">Work</a>
+        <a href="#experience">Experience</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -86,16 +88,22 @@
           </div>
         </div>
 
-        <div class="toolbar">
-          <label class="search">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="q" type="search" placeholder="Search case studies" aria-label="Search case studies" />
-          </label>
-          <div class="chips" id="filters" role="group" aria-label="Filter by category"></div>
-          <div class="count" aria-live="polite"><span id="count">0</span> shown</div>
-        </div>
-
+        <!-- Case studies with "Show on the homepage" switched on -->
         <div class="feed" id="feed"></div>
+        <a class="all-work-link" href="#experience">All projects by role ↓</a>
+      </div>
+    </section>
+
+    <!-- Experience: one row per job, with that job's case studies linked under it -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Career</div>
+            <h2 class="section-title">Experience</h2>
+          </div>
+        </div>
+        <ol class="jobs" id="job-list"></ol>
       </div>
     </section>
 
@@ -129,10 +137,10 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=12"></script>
+  <script src="common.js?v=13"></script>
   <script>
     (function(){
-      const { el, icon, ICONS, asset, list, statOf, caseUrl, caseMeta, load, fillFields, contactButtons, showError } = window.Site;
+      const { el, icon, ICONS, asset, list, statFor, withJobLogos, caseUrl, caseMeta, logoTile, load, fillFields, contactButtons, showError } = window.Site;
 
       function renderProfile(p){
         fillFields(p);
@@ -183,12 +191,12 @@
       }
 
       function renderCase(c){
-        const stat = statOf(c.impact);
+        const stat = statFor(c);
 
         let statBlock;
         if(c.impact){
           statBlock = el('div', { class: 'case-stat' },
-            stat ? el('div', { class: 'num' }, stat) : null,
+            stat ? el('div', { class: stat.length > 4 ? 'num num-long' : 'num' }, stat) : null,
             el('div', { class: 'txt' }, c.impact)
           );
         } else {
@@ -208,68 +216,36 @@
           ),
           statBlock
         );
-
-        card.dataset.categories = list(c.categories).map(s => s.toLowerCase()).join('|');
-        // Search runs over the case study's own content, not section labels
-        card.dataset.search = [
-          c.title, c.summary, c.company, c.period, c.context, c.impact, c.why,
-          c.problem, c.approach, c.outcome, c.lessons, list(c.my_role), list(c.tags), list(c.categories),
-          list(c.context_points), list(c.results),
-          list(c.phases).map(ph => [ph.title, list(ph.points)])
-        ].flat(3).filter(Boolean).join(' ').toLowerCase();
         return card;
       }
 
-      function renderCases(data){
-        const cases = list(data.cases);
-        const feed = document.getElementById('feed');
-        const filters = document.getElementById('filters');
-        const q = document.getElementById('q');
-        const count = document.getElementById('count');
+      function renderWork(cases, jobs){
+        // Featured cards; if none are switched on, show the first three so the section is never empty
+        let featured = cases.filter(c => c.featured);
+        if(!featured.length) featured = cases.slice(0, 3);
+        document.getElementById('feed').append(...featured.map(renderCase));
 
-        const nodes = cases.map(renderCase);
-        const empty = el('div', { class: 'empty', hidden: 'hidden' }, 'No case studies match. Try another word or filter.');
-        feed.append(...nodes, empty);
-
-        // Filter chips are built from every category used in the case studies
-        const categories = [];
-        cases.forEach(c => list(c.categories).forEach(cat => {
-          if(!categories.some(x => x.toLowerCase() === cat.toLowerCase())) categories.push(cat);
+        // Experience rows, each listing the case studies whose Company matches the job
+        const sameCompany = (a, b) => (a || '').trim().toLowerCase() === (b || '').trim().toLowerCase();
+        document.getElementById('job-list').append(...list(jobs).map(j => {
+          const projects = cases.filter(c => sameCompany(c.company, j.company));
+          return el('li', { class: 'job' },
+            el('div', { class: 'job-period' }, j.period),
+            el('div', { class: 'job-main' },
+              el('div', { class: 'job-head' },
+                logoTile({ company: j.company, company_logo: j.logo }),
+                el('div', {},
+                  el('h3', { class: 'job-role' }, j.role),
+                  el('div', { class: 'job-company' }, j.company)
+                )
+              ),
+              j.summary ? el('p', { class: 'job-summary' }, j.summary) : null,
+              projects.length ? el('ul', { class: 'job-projects' }, projects.map(c =>
+                el('li', {}, el('a', { href: caseUrl(c) }, c.title, icon(ICONS.right)))
+              )) : null
+            )
+          );
         }));
-
-        let activeFilter = 'all';
-        const chips = [el('button', { type: 'button', class: 'chip active', 'data-filter': 'all', 'aria-pressed': 'true' }, 'All')]
-          .concat(categories.map(cat => el('button', { type: 'button', class: 'chip', 'data-filter': cat.toLowerCase(), 'aria-pressed': 'false' }, cat)));
-        filters.append(...chips);
-
-        function apply(){
-          // Every typed word must match the start of a word, so "app" finds "App" but not "mapping"
-          const terms = q.value.toLowerCase().split(/\s+/).filter(Boolean);
-          let shown = 0;
-          nodes.forEach(node => {
-            const words = node.dataset.search.split(/[^\p{L}\p{N}]+/u);
-            const okFilter = activeFilter === 'all' || node.dataset.categories.split('|').includes(activeFilter);
-            const okQuery = terms.every(t => words.some(w => w.startsWith(t)));
-            const ok = okFilter && okQuery;
-            node.hidden = !ok;
-            if(ok) shown += 1;
-          });
-          count.textContent = String(shown);
-          empty.hidden = shown > 0;
-        }
-
-        chips.forEach(chip => {
-          chip.addEventListener('click', () => {
-            chips.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
-            chip.classList.add('active');
-            chip.setAttribute('aria-pressed', 'true');
-            activeFilter = chip.getAttribute('data-filter');
-            apply();
-          });
-        });
-
-        q.addEventListener('input', apply);
-        apply();
       }
 
       function renderSkills(s){
@@ -282,7 +258,14 @@
       }
 
       load('content/profile.json').then(renderProfile).catch(err => showError('hero-facts', err));
-      load('content/case-studies.json').then(renderCases).catch(err => showError('feed', err));
+      // Experience is optional: if it fails to load, the featured cards still show
+      Promise.all([
+        load('content/case-studies.json'),
+        load('content/experience.json').catch(err => { console.error(err); return { jobs: [] }; })
+      ]).then(([data, exp]) => {
+        const jobs = list(exp.jobs);
+        renderWork(withJobLogos(list(data.cases), jobs), jobs);
+      }).catch(err => showError('feed', err));
       load('content/skills.json').then(renderSkills).catch(err => showError('capability-list', err));
     })();
   </script>

@@ -1,0 +1,39 @@
+{
+  "jobs": [
+    {
+      "role": "Project Manager",
+      "company": "SHAPE",
+      "logo": "",
+      "period": "Mar 2026 – Sep 2026",
+      "summary": "Regional app expansion into SEE markets under central bank and financial regulation."
+    },
+    {
+      "role": "IT Delivery Manager / Business Analyst",
+      "company": "K2-18b",
+      "logo": "",
+      "period": "Mar 2025 – Mar 2026",
+      "summary": "Localized B2C webshop for Slovenia and the eKupi–UNIQA insurance integration."
+    },
+    {
+      "role": "IT Delivery Manager",
+      "company": "Kenty Adria",
+      "logo": "",
+      "period": "Sep 2024 – Jan 2025",
+      "summary": "Multi-brand B2C e-commerce platform for Home of Brands across CEE/SEE markets."
+    },
+    {
+      "role": "IT Delivery Manager",
+      "company": "A007plus",
+      "logo": "",
+      "period": "Jun 2022 – Sep 2024",
+      "summary": "Technology strategy and budget for B2C e-commerce; delivery of the Abrakadabra mobile app."
+    },
+    {
+      "role": "Project Coordinator / Business Analyst",
+      "company": "eKupi",
+      "logo": "",
+      "period": "Apr 2016 – Jun 2022",
+      "summary": "Multi-regional migration of eKupi's webshops to SAP eCommerce across 5 markets."
+    }
+  ]
+}

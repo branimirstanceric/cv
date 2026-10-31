@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 
 <body>
@@ -66,10 +66,10 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=12"></script>
+  <script src="common.js?v=13"></script>
   <script>
     (function(){
-      const { el, icon, ICONS, list, statOf, caseId, caseUrl, caseMeta, load, fillFields, contactButtons, showError, asset } = window.Site;
+      const { el, icon, ICONS, list, statFor, withJobLogos, caseId, caseUrl, caseMeta, load, fillFields, contactButtons, showError, asset } = window.Site;
       const root = document.getElementById('case');
       const wanted = new URLSearchParams(location.search).get('id') || '';
 
@@ -99,7 +99,7 @@
 
       function renderCase(cases, index){
         const c = cases[index];
-        const stat = statOf(c.impact);
+        const stat = statFor(c);
 
         if(c.summary) document.querySelector('meta[name="description"]').setAttribute('content', c.summary);
 
@@ -164,9 +164,11 @@
       }).catch(err => showError('contact-list', err));
 
       const cases = load('content/case-studies.json');
+      // Only needed for employer logos, so a failure here must not block the page
+      const jobs = load('content/experience.json').then(e => list(e.jobs)).catch(() => []);
 
-      Promise.all([cases, profile]).then(([data]) => {
-        const all = list(data.cases);
+      Promise.all([cases, profile, jobs]).then(([data, , jobList]) => {
+        const all = withJobLogos(list(data.cases), jobList);
         const target = caseId({ id: wanted });
         const index = target ? all.findIndex(c => caseId(c) === target) : -1;
         if(index < 0) renderNotFound();
