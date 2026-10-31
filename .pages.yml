@@ -15,7 +15,11 @@ content:
       - { name: name, label: Full name, type: string, required: true }
       - { name: headline, label: Headline (top bar), type: string }
       - { name: short_bio, label: Short bio (under your name), type: text }
-      - { name: photo, label: Profile photo, type: image }
+      - { name: photo, label: Profile photo, type: image, description: "Used for link previews when your site is shared (e.g. on LinkedIn)." }
+      - name: hero_background
+        label: Intro background photo
+        type: image
+        description: "Full-width photo behind the intro. A wide (landscape) photo works best, about 1600 px wide and under 300 KB. The left side is darkened for the text."
       - { name: cv_file, label: CV file (PDF), type: file }
       - { name: badges, label: Highlight badges, type: string, list: true }
       - name: quick_facts

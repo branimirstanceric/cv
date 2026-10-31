@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=13" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 
 <body>
@@ -54,27 +54,22 @@
   </header>
 
   <main id="top">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
-          <h1 class="hero-title" id="hero-title"></h1>
-          <p class="hero-intro" data-field="hero_intro"></p>
-          <!-- Hobbies: a small line under the intro, shown only when filled in -->
-          <p class="hero-note" id="hobbies" hidden></p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#cases">View my work</a>
-            <a class="btn" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
-          </div>
-          <div class="hero-facts" id="hero-facts"></div>
+    <!-- Hero: full-width photo that scrolls at half speed behind the intro (parallax) -->
+    <section class="hero hero-photo" id="hero">
+      <div class="hero-bg" id="hero-bg" aria-hidden="true">
+        <img id="hero-bg-img" src="assets/hero.jpg" alt="" />
+      </div>
+      <div class="container hero-content">
+        <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
+        <h1 class="hero-title" id="hero-title"></h1>
+        <p class="hero-intro" data-field="hero_intro"></p>
+        <!-- Hobbies: a small line under the intro, shown only when filled in -->
+        <p class="hero-note" id="hobbies" hidden></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#cases">View my work</a>
+          <a class="btn" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
         </div>
-
-        <aside class="profile-card" aria-label="Profile">
-          <div class="avatar" id="avatar"></div>
-          <div class="badges" id="badges"></div>
-          <dl class="facts" id="quick-facts"></dl>
-        </aside>
+        <div class="hero-facts" id="hero-facts"></div>
       </div>
     </section>
 
@@ -137,7 +132,7 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=13"></script>
+  <script src="common.js?v=14"></script>
   <script>
     (function(){
       const { el, icon, ICONS, asset, list, statFor, withJobLogos, caseUrl, caseMeta, logoTile, load, fillFields, contactButtons, showError } = window.Site;
@@ -145,25 +140,10 @@
       function renderProfile(p){
         fillFields(p);
 
-        const avatar = document.getElementById('avatar');
-        if(p.photo){
-          const img = el('img', { src: asset(p.photo), alt: p.name });
-          img.addEventListener('error', () => avatar.replaceChildren('Photo not found'));
-          avatar.append(img);
-        }
+        // Background photo behind the intro (Pages CMS: "Intro background photo")
+        if(p.hero_background) document.getElementById('hero-bg-img').src = asset(p.hero_background);
 
         if(p.cv_file) document.getElementById('cv-link').setAttribute('href', asset(p.cv_file));
-
-        // Badges and quick facts are optional; drop their (bordered) containers when empty
-        const badges = document.getElementById('badges');
-        const badgeList = list(p.badges);
-        if(badgeList.length) badges.append(...badgeList.map(b => el('span', { class: 'pill' }, b)));
-        else badges.remove();
-
-        const facts = document.getElementById('quick-facts');
-        const factList = list(p.quick_facts);
-        if(factList.length) facts.append(...factList.map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.value))));
-        else facts.remove();
 
         // Hero title with the highlighted phrase in accent colour
         const title = document.getElementById('hero-title');
@@ -267,6 +247,24 @@
         renderWork(withJobLogos(list(data.cases), jobs), jobs);
       }).catch(err => showError('feed', err));
       load('content/skills.json').then(renderSkills).catch(err => showError('capability-list', err));
+
+      // Parallax: the intro photo moves at half the scroll speed, so it seems to sit behind the text.
+      // Skipped for visitors who ask their system for reduced motion.
+      const hero = document.getElementById('hero');
+      const heroBg = document.getElementById('hero-bg');
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        let ticking = false;
+        const update = () => {
+          ticking = false;
+          const y = window.scrollY;
+          if(y > hero.offsetTop + hero.offsetHeight) return; // off screen, nothing to move
+          heroBg.style.transform = 'translate3d(0, ' + (y * 0.5).toFixed(1) + 'px, 0)';
+        };
+        window.addEventListener('scroll', () => {
+          if(!ticking){ ticking = true; requestAnimationFrame(update); }
+        }, { passive: true });
+        update();
+      }
     })();
   </script>
 
