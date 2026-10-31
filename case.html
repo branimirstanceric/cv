@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case study | Branimir Stančerić</title>
+  <title>Branimir Stančerić</title>
   <meta name="description" content="Case study by Branimir Stančerić, Delivery Manager and IT Project Manager." />
   <meta property="og:image" content="https://branimirstanceric.github.io/cv/assets/profile.jpg" />
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=12" />
 </head>
 
 <body>
@@ -66,13 +66,12 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=11"></script>
+  <script src="common.js?v=12"></script>
   <script>
     (function(){
       const { el, icon, ICONS, list, statOf, caseId, caseUrl, caseMeta, load, fillFields, contactButtons, showError, asset } = window.Site;
       const root = document.getElementById('case');
       const wanted = new URLSearchParams(location.search).get('id') || '';
-      let ownerName = '';
 
       function section(title, ...content){
         const body = content.flat().filter(Boolean);
@@ -91,7 +90,6 @@
       }
 
       function renderNotFound(){
-        document.title = 'Case study not found' + (ownerName ? ' | ' + ownerName : '');
         root.append(el('div', { class: 'not-found' },
           el('h1', { class: 'cs-title' }, 'Case study not found'),
           el('p', {}, 'This link may be outdated. All case studies are listed on the main page.'),
@@ -103,7 +101,6 @@
         const c = cases[index];
         const stat = statOf(c.impact);
 
-        document.title = c.title + (ownerName ? ' | ' + ownerName : '');
         if(c.summary) document.querySelector('meta[name="description"]').setAttribute('content', c.summary);
 
         const head = el('header', { class: 'cs-head' },
@@ -162,7 +159,6 @@
       }
 
       const profile = load('content/profile.json').then(p => {
-        ownerName = p.name || '';
         fillFields(p);
         document.getElementById('contact-list').append(...contactButtons(p));
       }).catch(err => showError('contact-list', err));

@@ -222,7 +222,6 @@ button{ font: inherit; color: inherit; }
 }
 .hero-title .accent{
   color: var(--accent);
-  font-style: italic;
 }
 .hero-intro{
   font-size: 1.1rem;
