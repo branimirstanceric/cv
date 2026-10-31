@@ -100,9 +100,31 @@ button{ font: inherit; color: inherit; }
   transition: color var(--t), background-color var(--t);
 }
 .nav a:hover{ color: var(--ink); background: var(--sunken); }
-@media (max-width: 760px){ .nav{ display: none; } }
 
-.theme-btn{
+.topbar-actions{ display: flex; align-items: center; gap: 8px; }
+
+/* Phone menu: the links fold into a dropdown under the top bar, opened by the menu button */
+@media (max-width: 760px){
+  .nav{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 16px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--hair);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  }
+  .topbar.menu-open .nav{ display: flex; }
+  .nav a{ padding: 12px 14px; font-size: 1.05rem; border-radius: var(--r-md); }
+}
+.menu-btn .icon-close, .topbar.menu-open .menu-btn .icon-menu{ display: none; }
+.topbar.menu-open .menu-btn .icon-close{ display: block; }
+
+.theme-btn, .menu-btn{
   border: 1px solid var(--hair);
   background: var(--paper);
   border-radius: var(--r-pill);
@@ -113,8 +135,11 @@ button{ font: inherit; color: inherit; }
   cursor: pointer;
   transition: background-color var(--t);
 }
-.theme-btn:hover{ background: var(--sunken); }
-.theme-btn svg{ width: 18px; height: 18px; }
+.theme-btn:hover, .menu-btn:hover{ background: var(--sunken); }
+.theme-btn svg, .menu-btn svg{ width: 18px; height: 18px; }
+/* Menu button only on phones (after the shared button rule, so it wins) */
+.menu-btn{ display: none; }
+@media (max-width: 760px){ .menu-btn{ display: grid; } }
 [data-theme="dark"] .icon-moon, [data-theme="light"] .icon-sun{ display: none; }
 
 /* Buttons */
@@ -375,9 +400,27 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 /* Sections */
 .section{ padding: 72px 0 0; }
 @media (max-width: 600px){ .section{ padding-top: 52px; } }
-/* Experience follows the intro closely */
-#experience.section{ padding-top: 64px; }
-@media (max-width: 600px){ #experience.section{ padding-top: 44px; } }
+/* Homepage: the line pointing to the Work page follows the intro closely */
+#work-link.section{ padding-top: 64px; }
+@media (max-width: 600px){ #work-link.section{ padding-top: 44px; } }
+.teaser{
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  line-height: 1.35;
+  max-width: 34ch;
+  color: var(--muted);
+}
+.teaser a{
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  white-space: nowrap;
+}
+.teaser a:hover{ text-decoration-thickness: 2px; }
+/* Work page: Experience sits right under the page heading */
+#experience.work-section{ padding-top: 8px; }
 /* Current page in the menu */
 .nav a[aria-current="page"]{ color: var(--ink); background: var(--sunken); }
 .section-head{

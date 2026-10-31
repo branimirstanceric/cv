@@ -10,6 +10,21 @@
     });
   }
 
+  // Phone menu: the button opens/closes the link list; a link tap, Escape or a tap outside closes it
+  const menuBtn = document.getElementById('menu-btn');
+  if(menuBtn){
+    const bar = menuBtn.closest('.topbar');
+    const setOpen = open => {
+      bar.classList.toggle('menu-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    menuBtn.addEventListener('click', () => setOpen(!bar.classList.contains('menu-open')));
+    bar.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') setOpen(false); });
+    document.addEventListener('click', e => { if(!bar.contains(e.target)) setOpen(false); });
+  }
+
   const year = document.getElementById('year');
   if(year) year.textContent = new Date().getFullYear();
 
