@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=20" />
 </head>
 
 <body>
@@ -61,7 +61,8 @@
     <!-- Hero: full-width photo that scrolls at half speed behind the intro (parallax) -->
     <section class="hero hero-photo" id="hero">
       <div class="hero-bg" id="hero-bg" aria-hidden="true">
-        <img id="hero-bg-img" src="assets/hero.jpg" alt="" />
+        <!-- No src here: the photo chosen in Pages CMS is set by the script and fades in once loaded -->
+        <img id="hero-bg-img" alt="" />
       </div>
       <div class="container hero-content">
         <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
@@ -114,16 +115,23 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=18"></script>
+  <script src="common.js?v=20"></script>
   <script>
     (function(){
       const { el, asset, list, load, fillFields, contactButtons, showError } = window.Site;
 
+      // Background photo behind the intro (Pages CMS: "Intro background photo").
+      // Only the chosen photo is requested, and it fades in when ready, so no other picture flashes first.
+      function showHeroPhoto(src){
+        const img = document.getElementById('hero-bg-img');
+        img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+        img.src = src;
+      }
+
       function renderProfile(p){
         fillFields(p);
 
-        // Background photo behind the intro (Pages CMS: "Intro background photo")
-        if(p.hero_background) document.getElementById('hero-bg-img').src = asset(p.hero_background);
+        showHeroPhoto(asset(p.hero_background) || 'assets/hero.jpg');
 
         if(p.cv_file) document.getElementById('cv-link').setAttribute('href', asset(p.cv_file));
 
@@ -161,7 +169,10 @@
         );
       }
 
-      load('content/profile.json').then(renderProfile).catch(err => showError('hero-facts', err));
+      load('content/profile.json').then(renderProfile).catch(err => {
+        showHeroPhoto('assets/hero.jpg');
+        showError('hero-facts', err);
+      });
       load('content/skills.json').then(renderSkills).catch(err => showError('capability-list', err));
 
       // Parallax: the intro photo moves at half the scroll speed, so it seems to sit behind the text.

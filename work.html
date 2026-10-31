@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=20" />
 </head>
 
 <body>
@@ -59,6 +59,13 @@
       <header class="cs-head">
         <h1 class="cs-title">Work</h1>
         <p class="cs-lead">Projects I've delivered across eCommerce, integrations, platform migrations and fintech. Open any project to see the challenge, what I did and the results.</p>
+        <!-- Uses the CV file set in Pages CMS (Profile & intro → CV file); hidden if none is set -->
+        <div class="page-actions">
+          <a class="btn" id="cv-link" href="#" target="_blank" rel="noreferrer" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+            Download CV
+          </a>
+        </div>
       </header>
       <!-- Every project as a card, in the order set in Pages CMS -->
       <div class="feed" id="feed"></div>
@@ -81,13 +88,18 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=18"></script>
+  <script src="common.js?v=20"></script>
   <script>
     (function(){
-      const { list, withJobLogos, caseCard, load, fillFields, contactButtons, showError } = window.Site;
+      const { asset, list, withJobLogos, caseCard, load, fillFields, contactButtons, showError } = window.Site;
 
       load('content/profile.json').then(p => {
         fillFields(p);
+        if(p.cv_file){
+          const cv = document.getElementById('cv-link');
+          cv.href = asset(p.cv_file);
+          cv.hidden = false;
+        }
         document.getElementById('contact-list').append(...contactButtons(p));
       }).catch(err => showError('contact-list', err));
 

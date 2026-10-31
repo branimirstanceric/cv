@@ -233,7 +233,11 @@ button{ font: inherit; color: inherit; }
   object-fit: cover;
   object-position: 70% 45%;
   display: block;
+  /* Hidden until the chosen photo has loaded, then faded in (see showHeroPhoto in index.html) */
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
+.hero-bg img.loaded{ opacity: 1; }
 /* Darkens the left side, where the text sits, and leaves the face on the right visible */
 .hero-bg::after{
   content: "";
@@ -704,6 +708,9 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
   text-wrap: balance;
 }
 .cs-lead{ font-size: 1.15rem; color: var(--muted); max-width: 62ch; }
+/* Work page: Download CV button under the intro line */
+.page-actions{ margin-top: 20px; }
+.page-actions:not(:has(a:not([hidden]))){ display: none; }
 .cs-head .case-tags{ margin-top: 20px; }
 
 .cs-result{
