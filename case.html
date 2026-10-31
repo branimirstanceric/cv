@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link rel="stylesheet" href="style.css?v=16" />
 </head>
 
 <body>
@@ -35,7 +35,8 @@
     <div class="container topbar-inner">
       <a class="brand" href="index.html" data-field="name">Branimir Stančerić</a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html#cases">Work</a>
+        <a href="work.html">Work</a>
+        <a href="index.html#experience">Experience</a>
         <a href="index.html#capabilities">Capabilities</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -66,7 +67,7 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=15"></script>
+  <script src="common.js?v=16"></script>
   <script>
     (function(){
       const { el, icon, ICONS, list, statFor, withJobLogos, caseId, caseUrl, caseMeta, load, fillFields, contactButtons, showError, asset } = window.Site;
@@ -92,8 +93,8 @@
       function renderNotFound(){
         root.append(el('div', { class: 'not-found' },
           el('h1', { class: 'cs-title' }, 'Case study not found'),
-          el('p', {}, 'This link may be outdated. All case studies are listed on the main page.'),
-          el('a', { class: 'btn primary', href: 'index.html#cases' }, 'See all case studies')
+          el('p', {}, 'This link may be outdated. All case studies are listed on the Case studies page.'),
+          el('a', { class: 'btn primary', href: 'work.html' }, 'See all case studies')
         ));
       }
 
@@ -150,7 +151,7 @@
         );
 
         root.append(...[
-          el('a', { class: 'back', href: 'index.html#cases' }, icon(ICONS.left), 'All case studies'),
+          el('a', { class: 'back', href: 'work.html' }, icon(ICONS.left), 'All case studies'),
           head,
           result,
           el('div', { class: 'cs-grid' }, main, aside.childElementCount ? aside : null),

@@ -375,9 +375,11 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 /* Sections */
 .section{ padding: 72px 0 0; }
 @media (max-width: 600px){ .section{ padding-top: 52px; } }
-/* The work section follows the intro closely */
-#cases.section{ padding-top: 64px; }
-@media (max-width: 600px){ #cases.section{ padding-top: 44px; } }
+/* Experience follows the intro closely */
+#experience.section{ padding-top: 64px; }
+@media (max-width: 600px){ #experience.section{ padding-top: 44px; } }
+/* Current page in the menu */
+.nav a[aria-current="page"]{ color: var(--ink); background: var(--sunken); }
 .section-head{
   display: flex;
   align-items: end;

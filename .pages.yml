@@ -60,21 +60,17 @@ content:
     fields:
       - name: cases
         label: Case studies
-        description: Shown on the site in this order.
+        description: Shown on the Case studies page (and under each job in Experience) in this order. Drag to reorder.
         type: object
         list: true
         fields:
-          # Card on the main page
+          # Card on the Case studies page
           - { name: title, label: Title, type: string, required: true }
           - name: id
             label: Page link
             type: string
             description: "Short name for this case study's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
           - { name: summary, label: One-line summary, type: string }
-          - name: featured
-            label: Show on the homepage
-            type: boolean
-            description: "On: shown as a card under Selected work. Off: listed only under its employer in Experience. Every case study keeps its own page either way."
           - name: company
             label: Company / client
             type: string

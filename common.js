@@ -113,6 +113,29 @@
     );
   }
 
+  // Clickable project card: company, title, summary and tags on the left, big number on the right
+  function caseCard(c){
+    const stat = statFor(c);
+    const statBlock = c.impact
+      ? el('div', { class: 'case-stat' },
+          stat ? el('div', { class: stat.length > 4 ? 'num num-long' : 'num' }, stat) : null,
+          el('div', { class: 'txt' }, c.impact))
+      : el('div', { class: 'case-stat pending' },
+          el('div', { class: 'txt' }, isOngoing(c) ? 'In progress: results to follow.' : c.outcome || ''));
+
+    return el('article', { class: 'case' },
+      el('div', {},
+        caseMeta(c),
+        el('h3', { class: 'case-title' }, el('a', { class: 'case-link', href: caseUrl(c) }, c.title)),
+        el('p', { class: 'case-summary' }, c.summary),
+        c.context ? el('p', { class: 'case-context' }, c.context) : null,
+        el('div', { class: 'case-tags' }, list(c.tags).map(t => el('span', { class: 'pill' }, t))),
+        el('span', { class: 'case-more', 'aria-hidden': 'true' }, 'Read full case study', icon(ICONS.right))
+      ),
+      statBlock
+    );
+  }
+
   async function load(path){
     const res = await fetch(path, { cache: 'no-cache' });
     if(!res.ok) throw new Error(path + ': ' + res.status);
@@ -143,7 +166,7 @@
   }
 
   window.Site = {
-    el, icon, ICONS, asset, list, statOf, statFor, withJobLogos, caseId, caseUrl, isOngoing, caseMeta, logoTile,
+    el, icon, ICONS, asset, list, statOf, statFor, withJobLogos, caseId, caseUrl, isOngoing, caseMeta, caseCard, logoTile,
     load, fillFields, contactButtons, showError
   };
 })();
