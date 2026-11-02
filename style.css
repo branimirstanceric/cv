@@ -223,6 +223,8 @@ button{ font: inherit; color: inherit; }
   inset: 0;
   overflow: hidden;
   z-index: -1;
+  /* Dark until the photo fades in, so the white name stays readable on a slow connection */
+  background: #14161b;
 }
 .hero-bg{
   position: absolute;
