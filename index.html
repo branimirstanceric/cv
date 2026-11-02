@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=20" />
+  <link rel="stylesheet" href="style.css?v=22" />
 </head>
 
 <body>
@@ -60,28 +60,29 @@
   <main id="top">
     <!-- Hero: full-width photo that scrolls at half speed behind the intro (parallax) -->
     <section class="hero hero-photo" id="hero">
-      <div class="hero-bg" id="hero-bg" aria-hidden="true">
-        <!-- No src here: the photo chosen in Pages CMS is set by the script and fades in once loaded -->
-        <img id="hero-bg-img" alt="" />
+      <!-- hero-clip limits the photo's area: the whole section on desktop, only the first screen on phones -->
+      <div class="hero-clip">
+        <div class="hero-bg" id="hero-bg" aria-hidden="true">
+          <!-- No src here: the photo chosen in Pages CMS is set by the script and fades in once loaded -->
+          <img id="hero-bg-img" alt="" />
+        </div>
       </div>
       <div class="container hero-content">
-        <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
-        <h1 class="hero-title" id="hero-title"></h1>
-        <p class="hero-intro" data-field="hero_intro"></p>
-        <!-- Hobbies: a small line under the intro, shown only when filled in -->
-        <p class="hero-note" id="hobbies" hidden></p>
-        <div class="hero-actions">
-          <a class="btn primary" href="work.html">View my work</a>
-          <a class="btn" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <!-- On phones only this part sits on the photo; hero-details moves below it on the plain background -->
+        <div class="hero-lead">
+          <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
+          <h1 class="hero-title" id="hero-title"></h1>
         </div>
-        <div class="hero-facts" id="hero-facts"></div>
-      </div>
-    </section>
-
-    <!-- Pointer to the Work page (all projects live on work.html) -->
-    <section class="section" id="work-link">
-      <div class="container">
-        <p class="teaser">Curious what I've delivered? See all my projects on the <a href="work.html">Work page&nbsp;→</a></p>
+        <div class="hero-details">
+          <p class="hero-intro" data-field="hero_intro"></p>
+          <!-- Hobbies: a small line under the intro, shown only when filled in -->
+          <p class="hero-note" id="hobbies" hidden></p>
+          <div class="hero-actions">
+            <a class="btn primary" href="work.html">View my work</a>
+            <a class="btn" id="cv-link" href="assets/cv.pdf" target="_blank" rel="noreferrer">Download CV</a>
+          </div>
+          <div class="hero-facts" id="hero-facts"></div>
+        </div>
       </div>
     </section>
 
@@ -115,7 +116,7 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=20"></script>
+  <script src="common.js?v=22"></script>
   <script>
     (function(){
       const { el, asset, list, load, fillFields, contactButtons, showError } = window.Site;

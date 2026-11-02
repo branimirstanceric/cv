@@ -90,7 +90,7 @@ button{ font: inherit; color: inherit; }
 .nav{
   display: flex;
   gap: 4px;
-  font-size: 0.92rem;
+  font-size: 1rem;
 }
 .nav a{
   text-decoration: none;
@@ -167,7 +167,7 @@ button{ font: inherit; color: inherit; }
 
 .pill{
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   padding: 4px 10px;
   border-radius: var(--r-pill);
   background: var(--sunken);
@@ -218,13 +218,18 @@ button{ font: inherit; color: inherit; }
   padding: 96px 0;
   background: #14161b;
 }
+.hero-clip{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
 .hero-bg{
   position: absolute;
   left: 0;
   right: 0;
   top: -20%;
   height: 140%;
-  z-index: -1;
   will-change: transform;
 }
 .hero-bg img{
@@ -248,11 +253,6 @@ button{ font: inherit; color: inherit; }
 }
 .hero-content{ position: relative; width: 100%; }
 .hero-content > *{ max-width: 640px; }
-@media (max-width: 760px){
-  .hero-photo{ min-height: 0; padding: 64px 0 72px; }
-  .hero-bg img{ object-position: 75% 40%; }
-  .hero-bg::after{ background: linear-gradient(180deg, rgba(10,12,18,0.74) 0%, rgba(10,12,18,0.9) 100%); }
-}
 .kicker{
   display: inline-flex;
   align-items: center;
@@ -288,7 +288,7 @@ button{ font: inherit; color: inherit; }
 }
 /* Small personal line (hobbies) under the intro */
 .hero-note{
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--faint);
   max-width: 62ch;
   margin: -14px 0 28px;
@@ -326,6 +326,42 @@ button{ font: inherit; color: inherit; }
 }
 .hero-photo .btn:not(.primary):hover{ border-color: #fff; }
 .hero-photo .btn.primary{ background: #3446c4; border-color: #3446c4; color: #fff; }
+
+/* Phones: first screen is the photo with only the name on it, so the face stays visible;
+   the longer text follows below on the normal page background. */
+@media (max-width: 760px){
+  .hero-photo{
+    --stage: max(440px, calc(100vh - 130px));
+    display: block;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+  }
+  @supports (height: 100svh){
+    .hero-photo{ --stage: max(440px, calc(100svh - 130px)); }
+  }
+  .hero-clip{ bottom: auto; height: var(--stage); }
+  /* Keeps the face (right side of the wide photo) in the narrow phone frame */
+  .hero-bg img{ object-position: 90% 45%; }
+  /* Only the bottom is darkened, behind the name */
+  .hero-bg::after{ background: linear-gradient(180deg, rgba(10,12,18,0) 50%, rgba(10,12,18,0.85) 100%); }
+  .hero-lead{
+    min-height: var(--stage);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-bottom: 22px;
+  }
+  .hero-photo .kicker{ margin-bottom: 10px; }
+  .hero-photo .hero-title{ margin-bottom: 0; }
+  .hero-details{ padding-top: 28px; text-shadow: none; }
+  .hero-photo .hero-intro{ color: var(--ink); }
+  .hero-photo .hero-note{ color: var(--muted); }
+  .hero-photo .hero-facts, .hero-photo .hero-facts strong{ color: var(--ink); }
+  .hero-photo .btn:not(.primary){ background: var(--paper); color: var(--ink); border-color: var(--hair); }
+  .hero-photo .btn:not(.primary):hover{ border-color: var(--faint); }
+}
 
 /* Photo on its own, no frame; badges/facts below it only if filled in */
 .avatar{
@@ -404,27 +440,6 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 /* Sections */
 .section{ padding: 72px 0 0; }
 @media (max-width: 600px){ .section{ padding-top: 52px; } }
-/* Homepage: the line pointing to the Work page follows the intro closely */
-#work-link.section{ padding-top: 64px; }
-@media (max-width: 600px){ #work-link.section{ padding-top: 44px; } }
-.teaser{
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
-  line-height: 1.35;
-  max-width: 34ch;
-  color: var(--muted);
-}
-.teaser a{
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-  white-space: nowrap;
-}
-.teaser a:hover{ text-decoration-thickness: 2px; }
-/* Work page: Experience sits right under the page heading */
-#experience.work-section{ padding-top: 8px; }
 /* Current page in the menu */
 .nav a[aria-current="page"]{ color: var(--ink); background: var(--sunken); }
 .section-head{
@@ -506,7 +521,7 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
   flex-wrap: wrap;
   align-items: center;
   gap: 6px 12px;
-  font-size: 0.85rem;
+  font-size: 0.91rem;
   color: var(--faint);
   margin-bottom: 8px;
 }
@@ -586,7 +601,7 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 }
 /* Wordier numbers like "5 markets" stay on one line */
 .case-stat .num-long{ font-size: 1.9rem; white-space: nowrap; }
-.case-stat .txt{ font-size: 0.88rem; color: var(--muted); }
+.case-stat .txt{ font-size: 0.94rem; color: var(--muted); }
 .case-stat.pending .txt{ color: var(--faint); font-style: italic; }
 @media (max-width: 720px){
   .case{ grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 20px; }
@@ -670,7 +685,7 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
   font-size: 1.1rem;
 }
 .cap h3{ font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
-.cap p{ color: var(--muted); font-size: 0.95rem; }
+.cap p{ color: var(--muted); font-size: 1rem; }
 
 .tools{ display: flex; flex-wrap: wrap; gap: 8px; }
 .tools .pill{
