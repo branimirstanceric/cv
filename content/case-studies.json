@@ -35,7 +35,7 @@
     {
       "id": "slovenia-b2c-webshop",
       "title": "B2C Webshop for Slovenia",
-      "summary": "Preparing the eKupi webshop for sale in Slovenia, with market-specific requirements, QA and readiness gates.",
+      "summary": "Preparing eKupi's expansion to other EU markets, starting with a new webshop for Slovenia.",
       "featured": false,
       "company": "K2-18b",
       "company_logo": "",
@@ -43,8 +43,8 @@
       "context": "",
       "stat": "",
       "impact": "",
-      "problem": "Localization requires alignment with market rules, legal constraints, and technical requirements.",
-      "approach": "Coordinated delivery of the localized webshop across business, legal, and technical workstreams. Translated requirements into stories, managed sprints, coordinated teams, and drove UAT and go-live readiness.",
+      "problem": "eKupi planned to sell to consumers in other EU countries, starting with Slovenia, shipping from its warehouse in Croatia. That meant charging and reporting VAT under the EU One Stop Shop (OSS) scheme, with changes across the webshop, ERP, warehouse and reporting systems.",
+      "approach": "Coordinated delivery of the localized webshop across business, legal, and technical workstreams. Translated requirements into stories, managed sprints, coordinated teams, and drove UAT and go-live readiness.\n\nThe planned scope covered a separate Slovenian webshop on the existing platform, with its own catalogue, promotions and content. In the ERP, it covered Slovenian VAT rates, separate invoices and quarterly OSS reporting. It also covered separating EU orders in the warehouse, shipping labels and tracking through the Slovenian post, and adding EU sales to BI reports.",
       "my_role": [
         "Sprint planning, reporting, and scope control",
         "Stakeholder alignment and risk tracking",
@@ -53,13 +53,15 @@
       "outcome": "I coordinated the project through to its final phase and left the company before launch.",
       "why": "",
       "context_points": [
-        "Workstreams: business, legal, technical"
+        "Workstreams: business, legal, technical",
+        "Sales model: consumers only, shipped from Croatia",
+        "VAT scheme: EU One Stop Shop (OSS)"
       ],
       "phases": [],
       "results": [],
       "lessons": "",
       "images": [],
-      "tags": ["eCommerce", "Delivery", "Launch readiness"],
+      "tags": ["EU expansion", "VAT compliance", "Delivery"],
       "categories": ["eCommerce", "Compliance"]
     },
     {
@@ -438,6 +440,37 @@
       "images": [],
       "tags": ["Fintech", "Payments", "Testing"],
       "categories": ["Fintech and Payments", "Integrations"]
+    },
+    {
+      "id": "platform-training-documentation",
+      "title": "Platform Training and Documentation",
+      "summary": "Helping teams work confidently in the eCommerce platform through guides and role-based workshops.",
+      "featured": false,
+      "company": "eKupi",
+      "company_logo": "",
+      "period": "2016 to 2021",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "Category managers, business analysts, marketing, customer support and procurement all had to work in several connected systems. When M SAN's B2B team needed the same skills, much of what eKupi's B2C teams used carried over.",
+      "approach": "Wrote and maintained dozens of user guides, published on the internal portal, covering products, pricing, promotions, web content, orders, returns and customer support tools.\n\nDesigned and ran role-based workshops for the eKupi team in 2019 and for M SAN's B2B team in 2020, planned by department and system, with hands-on exercises and a practical knowledge check.",
+      "my_role": [
+        "User guides and internal documentation",
+        "Workshop design and delivery",
+        "Hands-on exercises and knowledge check"
+      ],
+      "outcome": "Teams could work more independently in the systems, with fewer support questions.",
+      "why": "",
+      "context_points": [
+        "Audience: category managers, business analysts, marketing, customer support, procurement",
+        "Workshops for the eKupi and M SAN B2B teams"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Training", "Documentation", "Workshops"],
+      "categories": ["eCommerce"]
     },
     {
       "id": "ekupi-sap-migration",
