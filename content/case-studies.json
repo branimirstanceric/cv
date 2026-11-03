@@ -251,7 +251,7 @@
     {
       "id": "abrakadabra-mobile-app",
       "title": "Abrakadabra Mobile App Delivery",
-      "summary": "Agile delivery with stakeholder alignment and fast response to change.",
+      "summary": "Delivering a mobile app connected to the Abrakadabra webshop, built with an external vendor.",
       "featured": false,
       "company": "A007plus",
       "company_logo": "",
@@ -259,12 +259,14 @@
       "context": "",
       "stat": "",
       "impact": "",
-      "problem": "Multiple stakeholders and shifting priorities required steady delivery without losing scope clarity.",
-      "approach": "Organized Agile ceremonies and drove requirements gathering together with stakeholders. Prioritized the backlog, clarified requirements quickly, and handled change requests promptly to avoid delays while meeting core business requirements.",
+      "problem": "Abrakadabra wanted a mobile app that worked from the same products, prices, customer accounts and orders as its webshop. An external vendor would build it, so requirements, data and priorities had to stay clear across both teams while stakeholders' needs changed.",
+      "approach": "Organized Agile ceremonies and drove requirements gathering together with stakeholders. Prioritized the backlog, clarified requirements quickly, and handled change requests promptly to avoid delays while meeting core business requirements.\n\nSpecified the REST API endpoints the app needed, from registered and guest customers to categories, products and customer orders. Gave the vendor's team guidance on webshop content and coupons, supported the card payment setup, and tested the app.",
       "my_role": [
         "Delivery leadership and team alignment",
         "Business analysis and prioritization",
+        "REST API specification and vendor coordination",
         "Change request handling",
+        "Testing",
         "Stakeholder reporting"
       ],
       "outcome": "The app was delivered within scope and went live for a closed user group.",
@@ -274,12 +276,10 @@
         "Mentored engineers through training workshops and best-practice documentation"
       ],
       "phases": [],
-      "results": [
-        "Delivered within scope"
-      ],
+      "results": [],
       "lessons": "",
       "images": [],
-      "tags": ["Mobile", "Agile", "Backlog"],
+      "tags": ["Mobile", "REST API", "Vendor management"],
       "categories": ["eCommerce"]
     },
     {
