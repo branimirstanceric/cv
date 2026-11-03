@@ -151,6 +151,22 @@
     );
   }
 
+  // Compact clickable row for the Work page list: logo, title and summary, company and period
+  function caseRow(c){
+    return el('article', { class: 'case-row' },
+      el('span', { class: 'row-logo' }, logoTile(c)),
+      el('div', { class: 'row-main' },
+        el('h3', { class: 'row-title' }, el('a', { class: 'case-link', href: caseUrl(c) }, c.title)),
+        el('p', { class: 'row-summary' }, c.summary)
+      ),
+      el('div', { class: 'row-meta' },
+        c.company ? el('span', { class: 'company' }, c.company) : null,
+        c.period ? el('span', {}, c.period) : null
+      ),
+      el('span', { class: 'row-arrow', 'aria-hidden': 'true' }, icon(ICONS.right))
+    );
+  }
+
   async function load(path){
     const res = await fetch(path, { cache: 'no-cache' });
     if(!res.ok) throw new Error(path + ': ' + res.status);
@@ -181,7 +197,7 @@
   }
 
   window.Site = {
-    el, icon, ICONS, asset, list, statOf, statFor, withJobLogos, caseId, caseUrl, isOngoing, caseMeta, caseCard, logoTile,
+    el, icon, ICONS, asset, list, statOf, statFor, withJobLogos, caseId, caseUrl, isOngoing, caseMeta, caseCard, caseRow, logoTile,
     load, fillFields, contactButtons, showError
   };
 })();

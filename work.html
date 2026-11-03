@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=23" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 
 <body>
@@ -67,8 +67,18 @@
           </a>
         </div>
       </header>
-      <!-- Every project as a card, in the order set in Pages CMS -->
-      <div class="feed" id="feed"></div>
+      <!-- Area filters come from each project's Areas in Pages CMS -->
+      <div class="chips work-filters" id="filters" role="group" aria-label="Filter projects by area"></div>
+      <!-- Projects marked "Selected work" in Pages CMS, as large cards -->
+      <section class="work-section" id="selected" aria-labelledby="selected-title">
+        <h2 class="work-heading" id="selected-title">Selected work</h2>
+        <div class="feed" id="feed"></div>
+      </section>
+      <!-- The other projects as compact rows, in the order set in Pages CMS; a filter shows all matching projects here -->
+      <section class="work-section" id="more" aria-labelledby="more-title">
+        <h2 class="work-heading" id="more-title" aria-live="polite">More projects</h2>
+        <div class="case-rows" id="rows"></div>
+      </section>
     </div>
 
     <!-- Contact -->
@@ -88,10 +98,39 @@
     <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=23"></script>
+  <script src="common.js?v=24"></script>
   <script>
     (function(){
-      const { asset, list, withJobLogos, caseCard, load, fillFields, contactButtons, showError } = window.Site;
+      const { el, asset, list, withJobLogos, caseCard, caseRow, load, fillFields, contactButtons, showError } = window.Site;
+
+      // Selected cards plus the remaining rows when no area is chosen; otherwise every matching project as a row
+      function showProjects(cases, area){
+        const selected = cases.filter(c => c.featured);
+        const rows = area ? cases.filter(c => list(c.categories).includes(area)) : cases.filter(c => !c.featured);
+        document.getElementById('selected').hidden = !!area || !selected.length;
+        document.getElementById('more-title').textContent = area ? area + ' (' + rows.length + ')' : selected.length ? 'More projects' : 'All projects';
+        document.getElementById('more').hidden = !rows.length;
+        document.getElementById('rows').replaceChildren(...rows.map(caseRow));
+      }
+
+      // One button per area, most used first
+      function buildFilters(cases){
+        const counts = new Map();
+        cases.forEach(c => list(c.categories).forEach(a => counts.set(a, (counts.get(a) || 0) + 1)));
+        const areas = [...counts.keys()].sort((a, b) => counts.get(b) - counts.get(a));
+        const box = document.getElementById('filters');
+        ['', ...areas].forEach(area => {
+          const chip = el('button', { class: area ? 'chip' : 'chip active', type: 'button', 'aria-pressed': String(!area) }, area || 'All');
+          chip.addEventListener('click', () => {
+            box.querySelectorAll('.chip').forEach(b => {
+              b.classList.toggle('active', b === chip);
+              b.setAttribute('aria-pressed', String(b === chip));
+            });
+            showProjects(cases, area);
+          });
+          box.append(chip);
+        });
+      }
 
       load('content/profile.json').then(p => {
         fillFields(p);
@@ -108,8 +147,11 @@
         load('content/case-studies.json'),
         load('content/experience.json').then(e => list(e.jobs)).catch(() => [])
       ]).then(([data, jobs]) => {
-        document.getElementById('feed').append(...withJobLogos(list(data.cases), jobs).map(caseCard));
-      }).catch(err => showError('feed', err));
+        const cases = withJobLogos(list(data.cases), jobs);
+        document.getElementById('feed').append(...cases.filter(c => c.featured).map(caseCard));
+        buildFilters(cases);
+        showProjects(cases, '');
+      }).catch(err => showError('filters', err));
     })();
   </script>
 

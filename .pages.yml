@@ -71,6 +71,10 @@ content:
             type: string
             description: "Short name for this project's own page, e.g. uniqa-warranty-automation → case.html?id=uniqa-warranty-automation. Changing it breaks links you already shared. Leave empty to use the title."
           - { name: summary, label: One-line summary, type: string }
+          - name: featured
+            label: Selected work
+            type: boolean
+            description: "On: shown as a large card at the top of the Work page. Off: shown in the compact list. Four or five works best."
           - name: company
             label: Company / client
             type: string
@@ -119,7 +123,7 @@ content:
               - { name: caption, label: Caption, type: string }
           - name: categories
             label: Areas
-            description: Shown as "Areas" on the project's own page.
+            description: "Shown as Areas on the project's own page and used as the filter buttons on the Work page. Spell an area the same way on every project, e.g. eCommerce, Integrations, Compliance, Logistics, Fintech and Payments, Migration."
             type: string
             list: true
 

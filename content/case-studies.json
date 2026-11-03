@@ -4,7 +4,7 @@
       "id": "see-fintech-app-expansion",
       "title": "Regional Fintech App Expansion into SEE Markets",
       "summary": "Technical and operational readiness for launching a financial app in new SEE markets.",
-      "featured": false,
+      "featured": true,
       "company": "SHAPE",
       "company_logo": "",
       "period": "Mar 2026 to Sep 2026",
@@ -30,13 +30,13 @@
       "lessons": "",
       "images": [],
       "tags": ["Fintech", "Compliance", "Multi-market"],
-      "categories": ["Fintech", "Integrations"]
+      "categories": ["Fintech and Payments", "Compliance"]
     },
     {
       "id": "slovenia-b2c-webshop",
       "title": "B2C Webshop for Slovenia",
       "summary": "Preparing the eKupi webshop for sale in Slovenia, with market-specific requirements, QA and readiness gates.",
-      "featured": true,
+      "featured": false,
       "company": "K2-18b",
       "company_logo": "",
       "period": "Jul 2025 to Feb 2026",
@@ -60,7 +60,7 @@
       "lessons": "",
       "images": [],
       "tags": ["eCommerce", "Delivery", "Launch readiness"],
-      "categories": ["eCommerce", "Integrations"]
+      "categories": ["eCommerce", "Compliance"]
     },
     {
       "id": "uniqa-warranty-automation",
@@ -91,7 +91,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Integrations", "Workflows", "UAT and Go-live"],
-      "categories": ["Integrations", "eCommerce"]
+      "categories": ["Integrations"]
     },
     {
       "id": "ekupi-dropshipment-model",
@@ -122,7 +122,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Dropshipment", "Supplier portal", "Specification"],
-      "categories": ["eCommerce", "Integrations"]
+      "categories": ["eCommerce", "Logistics", "Integrations"]
     },
     {
       "id": "checkout-ab-testing",
@@ -157,7 +157,7 @@
       "id": "supplier-price-protection",
       "title": "Supplier Price Protection",
       "summary": "Stopping wrong supplier prices from reaching the webshop.",
-      "featured": false,
+      "featured": true,
       "company": "K2-18b",
       "company_logo": "",
       "period": "2025",
@@ -202,7 +202,7 @@
         "Coordination through development and testing",
         "User guide for the client's team"
       ],
-      "outcome": "Customers in restricted zones can still order lighter products or use a pick-up point, and delivery options at checkout match what carriers can do. The client was pleased with the result.",
+      "outcome": "Customers in restricted zones can still order lighter products or use a pick-up point, and delivery options at checkout match what carriers can do.",
       "why": "",
       "context_points": [
         "Client: eKupi",
@@ -213,7 +213,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Logistics", "Checkout", "Business rules"],
-      "categories": ["eCommerce"]
+      "categories": ["Logistics", "eCommerce"]
     },
     {
       "id": "anchor-price-compliance",
@@ -233,7 +233,7 @@
         "Coordination across pricing and webshop teams",
         "Scenario testing and user guide"
       ],
-      "outcome": "Anchor prices appear on the required pages for the selected categories. The client was pleased with the result.",
+      "outcome": "Anchor prices appear on the required pages for the selected categories.",
       "why": "",
       "context_points": [
         "Client: eKupi",
@@ -244,7 +244,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Compliance", "Pricing", "Testing"],
-      "categories": ["eCommerce"]
+      "categories": ["Compliance", "eCommerce"]
     },
     {
       "id": "abrakadabra-mobile-app",
@@ -278,13 +278,13 @@
       "lessons": "",
       "images": [],
       "tags": ["Mobile", "Agile", "Backlog"],
-      "categories": ["Mobile", "eCommerce"]
+      "categories": ["eCommerce"]
     },
     {
       "id": "euro-changeover",
       "title": "Euro Changeover for the Abrakadabra Webshop",
       "summary": "Taking the webshop and business systems from kuna to euro on a fixed national deadline.",
-      "featured": false,
+      "featured": true,
       "company": "A007plus",
       "company_logo": "",
       "period": "2022 to 2023",
@@ -314,13 +314,13 @@
       "lessons": "",
       "images": [],
       "tags": ["Compliance", "Multi-system", "Fixed deadline"],
-      "categories": ["eCommerce", "Integrations"]
+      "categories": ["Compliance", "eCommerce"]
     },
     {
       "id": "loyalty-partner-integrations",
       "title": "Loyalty Partner Integrations",
       "summary": "Connecting the Abrakadabra webshop to the Tokić and MultiPlus loyalty programmes.",
-      "featured": false,
+      "featured": true,
       "company": "A007plus",
       "company_logo": "",
       "period": "2022 to 2023",
@@ -336,7 +336,7 @@
         "Contact with Tokić's IT vendor during implementation",
         "MultiPlus system upgrade for collecting and using points"
       ],
-      "outcome": "The Tokić integration went live, with a shared product feed and order report giving both sides the same view of products and orders. On MultiPlus, customers could collect and use loyalty points on the webshop.",
+      "outcome": "The Tokić integration went live, with a shared product feed and order report giving both sides the same view of products and orders. The MultiPlus upgrade also went live, so customers could collect and use loyalty points on the webshop.",
       "why": "",
       "context_points": [
         "Partners: Tokić, MultiPlus",
@@ -375,7 +375,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Logistics", "Integrations", "Delivery ops"],
-      "categories": ["Logistics", "Integrations", "eCommerce"]
+      "categories": ["Logistics", "Integrations"]
     },
     {
       "id": "outdoor-parcel-lockers",
@@ -406,7 +406,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Logistics", "Testing", "Support"],
-      "categories": ["eCommerce", "Integrations"]
+      "categories": ["Logistics"]
     },
     {
       "id": "web-kredit-ekupi-rs",
@@ -437,13 +437,13 @@
       "lessons": "",
       "images": [],
       "tags": ["Fintech", "Payments", "Testing"],
-      "categories": ["eCommerce", "Integrations"]
+      "categories": ["Fintech and Payments", "Integrations"]
     },
     {
       "id": "ekupi-sap-migration",
       "title": "eKupi Migration to SAP eCommerce Platform",
       "summary": "Multi-market migration with data integrity, configuration, and enablement.",
-      "featured": true,
+      "featured": false,
       "company": "eKupi",
       "company_logo": "",
       "period": "Dec 2016 to Jan 2021",
@@ -453,12 +453,12 @@
       "problem": "Several regional webshops needed platform migration while protecting data integrity and minimizing disruption.",
       "approach": "Was a member of the team that migrated eKupi's webshops to the SAP eCommerce platform across five markets. Migrated and validated product and content data, configured payment methods, delivery options and product displays, tested order processes, and supported teams with documentation.",
       "my_role": [
-        "Business analysis and cross-team coordination",
+        "Coordination with colleagues across the regional teams",
         "Migration validation and content integrity checks",
         "Site configuration: payments, delivery options, product displays",
         "Training and documentation through internal portal"
       ],
-      "outcome": "Modernized platform foundation across markets and improved operational consistency.",
+      "outcome": "All five webshops moved to one platform.",
       "why": "",
       "context_points": [
         "Markets: Croatia, Serbia, Bosnia and Herzegovina, Montenegro, North Macedonia",
@@ -472,7 +472,7 @@
       "lessons": "",
       "images": [],
       "tags": ["Migration", "eCommerce", "Enablement"],
-      "categories": ["Migration", "eCommerce", "Integrations"]
+      "categories": ["Migration", "eCommerce"]
     },
     {
       "id": "home-of-brands-platform",
@@ -493,7 +493,7 @@
         "Vendor evaluation and selection",
         "Legal and payment requirements across markets"
       ],
-      "outcome": "The webshop reached a test environment. The company stopped the project before production launch.",
+      "outcome": "I left about a month into the in-house Shopify phase. The team continued for almost six months and reached a test environment, and the project was then stopped before production launch.",
       "why": "",
       "context_points": [
         "Brands: Delimano, Rovus, Wellneo, Schmidler, Walkmaxx, WATA",
@@ -504,7 +504,7 @@
       "lessons": "",
       "images": [],
       "tags": ["eCommerce", "Multi-brand", "Vendor management"],
-      "categories": ["eCommerce", "Integrations"]
+      "categories": ["eCommerce"]
     }
   ]
 }
