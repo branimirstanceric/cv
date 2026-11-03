@@ -354,7 +354,7 @@
     {
       "id": "dropshipping-logistics",
       "title": "Dropshipping + Logistics Integrations",
-      "summary": "Multi-partner delivery setup with dependencies across carriers and suppliers.",
+      "summary": "Selling a partner's products through the Abrakadabra webshop with dropshipping, alongside several logistics partners.",
       "featured": false,
       "company": "A007plus",
       "company_logo": "",
@@ -362,21 +362,25 @@
       "context": "",
       "stat": "",
       "impact": "",
-      "problem": "Delivery operations needed faster fulfillment and consistent handoffs across multiple partners.",
-      "approach": "Integrated dropshipping with TISAK and coordinated multiple logistics partners to streamline flows and reduce friction.",
+      "problem": "Abrakadabra wanted to sell TISAK's products on its webshop through dropshipping, so product data, stock and order status had to stay in sync between two companies' systems. It also needed several logistics partners working within the same delivery process.",
+      "approach": "Integrated dropshipping with TISAK: specified the XML feed for products, stock and prices, and defined the order process between the two companies, with scenarios for full availability, changed quantities and cancelled orders, including who gets notified. Prepared test scenarios and coordinated testing.\n\nCoordinated the logistics partners GLS, Milšped, Labaš and CRO Ekspres, managing timelines and partner communication.",
       "my_role": [
+        "XML feed and order process specification",
         "Timeline and dependency management",
         "Stakeholder communication",
         "Testing coordination and go-live readiness"
       ],
-      "outcome": "Dropshipping with TISAK and the logistics partners was integrated into the webshop's delivery flow.",
+      "outcome": "Dropshipping with TISAK went live on the webshop, and the logistics partners were integrated into its delivery flow.",
       "why": "",
-      "context_points": [],
+      "context_points": [
+        "Partners: TISAK, GLS, Milšped, Labaš, CRO Ekspres",
+        "Data exchange: XML feed"
+      ],
       "phases": [],
       "results": [],
       "lessons": "",
       "images": [],
-      "tags": ["Logistics", "Integrations", "Delivery ops"],
+      "tags": ["Dropshipping", "Logistics", "Integrations"],
       "categories": ["Logistics", "Integrations"]
     },
     {
