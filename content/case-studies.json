@@ -100,8 +100,8 @@
     },
     {
       "id": "home-of-brands-platform",
-      "title": "Home of Brands: Multi-Brand Regional E-commerce Platform",
-      "summary": "One regional storefront bringing six consumer brands together across CEE/SEE markets.",
+      "title": "Home of Brands: Multi-Brand B2C Webshop",
+      "summary": "A multi-brand webshop for CEE/SEE markets, taken from specification and vendor selection to a test environment.",
       "featured": false,
       "company": "Kenty Adria",
       "company_logo": "",
@@ -109,19 +109,19 @@
       "context": "",
       "stat": "",
       "impact": "",
-      "problem": "Home of Brands (HOB) wanted its consumer brand portfolios unified into a single, seamless regional storefront, with payment, tax and compliance working correctly in every target market.",
-      "approach": "Led end-to-end delivery of the multi-brand B2C platform. Directed platform architecture, UI/UX design workflows and backend development teams to ensure localized payment, tax and regional compliance across target CEE/SEE markets, and managed third-party vendors, system integrations and sprint cycles.",
+      "problem": "These consumer brands were sold only in physical stores or by phone. The company wanted one multilingual online store, built for mobile first, that could serve several countries with different legal, payment and delivery requirements.",
+      "approach": "Wrote the functional specification and broke the project down into epics, from design and checkout to payments and SEO. Reviewed legal requirements across six countries, shortlisted payment providers and evaluated nine agencies.\n\nWhen the company considered moving from a vendor build to in-house Shopify, I prepared a CAPEX and OPEX cost model comparing both options and presented the results to decision-makers. The model showed Shopify would cost more than the vendor's custom solution.",
       "my_role": [
-        "End-to-end delivery lead",
-        "Direction of architecture, UI/UX and backend teams",
-        "Third-party vendor and system integration management",
-        "Sprint cycles and product quality"
+        "Functional specification and project breakdown",
+        "Vendor evaluation and selection",
+        "CAPEX and OPEX cost modelling",
+        "Legal and payment requirements across markets"
       ],
-      "outcome": "A unified multi-brand storefront for the region, with localized payment, tax and compliance and a faster path to market.",
+      "outcome": "The webshop reached a test environment. The company stopped the project before production launch.",
       "why": "",
       "context_points": [
         "Brands: Delimano, Rovus, Wellneo, Schmidler, Walkmaxx, WATA",
-        "Markets: CEE/SEE region"
+        "Planned first markets: Croatia, Slovenia, Serbia, Bosnia and Herzegovina"
       ],
       "phases": [],
       "results": [],
