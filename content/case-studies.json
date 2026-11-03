@@ -35,31 +35,28 @@
     {
       "id": "slovenia-b2c-webshop",
       "title": "B2C Webshop for Slovenia",
-      "summary": "Localized launch with market-specific requirements, QA, and readiness gates.",
+      "summary": "Preparing the eKupi webshop for sale in Slovenia, with market-specific requirements, QA and readiness gates.",
       "featured": true,
       "company": "K2-18b",
       "company_logo": "",
-      "period": "Jul 2025 to Mar 2026",
+      "period": "Jul 2025 to Feb 2026",
       "context": "",
       "stat": "",
-      "impact": "Delivered 100% on schedule with zero critical go-live blockers.",
+      "impact": "",
       "problem": "Localization requires alignment with market rules, legal constraints, and technical requirements.",
-      "approach": "Coordinated end-to-end delivery of the localized webshop across business, legal, and technical workstreams. Translated requirements into stories, managed sprints, coordinated teams, and drove UAT and go-live readiness.",
+      "approach": "Coordinated delivery of the localized webshop across business, legal, and technical workstreams. Translated requirements into stories, managed sprints, coordinated teams, and drove UAT and go-live readiness.",
       "my_role": [
         "Sprint planning, reporting, and scope control",
         "Stakeholder alignment and risk tracking",
         "Quality gates through UAT"
       ],
-      "outcome": "The webshop launched on schedule, with business, legal and technical workstreams aligned and no critical blockers at go-live.",
+      "outcome": "I coordinated the project through to its final phase and left the company before launch.",
       "why": "",
       "context_points": [
         "Workstreams: business, legal, technical"
       ],
       "phases": [],
-      "results": [
-        "Delivered 100% on schedule",
-        "Zero critical go-live blockers"
-      ],
+      "results": [],
       "lessons": "",
       "images": [],
       "tags": ["eCommerce", "Delivery", "Launch readiness"],
@@ -72,11 +69,11 @@
       "featured": true,
       "company": "K2-18b",
       "company_logo": "",
-      "period": "Nov 2025 to Feb 2026",
+      "period": "Mar 2025 to Oct 2025",
       "context": "",
       "stat": "",
-      "impact": "Reduced warranty processing time by over 70%.",
-      "problem": "Warranty policy generation had too many manual steps, slowing processing and increasing operational cost.",
+      "impact": "Replaced a manual process with automatic insurance confirmations.",
+      "problem": "Warranty confirmations were created and sent by hand.",
       "approach": "Designed the detailed logic, workflows, and data mapping for the integration between eKupi and UNIQA insurance systems. Aligned stakeholders and coordinated implementation, testing, deployment, and monitoring.",
       "my_role": [
         "Requirements ownership and scope control",
@@ -84,51 +81,170 @@
         "Backlog and acceptance criteria",
         "UAT coordination and release readiness"
       ],
-      "outcome": "Automation streamlined post-sale operations, reducing manual work and improving turnaround time for warranty processing.",
+      "outcome": "Customers now receive their insurance confirmation by email automatically after purchase, replacing a process eKupi staff did by hand. Failed cases are visible to the team and can be retried.",
       "why": "",
       "context_points": [
         "Integration between the eKupi webshop and UNIQA insurance systems"
       ],
       "phases": [],
-      "results": [
-        "Warranty processing time reduced by over 70%"
-      ],
+      "results": [],
       "lessons": "",
       "images": [],
       "tags": ["Integrations", "Workflows", "UAT and Go-live"],
       "categories": ["Integrations", "eCommerce"]
     },
     {
-      "id": "home-of-brands-platform",
-      "title": "Home of Brands: Multi-Brand B2C Webshop",
-      "summary": "A multi-brand webshop for CEE/SEE markets, taken from specification and vendor selection to a test environment.",
+      "id": "ekupi-dropshipment-model",
+      "title": "eKupi Dropshipment Model",
+      "summary": "Letting suppliers ship directly to customers while eKupi keeps control of the order.",
       "featured": false,
-      "company": "Kenty Adria",
+      "company": "K2-18b",
       "company_logo": "",
-      "period": "Sep 2024 to Jan 2025",
+      "period": "2026",
       "context": "",
       "stat": "",
       "impact": "",
-      "problem": "These consumer brands were sold only in physical stores or by phone. The company wanted one multilingual online store, built for mobile first, that could serve several countries with different legal, payment and delivery requirements.",
-      "approach": "Wrote the functional specification and broke the project down into epics, from design and checkout to payments and SEO. Reviewed legal requirements across six countries, shortlisted payment providers and evaluated nine agencies.\n\nWhen the company considered moving from a vendor build to in-house Shopify, I prepared a CAPEX and OPEX cost model comparing both options and presented the results to decision-makers. The model showed Shopify would cost more than the vendor's custom solution.",
+      "problem": "eKupi wanted a scalable dropshipment model where products go straight from supplier to customer. eKupi had to keep control of orders, statuses and the customer experience, and the process had to stay separate from its own warehouse and logistics.",
+      "approach": "Wrote the specification and coordinated development. It covered marking products for dropshipment through supplier imports, stock priority, a supplier portal with user roles for confirming availability and shipment, and new order statuses with retries and checks for the data exchange.\n\nIt also covered delivery pricing per supplier at checkout, payment rules, invoicing, returns and reporting. For partial deliveries, I set out the options with their trade-offs so the client could choose the right scope for the first version.",
       "my_role": [
-        "Functional specification and project breakdown",
-        "Vendor evaluation and selection",
-        "CAPEX and OPEX cost modelling",
-        "Legal and payment requirements across markets"
+        "Functional specification",
+        "Coordination of development",
+        "Options and trade-offs for client decisions"
       ],
-      "outcome": "The webshop reached a test environment. The company stopped the project before production launch.",
+      "outcome": "I specified the model and coordinated development until I left the company. Dropshipment went live on the eKupi webshop after that.",
       "why": "",
       "context_points": [
-        "Brands: Delimano, Rovus, Wellneo, Schmidler, Walkmaxx, WATA",
-        "Planned first markets: Croatia, Slovenia, Serbia, Bosnia and Herzegovina"
+        "Client: eKupi",
+        "Specified with a dedicated supplier portal"
       ],
       "phases": [],
       "results": [],
       "lessons": "",
       "images": [],
-      "tags": ["eCommerce", "Multi-brand", "Vendor management"],
+      "tags": ["Dropshipment", "Supplier portal", "Specification"],
       "categories": ["eCommerce", "Integrations"]
+    },
+    {
+      "id": "checkout-ab-testing",
+      "title": "Checkout A/B Testing",
+      "summary": "Giving the client's team a built-in way to test checkout changes.",
+      "featured": false,
+      "company": "K2-18b",
+      "company_logo": "",
+      "period": "2025",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "The team needed a way to compare how customers respond to different delivery options at checkout, using real order data.",
+      "approach": "Wrote the specification and coordinated development of A/B testing in the webshop's back office. Customers, both registered and guests, are automatically assigned to group A or B when they reach the delivery step of checkout.\n\nThe team can name a test, switch it on or off, choose the market and dates, and set the order of delivery options for each group. I also defined a report comparing the groups on orders, order value, delivery option selection and checkout completion.",
+      "my_role": [
+        "Functional specification and report definition",
+        "Coordination of development"
+      ],
+      "outcome": "The A/B testing feature shipped, starting with the delivery step and designed to allow more scenarios later, such as payment methods.",
+      "why": "",
+      "context_points": [
+        "Client: eKupi"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["A/B testing", "Checkout", "Reporting"],
+      "categories": ["eCommerce"]
+    },
+    {
+      "id": "supplier-price-protection",
+      "title": "Supplier Price Protection",
+      "summary": "Stopping wrong supplier prices from reaching the webshop.",
+      "featured": false,
+      "company": "K2-18b",
+      "company_logo": "",
+      "period": "2025",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "Suppliers update their own prices through file imports. A mistyped price could go straight through to the webshop, with a risk of selling products at the wrong price.",
+      "approach": "Specified and coordinated price limits that can be set separately for each supplier, covering price increases and decreases on purchase and recommended prices. An import that goes over a limit is blocked and the product is taken off sale until someone checks it.\n\nNamed contacts receive a regular email report of blocked prices. Correcting a price is a deliberate step, followed by manual re-approval of the product.",
+      "my_role": [
+        "Requirements and business rules",
+        "Coordination through development and testing",
+        "User guide for the client's team"
+      ],
+      "outcome": "Suspicious supplier prices are stopped before customers can buy at them, and the team gets a clear list to review. The client was pleased with the result.",
+      "why": "",
+      "context_points": [
+        "Client: eKupi",
+        "Limits adjustable per supplier"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Pricing", "Risk control", "Suppliers"],
+      "categories": ["eCommerce"]
+    },
+    {
+      "id": "delivery-zone-rules",
+      "title": "Delivery Zone Rules",
+      "summary": "Controlling delivery prices and availability by postal code and product type.",
+      "featured": false,
+      "company": "K2-18b",
+      "company_logo": "",
+      "period": "2025",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "Carriers' delivery prices kept changing, and some areas, such as remote islands, had no carrier for large goods. The webshop needed a way to reflect this at checkout without blocking customers from everything else.",
+      "approach": "Specified and coordinated postal-code zones that the client's team can manage themselves. A zone can carry a higher delivery price for certain categories or exclude a delivery method for certain categories and products.\n\nI also defined what happens when rules conflict: an exclusion always wins, including over forced delivery settings and promotions.",
+      "my_role": [
+        "Requirements and business rules, including rule priorities",
+        "Coordination through development and testing",
+        "User guide for the client's team"
+      ],
+      "outcome": "Customers in restricted zones can still order lighter products or use a pick-up point, and delivery options at checkout match what carriers can do. The client was pleased with the result.",
+      "why": "",
+      "context_points": [
+        "Client: eKupi",
+        "Rules also apply in the one-page checkout"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Logistics", "Checkout", "Business rules"],
+      "categories": ["eCommerce"]
+    },
+    {
+      "id": "anchor-price-compliance",
+      "title": "Anchor Price Compliance",
+      "summary": "Showing the legally required anchor price across the webshop.",
+      "featured": false,
+      "company": "K2-18b",
+      "company_logo": "",
+      "period": "2025",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "A legal requirement in force from 15 May 2025 meant webshops had to show an anchor price for certain FMCG products, wherever a customer could add the product to the cart.",
+      "approach": "Specified and coordinated how the anchor price and its date move from the pricing system to the webshop and appear on product, category and search pages. The price shows only when both values exist, and the client's team can switch it on by category, with subcategories following.\n\nI tested the behaviour against documented scenarios, such as new products and later price changes.",
+      "my_role": [
+        "Requirements based on the legal obligation",
+        "Coordination across pricing and webshop teams",
+        "Scenario testing and user guide"
+      ],
+      "outcome": "Anchor prices appear on the required pages for the selected categories. The client was pleased with the result.",
+      "why": "",
+      "context_points": [
+        "Client: eKupi",
+        "Legal requirement in force from 15 May 2025"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Compliance", "Pricing", "Testing"],
+      "categories": ["eCommerce"]
     },
     {
       "id": "abrakadabra-mobile-app",
@@ -137,10 +253,10 @@
       "featured": false,
       "company": "A007plus",
       "company_logo": "",
-      "period": "Jan 2024 to Jul 2024",
+      "period": "Jan 2024 to Aug 2024",
       "context": "",
       "stat": "",
-      "impact": "Improved user satisfaction by 15% upon release.",
+      "impact": "",
       "problem": "Multiple stakeholders and shifting priorities required steady delivery without losing scope clarity.",
       "approach": "Organized Agile ceremonies and drove requirements gathering together with stakeholders. Prioritized the backlog, clarified requirements quickly, and handled change requests promptly to avoid delays while meeting core business requirements.",
       "my_role": [
@@ -149,7 +265,7 @@
         "Change request handling",
         "Stakeholder reporting"
       ],
-      "outcome": "Delivered within scope with improved user perception after release.",
+      "outcome": "The app was delivered within scope and went live for a closed user group.",
       "why": "",
       "context_points": [
         "Alongside the app, owned the department's technology strategy and budget for B2C e-commerce, reporting metrics and risks to senior leadership",
@@ -157,13 +273,81 @@
       ],
       "phases": [],
       "results": [
-        "Delivered within scope",
-        "User satisfaction up 15% after release"
+        "Delivered within scope"
       ],
       "lessons": "",
       "images": [],
       "tags": ["Mobile", "Agile", "Backlog"],
       "categories": ["Mobile", "eCommerce"]
+    },
+    {
+      "id": "euro-changeover",
+      "title": "Euro Changeover for the Abrakadabra Webshop",
+      "summary": "Taking the webshop and business systems from kuna to euro on a fixed national deadline.",
+      "featured": false,
+      "company": "A007plus",
+      "company_logo": "",
+      "period": "2022 to 2023",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "Croatia adopted the euro on 1 January 2023, and the date could not move. Regulation also required prices in both currencies from 5 September 2022, with the fixed exchange rate, and the rules changed in stages. Orders, stock and deliveries had to keep running throughout.",
+      "approach": "Coordinated A007's part of the Fortenova Group changeover, working to a group-wide transition plan with regular readiness reporting.\n\nSpecified the dual price display: three phases, and how prices should appear at each customer touchpoint, from product carousels and product pages to the cart, checkout, order history and order confirmation emails. This included the rounding rules and labels the team could edit in the back office.\n\nThe ERP ran in parallel in kuna and euro ahead of the changeover, with products, prices, stock and open orders migrated at the end of December.",
+      "my_role": [
+        "Coordinating A007's part of the group changeover",
+        "Specifying the dual price display",
+        "Translating the regulation into requirements and display rules",
+        "Coordination across webshop, ERP and operations",
+        "Tracking milestones and readiness status"
+      ],
+      "outcome": "The dual price display went live on 5 September 2022, and the business moved to the euro as its official currency on 1 January 2023.",
+      "why": "",
+      "context_points": [
+        "Phase 1, from 5 Sep 2022: kuna as main currency, euro secondary",
+        "Phase 2, from 1 Jan 2023: euro as main currency, kuna secondary",
+        "Phase 3, after 31 Dec 2023: euro only",
+        "Fixed conversion rate: 1 EUR = 7.53450 HRK",
+        "Systems: SAP Commerce (Hybris), SAP Business One"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Compliance", "Multi-system", "Fixed deadline"],
+      "categories": ["eCommerce", "Integrations"]
+    },
+    {
+      "id": "loyalty-partner-integrations",
+      "title": "Loyalty Partner Integrations",
+      "summary": "Connecting the Abrakadabra webshop to the Tokić and MultiPlus loyalty programmes.",
+      "featured": false,
+      "company": "A007plus",
+      "company_logo": "",
+      "period": "2022 to 2023",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "Tokić's loyalty club customers (Tklub and Bklub) were to redeem their points for Abrakadabra products, which required reliable product, price and stock data and clear visibility of the resulting orders. Separately, joining the MultiPlus programme meant connecting the webshop to its systems so that online purchases could count for members.",
+      "approach": "Led the Tokić project and proposed the solution: an XML product feed covering product names, descriptions, images, categories, prices and stock, a category structure and product list aligned with the partner, checkout logic for redeeming points, and order reporting with order and delivery status and tracking IDs. Coordinated two development teams, worked with Tokić's IT vendor during implementation and tested the result.\n\nFor MultiPlus, upgraded the system so customers could collect loyalty points and use them on the webshop, working from the partner's interface specification.",
+      "my_role": [
+        "Led the Tokić project and proposed the solution",
+        "Coordinating two development teams",
+        "Testing",
+        "Contact with Tokić's IT vendor during implementation",
+        "MultiPlus system upgrade for collecting and using points"
+      ],
+      "outcome": "The Tokić integration went live, with a shared product feed and order report giving both sides the same view of products and orders. On MultiPlus, customers could collect and use loyalty points on the webshop.",
+      "why": "",
+      "context_points": [
+        "Partners: Tokić, MultiPlus",
+        "Tokić project: Apr 2023 to Jun 2023"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Loyalty", "Integrations", "Partners"],
+      "categories": ["Integrations", "eCommerce"]
     },
     {
       "id": "dropshipping-logistics",
@@ -175,7 +359,7 @@
       "period": "Sep 2022 to Feb 2023",
       "context": "",
       "stat": "",
-      "impact": "Reduced delivery times by 30%.",
+      "impact": "",
       "problem": "Delivery operations needed faster fulfillment and consistent handoffs across multiple partners.",
       "approach": "Integrated dropshipping with TISAK and coordinated multiple logistics partners to streamline flows and reduce friction.",
       "my_role": [
@@ -183,7 +367,7 @@
         "Stakeholder communication",
         "Testing coordination and go-live readiness"
       ],
-      "outcome": "More predictable delivery and faster order handoffs across the network.",
+      "outcome": "Dropshipping with TISAK and the logistics partners was integrated into the webshop's delivery flow.",
       "why": "",
       "context_points": [],
       "phases": [],
@@ -192,6 +376,68 @@
       "images": [],
       "tags": ["Logistics", "Integrations", "Delivery ops"],
       "categories": ["Logistics", "Integrations", "eCommerce"]
+    },
+    {
+      "id": "outdoor-parcel-lockers",
+      "title": "Outdoor Parcel Lockers",
+      "summary": "Bringing 24/7 outdoor pick-up points to eKupi customers.",
+      "featured": false,
+      "company": "eKupi",
+      "company_logo": "",
+      "period": "Feb 2021 to Mar 2022",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "With online purchasing growing, eKupi introduced outdoor parcel lockers offering pick-up locations available around the clock, which required coordinating several stakeholders.",
+      "approach": "Tested hardware and software at certain phases and configured new lockers' software. Wrote instructions for the couriers delivering to the lockers, documented the functionality and transferred the knowledge to colleagues.\n\nSupported the lockers through troubleshooting, adjusting functionality and monitoring.",
+      "my_role": [
+        "Hardware and software testing",
+        "Locker software configuration",
+        "Courier instructions and internal documentation",
+        "Support, troubleshooting and monitoring"
+      ],
+      "outcome": "The outdoor parcel lockers went live.",
+      "why": "",
+      "context_points": [
+        "Pick-up available 24/7"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Logistics", "Testing", "Support"],
+      "categories": ["eCommerce", "Integrations"]
+    },
+    {
+      "id": "web-kredit-ekupi-rs",
+      "title": "Web Kredit on eKupi.rs",
+      "summary": "Letting customers in Serbia pay in instalments through a web loan with Raiffeisen bank.",
+      "featured": false,
+      "company": "eKupi",
+      "company_logo": "",
+      "period": "Mar 2021 to Sep 2021",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "eKupi.rs wanted to offer payment in instalments through a web loan, which meant the webshop and the bank's systems had to work together reliably at checkout.",
+      "approach": "Tested the delivered functionality and gave developers the feedback they needed, working with colleagues at eKupi Serbia. Communicated with Raiffeisen's IT department, and documented the guide the development team could use for later back-end changes.",
+      "my_role": [
+        "Testing and feedback to developers",
+        "Contact with the bank's IT department",
+        "Documentation and support"
+      ],
+      "outcome": "Web Kredit went live on eKupi.rs.",
+      "why": "",
+      "context_points": [
+        "Partner: Raiffeisen bank",
+        "Market: Serbia"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Fintech", "Payments", "Testing"],
+      "categories": ["eCommerce", "Integrations"]
     },
     {
       "id": "ekupi-sap-migration",
@@ -205,7 +451,7 @@
       "stat": "5 markets",
       "impact": "Webshops in 5 markets migrated to SAP eCommerce without data loss.",
       "problem": "Several regional webshops needed platform migration while protecting data integrity and minimizing disruption.",
-      "approach": "Led the multi-regional migration of eKupi's webshops to the SAP eCommerce platform. Coordinated migration work, validated product and content data, configured payment methods, delivery options and product displays, and supported teams with documentation.",
+      "approach": "Was a member of the team that migrated eKupi's webshops to the SAP eCommerce platform across five markets. Migrated and validated product and content data, configured payment methods, delivery options and product displays, tested order processes, and supported teams with documentation.",
       "my_role": [
         "Business analysis and cross-team coordination",
         "Migration validation and content integrity checks",
@@ -227,6 +473,38 @@
       "images": [],
       "tags": ["Migration", "eCommerce", "Enablement"],
       "categories": ["Migration", "eCommerce", "Integrations"]
+    },
+    {
+      "id": "home-of-brands-platform",
+      "title": "Multi-Brand Webshop: Specification, Vendor Selection and Cost Model",
+      "summary": "Specification, vendor selection and cost modelling for a multi-brand webshop in CEE/SEE markets.",
+      "featured": false,
+      "company": "Kenty Adria",
+      "company_logo": "",
+      "period": "Sep 2024 to Jan 2025",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "These consumer brands were sold only in physical stores or by phone. The company wanted one multilingual online store, built for mobile first, that could serve several countries with different legal, payment and delivery requirements.",
+      "approach": "When the company considered moving from a vendor build to in-house Shopify, I prepared a CAPEX and OPEX cost model comparing both options and presented the results to decision-makers. The model showed Shopify would cost more than the vendor's custom solution.\n\nBefore that, I wrote the functional specification and broke the project down into epics, from design and checkout to payments and SEO. I also reviewed legal requirements across six countries, shortlisted payment providers and evaluated nine agencies.",
+      "my_role": [
+        "CAPEX and OPEX cost modelling",
+        "Functional specification and project breakdown",
+        "Vendor evaluation and selection",
+        "Legal and payment requirements across markets"
+      ],
+      "outcome": "The webshop reached a test environment. The company stopped the project before production launch.",
+      "why": "",
+      "context_points": [
+        "Brands: Delimano, Rovus, Wellneo, Schmidler, Walkmaxx, WATA",
+        "Planned first markets: Croatia, Slovenia, Serbia, Bosnia and Herzegovina"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["eCommerce", "Multi-brand", "Vendor management"],
+      "categories": ["eCommerce", "Integrations"]
     }
   ]
 }
