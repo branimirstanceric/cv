@@ -1,12 +1,12 @@
 {
   "capabilities": [
     {
-      "title": "AI-Driven PM Workflows",
-      "text": "Use LLM prompt engineering to cut manual work on user stories, executive\nreporting, and technical specs, freeing up time for higher-value delivery decisions."
+      "title": "AI-Assisted Project Management",
+      "text": "Use AI in day-to-day delivery: turning meeting transcripts into minutes and follow-up emails, searching Jira and Confluence to explain project terms and tickets, creating and updating tickets and pages, and scheduling daily work summaries, inbox triage and reply reminders. I review all output before it goes out. I also built this website with Claude Code."
     },
     {
-      "title": "Cross-Border Market Expansion",
-      "text": "Directed multi-market rollouts into 5+ CEE/SEE countries, navigating multijurisdiction compliance, financial regulations, and localized go-to-market strategies."
+      "title": "Multi-Market Delivery",
+      "text": "Worked across CEE/SEE markets: a five-market webshop migration, a Slovenian webshop under EU VAT rules, and readiness for a regional fintech expansion under central bank and financial regulation."
     },
     {
       "title": "Stakeholder & Client Management",
@@ -14,7 +14,7 @@
     },
     {
       "title": "Agile Cross-Functional Delivery",
-      "text": "Applied Scrum, Kanban frameworks to lead engineering squads for fast,\nlow-bureaucracy product releases."
+      "text": "Apply Scrum and Kanban to plan sprints, manage backlogs, and coordinate development teams and external vendors through testing and release."
     }
   ],
   "tools": [
