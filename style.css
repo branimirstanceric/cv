@@ -604,7 +604,6 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
 /* Wordier numbers like "5 markets" stay on one line */
 .case-stat .num-long{ font-size: 1.9rem; white-space: nowrap; }
 .case-stat .txt{ font-size: 0.94rem; color: var(--muted); }
-.case-stat.pending .txt{ color: var(--faint); font-style: italic; }
 @media (max-width: 720px){
   .case{ grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 20px; }
   .case-stat{ border-left: 0; border-top: 1px solid var(--hair); padding: 16px 0 0; }
