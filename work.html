@@ -32,6 +32,7 @@
   <!--
     All projects as cards; each card opens case.html?id=<page link>.
     The list and its order come from content/case-studies.json (edit it in Pages CMS).
+    The project links in #rows are also written here for tools that don't run JavaScript. The script replaces them for visitors, so update them here when a project is added or renamed.
   -->
   <header class="topbar">
     <div class="container topbar-inner">
@@ -70,14 +71,34 @@
       <!-- Area filters come from each project's Areas in Pages CMS -->
       <div class="chips work-filters" id="filters" role="group" aria-label="Filter projects by area"></div>
       <!-- Projects marked "Selected work" in Pages CMS, as large cards -->
-      <section class="work-section" id="selected" aria-labelledby="selected-title">
+      <section class="work-section" id="selected" aria-labelledby="selected-title" hidden>
         <h2 class="work-heading" id="selected-title">Selected work</h2>
         <div class="feed" id="feed"></div>
       </section>
       <!-- The other projects as compact rows, in the order set in Pages CMS; a filter shows all matching projects here -->
       <section class="work-section" id="more" aria-labelledby="more-title">
-        <h2 class="work-heading" id="more-title" aria-live="polite">More projects</h2>
-        <div class="case-rows" id="rows"></div>
+        <h2 class="work-heading" id="more-title" aria-live="polite">All projects</h2>
+        <div class="case-rows" id="rows">
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=see-fintech-app-expansion">Regional Fintech App Expansion into SEE Markets</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=slovenia-b2c-webshop">B2C Webshop for Slovenia</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=uniqa-warranty-automation">UNIQA Integration: Automated Warranty Policy Generation</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=ekupi-dropshipment-model">eKupi Dropshipment Model</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=checkout-ab-testing">Checkout A/B Testing</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=supplier-price-protection">Supplier Price Protection</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=delivery-zone-rules">Delivery Zone Rules</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=anchor-price-compliance">Anchor Price Compliance</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=returns-chatbot">Returns Chatbot</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=abrakadabra-mobile-app">Abrakadabra Mobile App Delivery</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=euro-changeover">Euro Changeover for the Abrakadabra Webshop</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=loyalty-partner-integrations">Loyalty Partner Integrations</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=dropshipping-logistics">Dropshipping + Logistics Integrations</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=outdoor-parcel-lockers">Outdoor Parcel Lockers</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=web-kredit-ekupi-rs">Web Kredit on eKupi.rs</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=platform-training-documentation">Platform Training and Documentation</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=ekupi-sap-migration">eKupi Migration to SAP eCommerce Platform</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=home-of-brands-platform">Multi-Brand Webshop: Specification, Vendor Selection and Cost Model</a></h3></div></article>
+          <article class="case-row"><div class="row-main"><h3 class="row-title"><a class="case-link" href="case.html?id=personal-portfolio-website">Personal Portfolio Website</a></h3></div></article>
+        </div>
       </section>
     </div>
 
@@ -95,7 +116,7 @@
   </main>
 
   <footer>
-    <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
+    <div class="container">Copyright © <span id="year">2026</span> <span data-field="name">Branimir Stančerić</span>. All rights reserved.</div>
   </footer>
 
   <script src="common.js?v=24"></script>

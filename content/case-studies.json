@@ -19,7 +19,7 @@
         "Alignment of steering committees, partner banking PMs and legal teams",
         "Vendor, third-party integration and security audit coordination"
       ],
-      "outcome": "Focused on pre-launch optimization and go-live readiness, aimed at expanding the client's market presence.",
+      "outcome": "By September 2026, testing was finished, the regulator had approved the project, and it was in final preparations for a phased production go-live.",
       "why": "",
       "context_points": [
         "Fintech app, regional rollout into SEE markets",
@@ -235,7 +235,7 @@
         "Coordination across pricing and webshop teams",
         "Scenario testing and user guide"
       ],
-      "outcome": "Anchor prices appear on the required pages for the selected categories.",
+      "outcome": "Anchor prices went live by the legal deadline of 15 May 2025 on the required pages for the selected categories.",
       "why": "",
       "context_points": [
         "Client: eKupi",
@@ -249,6 +249,36 @@
       "categories": ["Compliance", "eCommerce"]
     },
     {
+      "id": "returns-chatbot",
+      "title": "Returns Chatbot",
+      "summary": "Letting eKupi customers start a return through a chatbot.",
+      "featured": false,
+      "company": "K2-18b",
+      "company_logo": "",
+      "period": "2025 to 2026",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "eKupi wanted customers to be able to start a return through a chatbot, connected securely to the webshop's existing returns process.",
+      "approach": "Worked as the business analyst: gathered user requirements, opened tickets, communicated with developers and vendors, and tested on the test environment and in production.\n\nThe proposed solution reused the existing returns process, added a check that an order belongs to the customer, and let customers approve or reject a chatbot-created request through a link sent by email.",
+      "my_role": [
+        "Business analysis and user requirements",
+        "Tickets and communication with developers and vendors",
+        "Testing on the test environment and in production"
+      ],
+      "outcome": "The returns chatbot went live.",
+      "why": "",
+      "context_points": [
+        "Client: eKupi"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Chatbot", "Returns", "Business analysis"],
+      "categories": ["eCommerce", "Integrations"]
+    },
+    {
       "id": "abrakadabra-mobile-app",
       "title": "Abrakadabra Mobile App Delivery",
       "summary": "Delivering a mobile app connected to the Abrakadabra webshop, built with an external vendor.",
@@ -260,7 +290,7 @@
       "stat": "",
       "impact": "",
       "problem": "Abrakadabra wanted a mobile app that worked from the same products, prices, customer accounts and orders as its webshop. An external vendor would build it, so requirements, data and priorities had to stay clear across both teams while stakeholders' needs changed.",
-      "approach": "Organized Agile ceremonies and drove requirements gathering together with stakeholders. Prioritized the backlog, clarified requirements quickly, and handled change requests promptly to avoid delays while meeting core business requirements.\n\nSpecified the REST API endpoints the app needed, from registered and guest customers to categories, products and customer orders. Gave the vendor's team guidance on webshop content and coupons, supported the card payment setup, and tested the app.",
+      "approach": "Organized Agile ceremonies and drove requirements gathering together with stakeholders. Prioritized the backlog, clarified requirements quickly, and handled change requests promptly to avoid delays while meeting core business requirements.\n\nWrote the REST API specification for what the app needed, from registered and guest customers to categories, products and customer orders. Gave the vendor's team guidance on webshop content and coupons. Contacted the payment gateway vendor for the materials needed for the integration, then tested payments, promotions and the other activities needed for go-live.",
       "my_role": [
         "Delivery leadership and team alignment",
         "Business analysis and prioritization",
@@ -358,12 +388,12 @@
       "featured": false,
       "company": "A007plus",
       "company_logo": "",
-      "period": "Sep 2022 to Feb 2023",
+      "period": "Sep 2022 to 2024",
       "context": "",
       "stat": "",
       "impact": "",
       "problem": "Abrakadabra wanted to sell TISAK's products on its webshop through dropshipping, so product data, stock and order status had to stay in sync between two companies' systems. It also needed several logistics partners working within the same delivery process.",
-      "approach": "Integrated dropshipping with TISAK: specified the XML feed for products, stock and prices, and defined the order process between the two companies, with scenarios for full availability, changed quantities and cancelled orders, including who gets notified. Prepared test scenarios and coordinated testing.\n\nCoordinated the logistics partners GLS, Milšped, Labaš and CRO Ekspres, managing timelines and partner communication.",
+      "approach": "Integrated dropshipping with TISAK: wrote the XML feed specification for products, stock and prices, and the order process between the two companies, with scenarios for full availability, changed quantities and cancelled orders, including who gets notified. Prepared test scenarios and coordinated testing.\n\nCoordinated the logistics partners GLS, Milšped, Labaš and CRO Express, managing timelines and partner communication.",
       "my_role": [
         "XML feed and order process specification",
         "Timeline and dependency management",
@@ -373,7 +403,8 @@
       "outcome": "Dropshipping with TISAK went live on the webshop, and the logistics partners were integrated into its delivery flow.",
       "why": "",
       "context_points": [
-        "Partners: TISAK, GLS, Milšped, Labaš, CRO Ekspres",
+        "TISAK: Sep 2022 to Feb 2023",
+        "GLS, Milšped and Labaš live in 2023; CRO Express live in 2024",
         "Data exchange: XML feed"
       ],
       "phases": [],
@@ -457,7 +488,7 @@
       "stat": "",
       "impact": "",
       "problem": "Category managers, business analysts, marketing, customer support and procurement all had to work in several connected systems. When M SAN's B2B team needed the same skills, much of what eKupi's B2C teams used carried over.",
-      "approach": "Wrote and maintained dozens of user guides, published on the internal portal, covering products, pricing, promotions, web content, orders, returns and customer support tools.\n\nDesigned and ran role-based workshops for the eKupi team in 2019 and for M SAN's B2B team in 2020, planned by department and system, with hands-on exercises and a practical knowledge check.",
+      "approach": "Wrote and maintained dozens of user guides, published on the internal portal, covering products, pricing, promotions, web content, orders, returns and customer support tools.\n\nDesigned and ran role-based workshops for the eKupi team in 2019 and for M SAN's B2B team in 2020, planned by department and system, with hands-on exercises and a practical knowledge check. Trained close to 200 colleagues across five countries: Croatia, Bosnia and Herzegovina, Serbia, Montenegro and North Macedonia.",
       "my_role": [
         "User guides and internal documentation",
         "Workshop design and delivery",
@@ -530,10 +561,11 @@
         "Vendor evaluation and selection",
         "Legal and payment requirements across markets"
       ],
-      "outcome": "I left about a month into the in-house Shopify phase. The team continued for almost six months and reached a test environment, and the project was then stopped before production launch.",
+      "outcome": "I left about a month into the in-house Shopify phase. The team continued for almost six months and reached a test environment, and the company was then shut down before production launch.",
       "why": "",
       "context_points": [
-        "Brands: Delimano, Rovus, Wellneo, Schmidler, Walkmaxx, WATA",
+        "Company: Home of Brands, created by Kenty Adria",
+        "Brands: Delimano, Rovus, Wellneo, Schmidler, Walkmaxx",
         "Planned first markets: Croatia, Slovenia, Serbia, Bosnia and Herzegovina"
       ],
       "phases": [],
@@ -542,6 +574,39 @@
       "images": [],
       "tags": ["eCommerce", "Multi-brand", "Vendor management"],
       "categories": ["eCommerce"]
+    },
+    {
+      "id": "personal-portfolio-website",
+      "title": "Personal Portfolio Website",
+      "summary": "A portfolio site built with Claude Code that I can update myself, with project claims reviewed against my own documents.",
+      "featured": false,
+      "company": "Personal project",
+      "company_logo": "",
+      "period": "Dec 2025 to Nov 2026",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "My work was spread across a CV, LinkedIn and years of project documents. I wanted one place where visitors could quickly find relevant projects, and I wanted to edit it without touching code.",
+      "approach": "Set the direction and made the decisions on content and structure, with Claude Code writing the code. Reviewed changes before publishing.\n\nUsed Claude to go through my source documents, compare the projects with my CV and LinkedIn, and rewrite them, then reviewed the claims and removed what couldn't be verified. Kept client documents' details out of the public pages.",
+      "my_role": [
+        "Product direction and content decisions",
+        "Reviewing claims and changes",
+        "Directing Claude Code"
+      ],
+      "outcome": "A live static site with filters by area, light and dark themes and a phone layout. Content can be edited through a CMS without code.",
+      "why": "",
+      "context_points": [
+        "First version Dec 2025; rebuilt Oct to Nov 2026",
+        "Built with: Claude Code, HTML, CSS, JavaScript",
+        "Hosting and editing: GitHub Pages, Pages CMS",
+        "Claude wrote the code; decisions, facts and final review were mine"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Personal project", "Claude Code", "AI-assisted"],
+      "categories": ["Personal projects"]
     }
   ]
 }

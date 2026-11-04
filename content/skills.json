@@ -14,26 +14,39 @@
     },
     {
       "title": "Agile Cross-Functional Delivery",
-      "text": "Apply Scrum and Kanban to plan sprints, manage backlogs, and coordinate development teams and external vendors through testing and release."
+      "text": "Apply Scrum and Kanban to plan sprints, manage backlogs, and coordinate development teams and external vendors through testing and release, with Jira dashboards and JQL filters for status meetings and client reporting."
     }
   ],
   "tools": [
+    "Jira",
+    "JQL",
     "Confluence",
     "Trello",
     "MS Office",
-    "Postman",
-    "Swagger",
-    "SAP Commerce tools",
-    "Pimcore",
-    "MS Visio",
-    "draw.io",
-    "Lucidchart",
-    "Kibana",
-    "Dynatrace",
+    "Google Workspace",
     "Scrum",
     "Kanban",
     "Waterfall",
+    "REST APIs",
+    "Postman",
+    "Swagger",
+    "Kibana",
+    "Dynatrace",
+    "FlexibleSearch (HAC)",
+    "SQL",
+    "SAP Commerce (Hybris)",
     "SAP Business One",
-    "Business Central"
+    "Business Central",
+    "Dynamics 365",
+    "Pimcore",
+    "Claude",
+    "Claude Code",
+    "Gemini",
+    "Fellow.ai",
+    "Prompt Engineering",
+    "BPMN",
+    "MS Visio",
+    "draw.io",
+    "Lucidchart"
   ]
 }

@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Branimir Stančerić</title>
-  <meta name="description" content="Branimir Stančerić, Delivery Manager and IT Project Manager focused on eCommerce, integrations, and predictable delivery." />
-  <meta property="og:title" content="Branimir Stančerić | Delivery Manager" />
-  <meta property="og:description" content="Projects in eCommerce delivery, integrations, and platform migrations." />
+  <meta name="description" content="Branimir Stančerić, IT Project Manager and Delivery Manager focused on eCommerce, integrations and fintech." />
+  <meta property="og:title" content="Branimir Stančerić | IT Project Manager and Delivery Manager" />
+  <meta property="og:description" content="Projects in eCommerce delivery, integrations, platform migrations and fintech." />
   <meta property="og:image" content="https://branimirstanceric.github.io/cv/assets/profile.jpg" />
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -35,6 +35,7 @@
       content/skills.json        capabilities
     All projects are on work.html; each project has its own page, case.html?id=...
     Edit it through Pages CMS (app.pagescms.org) or directly in those files.
+    The title, intro, name and contact links below are also written here for tools that don't run JavaScript. The script replaces them for visitors, so update them here too when they change.
   -->
   <header class="topbar">
     <div class="container topbar-inner">
@@ -70,11 +71,11 @@
       <div class="container hero-content">
         <!-- On phones only this part sits on the photo; hero-details moves below it on the plain background -->
         <div class="hero-lead">
-          <div class="kicker"><span class="dot"></span><span data-field="status_line"></span></div>
-          <h1 class="hero-title" id="hero-title"></h1>
+          <div class="kicker"><span class="dot"></span><span data-field="status_line">IT Project Manager and Delivery Manager</span></div>
+          <h1 class="hero-title" id="hero-title">Hi, I'm Branimir!</h1>
         </div>
         <div class="hero-details">
-          <p class="hero-intro" data-field="hero_intro"></p>
+          <p class="hero-intro" data-field="hero_intro">IT Project Manager with 10+ years of hands-on experience in eCommerce and integrations, and more recently fintech. I turn business and legal requirements into clear specifications, coordinate business, technical and vendor teams, and see the work through testing and go-live.</p>
           <!-- Hobbies: a small line under the intro, shown only when filled in -->
           <p class="hero-note" id="hobbies" hidden></p>
           <div class="hero-actions">
@@ -107,13 +108,18 @@
           <h2 class="section-title">Let's talk about your next delivery.</h2>
           <p data-field="contact_intro"></p>
         </div>
-        <div class="contact-links" id="contact-list"></div>
+        <div class="contact-links" id="contact-list">
+          <a class="btn primary" href="mailto:branimir.stanceric@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/branimir-stanceric" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/branimirstanceric" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="assets/Branimir Stanceric CV.pdf" target="_blank" rel="noreferrer">CV (PDF)</a>
+        </div>
       </section>
     </div>
   </main>
 
   <footer>
-    <div class="container">Copyright © <span id="year"></span> <span data-field="name"></span>. All rights reserved.</div>
+    <div class="container">Copyright © <span id="year">2026</span> <span data-field="name">Branimir Stančerić</span>. All rights reserved.</div>
   </footer>
 
   <script src="common.js?v=24"></script>
@@ -142,7 +148,7 @@
         const hl = p.hero_highlight || '';
         const at = hl ? text.indexOf(hl) : -1;
         if(at >= 0){
-          title.append(text.slice(0, at), el('span', { class: 'accent' }, hl), text.slice(at + hl.length));
+          title.replaceChildren(text.slice(0, at), el('span', { class: 'accent' }, hl), text.slice(at + hl.length));
         } else {
           title.textContent = text;
         }
@@ -158,7 +164,7 @@
           note.hidden = false;
         }
 
-        document.getElementById('contact-list').append(...contactButtons(p));
+        document.getElementById('contact-list').replaceChildren(...contactButtons(p));
       }
 
       function renderSkills(s){
