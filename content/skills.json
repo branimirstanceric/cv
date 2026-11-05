@@ -2,7 +2,7 @@
   "capabilities": [
     {
       "title": "AI-Assisted Project Management",
-      "text": "Use AI in day-to-day delivery: turning meeting transcripts into minutes and follow-up emails, searching Jira and Confluence to explain project terms and tickets, creating and updating tickets and pages, and scheduling daily work summaries, inbox triage and reply reminders. I review all output before it goes out. I also built this website with Claude Code."
+      "text": "Set up and run scheduled AI agents for daily work summaries and follow-up reminders, and use AI for meeting minutes, follow-up emails, searching Jira and Confluence, and creating and updating tickets and pages. I review all output before it goes out. I also built this website with Claude Code."
     },
     {
       "title": "Multi-Market Delivery",
@@ -34,6 +34,9 @@
     "Dynatrace",
     "FlexibleSearch (HAC)",
     "SQL",
+    "GitHub",
+    "GitHub Pages",
+    "Pages CMS",
     "SAP Commerce (Hybris)",
     "SAP Business One",
     "Business Central",
@@ -44,6 +47,7 @@
     "Gemini",
     "Fellow.ai",
     "Prompt Engineering",
+    "Scheduled AI agents",
     "BPMN",
     "MS Visio",
     "draw.io",
