@@ -317,10 +317,11 @@ button{ font: inherit; color: inherit; }
 .kicker{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 500;
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .dot{
   width: 8px;
@@ -343,16 +344,18 @@ button{ font: inherit; color: inherit; }
 }
 .hero-intro{
   font-size: 1.1rem;
+  line-height: 1.7;
   color: var(--muted);
-  max-width: 62ch;
+  max-width: 56ch;
   margin-bottom: 28px;
 }
-/* Small personal line (hobbies) under the intro */
+/* Small personal line (hobbies) under the intro, a little apart from it */
 .hero-note{
   font-size: 1rem;
+  line-height: 1.65;
   color: var(--faint);
-  max-width: 62ch;
-  margin: -14px 0 28px;
+  max-width: 60ch;
+  margin: -6px 0 32px;
 }
 .hero-actions{
   display: flex;
@@ -374,7 +377,7 @@ button{ font: inherit; color: inherit; }
 /* A soft shadow lifts the letters off bright spots in the photo */
 .hero-photo .hero-content{ text-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 2px 16px rgba(0,0,0,0.3); }
 .hero-photo .btn{ text-shadow: none; }
-.hero-photo .kicker{ color: rgba(255,255,255,0.86); }
+.hero-photo .kicker{ color: rgba(255,255,255,0.92); }
 .hero-photo .hero-title{ color: #fff; }
 .hero-photo .hero-title .accent{ color: #c3ccff; }
 .hero-photo .hero-intro{ color: rgba(255,255,255,0.92); }
@@ -414,7 +417,7 @@ button{ font: inherit; color: inherit; }
     align-items: flex-start;
     padding-bottom: 22px;
   }
-  .hero-photo .kicker{ margin-bottom: 10px; }
+  .hero-photo .kicker{ margin-bottom: 10px; font-size: 0.95rem; }
   .hero-photo .hero-title{ margin-bottom: 0; }
   .hero-details{ padding-top: 28px; text-shadow: none; }
   .hero-photo .hero-intro{ color: var(--ink); }
