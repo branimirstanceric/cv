@@ -1,11 +1,15 @@
 // Shared helpers for index.html and case.html
 (function(){
-  // Theme toggle (initial theme is set inline in <head> to avoid a flash)
+  // Theme switch (initial theme is set inline in <head> to avoid a flash).
+  // It is a switch for "Dark theme": on in dark, off in light.
   const themeBtn = document.getElementById('theme-btn');
   if(themeBtn){
+    const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+    themeBtn.setAttribute('aria-checked', String(isDark()));
     themeBtn.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      const next = isDark() ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
+      themeBtn.setAttribute('aria-checked', String(next === 'dark'));
       try { localStorage.setItem('theme', next); } catch(e) {}
     });
   }
