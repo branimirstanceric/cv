@@ -1,8 +1,8 @@
 {
   "capabilities": [
     {
-      "title": "AI-Assisted Project Management",
-      "text": "Set up and run scheduled AI agents for daily work summaries and follow-up reminders, and use AI for meeting minutes, follow-up emails, searching Jira and Confluence, and creating and updating tickets and pages. I review all output before it goes out. I also built this website with Claude Code."
+      "title": "AI-First Delivery",
+      "text": "I work AI-first. I set up and run scheduled AI agents for daily work summaries and follow-up reminders, and use AI for meeting minutes, follow-up emails, searching Jira and Confluence, and creating and updating tickets and pages. I review all AI output before it goes out. I also built this website with Claude Code."
     },
     {
       "title": "Multi-Market Delivery",

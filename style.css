@@ -317,12 +317,17 @@ button{ font: inherit; color: inherit; }
 .kicker{
   display: inline-flex;
   align-items: center;
+  align-items: flex-start;
   gap: 10px;
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--muted);
   margin-bottom: 18px;
 }
+/* The title's parts never break inside; a long title wraps only between them (after a "|") */
+.kicker-text{ text-wrap: balance; }
+.kicker-text span{ white-space: nowrap; }
+.kicker .dot{ flex: none; margin-top: calc(0.8em - 4px); }
 .dot{
   width: 8px;
   height: 8px;

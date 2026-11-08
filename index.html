@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Branimir Stančerić</title>
-  <meta name="description" content="Branimir Stančerić, IT Project Manager and Delivery Manager focused on eCommerce, integrations and fintech." />
-  <meta property="og:title" content="Branimir Stančerić | IT Project Manager and Delivery Manager" />
+  <title>Branimir Stančerić | AI Project Manager</title>
+  <meta name="description" content="Branimir Stančerić, AI Project Manager and Delivery Manager in eCommerce and fintech, working AI-first." />
+  <meta property="og:title" content="Branimir Stančerić | AI Project Manager | Delivery Manager" />
   <meta property="og:description" content="Projects in eCommerce delivery, integrations, platform migrations and fintech." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://branimirstanceric.github.io/cv/" />
   <meta property="og:image" content="https://branimirstanceric.github.io/cv/assets/og-card.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Branimir Stančerić, IT Project Manager and Delivery Manager" />
+  <meta property="og:image:alt" content="Branimir Stančerić, AI Project Manager and Delivery Manager" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bump ?v= whenever style.css or common.js changes, so browsers don't mix old and new files -->
-  <link rel="stylesheet" href="style.css?v=27" />
+  <link rel="stylesheet" href="style.css?v=28" />
 </head>
 
 <body>
@@ -79,7 +79,8 @@
       <div class="container hero-content">
         <!-- On phones only this part sits on the photo; hero-details moves below it on the plain background -->
         <div class="hero-lead">
-          <div class="kicker"><span class="dot"></span><span data-field="status_line">IT Project Manager and Delivery Manager</span></div>
+          <!-- Each part of the title stays on one line; on narrow screens the title wraps only after a "|" -->
+          <div class="kicker"><span class="dot"></span><span class="kicker-text" id="status-line"><span>AI Project Manager |</span> <span>Delivery Manager |</span> <span>E-commerce &amp; Fintech |</span> <span>AI-first delivery</span></span></div>
           <h1 class="hero-title" id="hero-title">Hi, I'm Branimir!</h1>
         </div>
         <div class="hero-details">
@@ -104,7 +105,12 @@
             <h2 class="section-title">Capabilities</h2>
           </div>
         </div>
-        <div class="caps" id="capability-list"></div>
+        <div class="caps" id="capability-list">
+          <div class="cap"><div class="cap-num">01</div><div><h3>AI-First Delivery</h3><p>I work AI-first. I set up and run scheduled AI agents for daily work summaries and follow-up reminders, and use AI for meeting minutes, follow-up emails, searching Jira and Confluence, and creating and updating tickets and pages. I review all AI output before it goes out. I also built this website with Claude Code.</p></div></div>
+          <div class="cap"><div class="cap-num">02</div><div><h3>Multi-Market Delivery</h3><p>Worked across CEE/SEE markets: a five-market webshop migration, a Slovenian webshop under EU VAT rules, and readiness for a regional fintech expansion under central bank and financial regulation.</p></div></div>
+          <div class="cap"><div class="cap-num">03</div><div><h3>Stakeholder &amp; Client Management</h3><p>Managing client expectations and maintaining transparent communication between business and technical teams. Experienced in facilitating workshops, sprint reviews, and steering meetings to align deliverables with business goals.</p></div></div>
+          <div class="cap"><div class="cap-num">04</div><div><h3>Agile Cross-Functional Delivery</h3><p>Apply Scrum and Kanban to plan sprints, manage backlogs, and coordinate development teams and external vendors through testing and release, with Jira dashboards and JQL filters for status meetings and client reporting.</p></div></div>
+        </div>
       </div>
     </section>
 
@@ -130,7 +136,7 @@
     <div class="container">Copyright © <span id="year">2026</span> <span data-field="name">Branimir Stančerić</span>. All rights reserved.</div>
   </footer>
 
-  <script src="common.js?v=27"></script>
+  <script src="common.js?v=28"></script>
   <script>
     (function(){
       const { el, asset, list, load, fillFields, contactButtons, showError } = window.Site;
@@ -149,6 +155,17 @@
         showHeroPhoto(asset(p.hero_background) || 'assets/hero.jpg');
 
         if(p.cv_file) document.getElementById('cv-link').setAttribute('href', asset(p.cv_file));
+
+        // Title above the headline: each "|"-separated part is kept on one line
+        const parts = (p.status_line || '').split('|').map(s => s.trim()).filter(Boolean);
+        if(parts.length){
+          const line = [];
+          parts.forEach((part, i) => {
+            if(i) line.push(' ');
+            line.push(el('span', {}, i < parts.length - 1 ? part + ' |' : part));
+          });
+          document.getElementById('status-line').replaceChildren(...line);
+        }
 
         // Hero title with the highlighted phrase in accent colour
         const title = document.getElementById('hero-title');
@@ -176,7 +193,7 @@
       }
 
       function renderSkills(s){
-        document.getElementById('capability-list').append(
+        document.getElementById('capability-list').replaceChildren(
           ...list(s.capabilities).map((c, i) => el('div', { class: 'cap' },
             el('div', { class: 'cap-num' }, String(i + 1).padStart(2, '0')),
             el('div', {}, el('h3', {}, c.title), el('p', {}, c.text))

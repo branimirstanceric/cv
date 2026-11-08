@@ -2,7 +2,7 @@
 
 My personal CV and portfolio site: **https://branimirstanceric.github.io/cv/**
 
-I'm an IT Project Manager and Delivery Manager with 10+ years in eCommerce and integrations, and more recently fintech. The site shows the projects I've worked on, what I did on each one, and the results.
+I'm an AI Project Manager and Delivery Manager with 10+ years in eCommerce and integrations, and more recently fintech, and I work AI-first. The site shows the projects I've worked on, what I did on each one, and the results.
 
 ## What's on the site
 
