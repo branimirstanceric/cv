@@ -1,0 +1,10 @@
+# Private or working files that must never be published
+/companies logo/
+/pozadina.jpeg
+/profile.jpg
+/project-notes.md
+/job-hunt-project-facts.md
+/project-evidence-bank.md
+/CV-website-handoff.md
+/intro-video-script.md
+/.claude/

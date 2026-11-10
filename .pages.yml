@@ -13,23 +13,18 @@ content:
     format: json
     fields:
       - { name: name, label: Full name, type: string, required: true }
-      - { name: headline, label: Headline (top bar), type: string }
-      - { name: short_bio, label: Short bio (under your name), type: text }
-      - { name: photo, label: Profile photo, type: image, description: "Used for link previews when your site is shared (e.g. on LinkedIn)." }
+      - { name: headline, label: Job title (not shown on the site), type: string }
+      - { name: short_bio, label: Short bio (not shown on the site), type: text }
+      - { name: photo, label: Profile photo, type: image, description: "Not shown on the site. Link previews use assets/og-card.jpg." }
       - name: hero_background
         label: Intro background photo
         type: image
         description: "Full-width photo behind the intro. A wide (landscape) photo works best, about 1600 px wide and under 300 KB. The left side is darkened for the text."
       - { name: cv_file, label: CV file (PDF), type: file }
-      - { name: badges, label: Highlight badges, type: string, list: true }
-      - name: quick_facts
-        label: Quick facts (left column)
-        type: object
-        list: true
-        fields:
-          - { name: label, label: Label, type: string }
-          - { name: value, label: Value, type: string }
-      - { name: status_line, label: Small label above the headline, type: string }
+      - name: status_line
+        label: Job title above the headline
+        type: string
+        description: "Separate the parts with | so the title only wraps there. The same title is also written in index.html and on the preview card; ask for those to be updated when it changes."
       - { name: hero_title, label: Main headline, type: text }
       - name: hero_highlight
         label: Highlighted words in the headline
@@ -85,11 +80,11 @@ content:
             description: "Optional. Leave empty to use the logo from Company logos. A logo cropped close to its edges reads best at small size."
           - { name: period, label: Period, type: string, description: "e.g. Nov 2024 to Feb 2025. Include the word 'ongoing' to show the green Ongoing label." }
           - { name: context, label: Context (one line), type: string, description: "Optional, e.g. Team of 8 · SAP Commerce · 3 markets" }
-          - { name: impact, label: Key result, type: string, description: "The headline number, e.g. Reduced processing time by over 70%." }
+          - { name: impact, label: Key result, type: string, description: "Optional. Only a result that was really measured. Leave empty when there is no measured number." }
           - name: stat
             label: Big number (optional)
             type: string
-            description: "Only needed when the Key result has no % in it, e.g. 5 markets. Leave empty to take the number from the Key result."
+            description: "Only needed when the Key result has no % in it, e.g. 5 markets. Leave empty when there is no measured number."
           - { name: tags, label: Tags (shown on the card), type: string, list: true }
 
           # The project's own page
@@ -109,7 +104,7 @@ content:
             fields:
               - { name: title, label: Phase title, type: string }
               - { name: points, label: What happened, type: string, list: true }
-          - { name: results, label: Results, type: string, list: true, description: "Optional. One measurable result per item." }
+          - { name: results, label: Results, type: string, list: true, description: "Optional. One result per item. No estimated or invented numbers." }
           - { name: outcome, label: Outcome summary, type: text }
           - { name: lessons, label: Lessons learned, type: text, description: "Optional. What you would repeat or do differently." }
           - { name: my_role, label: My role, type: string, list: true }
@@ -154,6 +149,7 @@ content:
     fields:
       - name: capabilities
         label: Capabilities
+        description: "These texts are also written in index.html for search engines; ask for that copy to be updated when you change them."
         type: object
         list: true
         fields:

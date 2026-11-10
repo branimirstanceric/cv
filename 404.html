@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | Branimir Stančerić</title>
+  <meta name="robots" content="noindex" />
+  <!-- GitHub Pages shows this page for any address that doesn't exist, at any depth, so every link starts from /cv/ -->
+  <base href="/cv/" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+
+  <!-- Apply the saved or system theme before first paint -->
+  <script>
+    (function(){
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch(e) {}
+      if(t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=29" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">B</span><span data-field="name">Branimir Stančerić</span></a>
+      <nav class="nav" id="site-nav" aria-label="Primary navigation">
+        <a href="index.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="not-found">
+        <h1 class="cs-title">Page not found</h1>
+        <p>This link may be outdated or mistyped. The home page and all projects are still here.</p>
+        <a class="btn primary" href="index.html">Go to the home page</a>
+        <a class="btn" href="work.html">See all work</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">Copyright © 2026 Branimir Stančerić. All rights reserved.</div>
+  </footer>
+</body>
+</html>

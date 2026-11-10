@@ -6,7 +6,7 @@
   --sunken: #efede7;
   --ink: #15181f;
   --muted: #5c6370;
-  --faint: #8a909b;
+  --faint: #626975;
   --hair: #e4e1d9;
 
   --accent: #3446c4;
@@ -30,7 +30,7 @@
   --sunken: #13161b;
   --ink: #eceef2;
   --muted: #a2a8b3;
-  --faint: #767d89;
+  --faint: #8a919d;
   --hair: #272b33;
 
   --accent: #8fa0ff;
@@ -1011,7 +1011,7 @@ a.result:hover .result-text strong{ text-decoration: underline; text-underline-o
   align-items: end;
 }
 .contact .section-title{ color: var(--bg); margin-bottom: 10px; }
-.contact p{ color: color-mix(in srgb, var(--bg) 70%, var(--ink)); max-width: 52ch; }
+.contact p:empty{ display: none; } color-mix(in srgb, var(--bg) 70%, var(--ink)); max-width: 52ch; }
 .contact .eyebrow{ color: color-mix(in srgb, var(--accent) 60%, var(--bg)); }
 .contact-links{ display: flex; flex-wrap: wrap; gap: 10px; }
 .contact .btn{
