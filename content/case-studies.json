@@ -415,6 +415,37 @@
       "categories": ["Logistics", "Integrations"]
     },
     {
+      "id": "webshop-operations",
+      "title": "Webshop Operations: Pricing, Promotions and Landing Pages",
+      "summary": "Running the Abrakadabra webshop's day-to-day commerce: sale prices, promotions, landing pages and banners, plus help with technical customer queries.",
+      "featured": false,
+      "company": "A007plus",
+      "company_logo": "",
+      "period": "Jun 2022 to Sep 2024",
+      "context": "",
+      "stat": "",
+      "impact": "",
+      "problem": "Besides the larger projects, the webshop's daily commerce work had to be set up in the platform: sale prices, promotions, and the landing pages and banners that presented them. Some customer queries were also technical, beyond what customer support could solve on its own.",
+      "approach": "Set up sale prices for product groups and configured promotions in the SAP Commerce backoffice: cart discounts, card promotions, 2+1 free and free gifts with purchase. Created landing pages for promotions and set up banners.\n\nHelped customer support with customer queries they couldn't solve, when the problem was on the technical level.",
+      "my_role": [
+        "Sale price and promotion setup",
+        "Landing pages and banners",
+        "Help with technical customer queries"
+      ],
+      "outcome": "",
+      "why": "",
+      "context_points": [
+        "Head of the Development Department for the Abrakadabra webshop: a two-person team reporting directly to the CEO",
+        "Platform: SAP Commerce (Hybris)"
+      ],
+      "phases": [],
+      "results": [],
+      "lessons": "",
+      "images": [],
+      "tags": ["Pricing", "Promotions", "SAP Commerce"],
+      "categories": ["eCommerce"]
+    },
+    {
       "id": "outdoor-parcel-lockers",
       "title": "Outdoor Parcel Lockers",
       "summary": "Bringing 24/7 outdoor pick-up points to eKupi customers.",
