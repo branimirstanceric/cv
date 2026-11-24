@@ -12,12 +12,14 @@
       "stat": "",
       "impact": "",
       "problem": "Expanding the app into new SEE markets meant meeting central bank and financial regulatory requirements in each jurisdiction, while steering committees, partner banks, legal teams and vendors all had to stay in sync.",
-      "approach": "Directed technical and operational readiness for the regional expansion and coordinated compliance requirements under central bank and financial regulatory frameworks. Ran regular alignment between steering committees, partner banking PMs and legal teams to keep milestones synchronized across jurisdictions, and coordinated external vendors, localized third-party integrations and security audit workflows.",
+      "approach": "Directed technical and operational readiness for the regional expansion and coordinated compliance requirements under central bank and financial regulatory frameworks. Ran regular alignment between steering committees, partner banking PMs and legal teams to keep milestones synchronized across jurisdictions, and coordinated external vendors, localized third-party integrations and security audit workflows.\n\nCoordinated the internal team of business developers, legal, marketing and an IT lead, and tested the app on Android and iOS.",
       "my_role": [
         "Technical and operational readiness across target markets",
         "Compliance coordination under central bank and financial regulation",
         "Alignment of steering committees, partner banking PMs and legal teams",
-        "Vendor, third-party integration and security audit coordination"
+        "Vendor, third-party integration and security audit coordination",
+        "Internal team coordination",
+        "App testing on Android and iOS"
       ],
       "outcome": "By September 2026, testing was finished, the regulator had approved the project, and it was in final preparations for a phased production go-live.",
       "why": "",
@@ -618,7 +620,7 @@
       "stat": "",
       "impact": "",
       "problem": "My work was spread across a CV, LinkedIn and years of project documents. I wanted one place where visitors could quickly find relevant projects, and I wanted to edit it without touching code.",
-      "approach": "Set the direction and made the decisions on content and structure, with Claude Code writing the code. Reviewed changes before publishing.\n\nUsed Claude to go through my source documents, compare the projects with my CV and LinkedIn, and rewrite them, then reviewed the claims and removed what couldn't be verified. Kept client documents' details out of the public pages.",
+      "approach": "Set the direction and made the decisions on content and structure, with Claude Code writing the code. I read and edit the site's HTML and CSS myself, and review changes before publishing.\n\nUsed Claude to go through my source documents, compare the projects with my CV and LinkedIn, and rewrite them, then reviewed the claims and removed what couldn't be verified. Kept client documents' details out of the public pages.",
       "my_role": [
         "Product direction and content decisions",
         "Reviewing claims and changes",
